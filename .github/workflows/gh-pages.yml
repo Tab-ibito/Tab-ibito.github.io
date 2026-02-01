@@ -3,7 +3,7 @@ name: GitHub Pages
 on:
   push:
     branches:
-      - master  # 确保这里是你本地的主分支名称，现在通常是 main，旧项目可能是 master
+      - master  # 监听 master 分支
 
 jobs:
   build-deploy:
@@ -14,21 +14,22 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          submodules: true  # 获取子模块（Blowfish通常作为子模块安装）
+          submodules: true
           fetch-depth: 0
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: "latest" # 使用最新版 Hugo
+          hugo-version: "latest"
 
       - name: Build
-        run: hugo --minify # 构建并压缩网站
+        run: hugo --minify
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
-        if: ${{ github.ref == 'refs/heads/main' }} # 确保只在主分支推送时部署
+        # 👇【修改这里】把 main 改成 master
+        if: ${{ github.ref == 'refs/heads/master' }}
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }} # 这里的 Token 也是自动生成的，不用手动改
-          publish_branch: gh-pages  # 构建好的网页会推送到这个分支
-          publish_dir: ./public     # 发布的目录
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: ./public
