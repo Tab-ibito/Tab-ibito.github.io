@@ -38,7 +38,7 @@ showScrollToTop = true
 [homepage]
 layout = "hero"
 showRecent = true
-showRecentItems = 5
+showRecentItems = 10
 showMoreLink = false
 showMoreLinkDest = "/posts/"
 cardView = true
@@ -49,8 +49,8 @@ homepageImage = "1.jpg"
 
 [article]
 showDate = "t"
-showViews = false
-showLikes = false
+showViews = true
+showLikes = true
 showDateOnlyInArticle = false
 showDateUpdated = false
 showAuthor = true
@@ -73,6 +73,7 @@ showAuthorsBadges = false
 showWordCount = true
 showZenMode = false
 showComments = true
+heroStyle = "background"
 
 [list]
 showHero = false
