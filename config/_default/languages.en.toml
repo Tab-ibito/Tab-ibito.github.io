@@ -14,10 +14,9 @@ logo = "false"
 ["params.author"]
 name = "Tab_1bit0"
 email = "frojbk@gmail.com"
-image = "false"
-bio = """
-**Tab_1bit0**
- SJTU 2025级"""
+image = ""
+bio = """咕咕咕"""
 headline = """<span style="backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border: 1px solid rgba(255, 255, 255, 0.3); box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); padding: 4px 12px; border-radius: 8px; font-weight: bold;display: inline-block;">
 欢迎米娜桑！此站正在施工中！
-</span>"""
+</span>
+"""
