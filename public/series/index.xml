@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Series on Hello, World!</title>
+    <title>Series on **Tab_1bit0的神秘据点（施工中）**</title>
     <link>http://localhost:1313/series/</link>
-    <description>Recent content in Series on Hello, World!</description>
+    <description>Recent content in Series on **Tab_1bit0的神秘据点（施工中）**</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <copyright>© 2026 </copyright>
+    <managingEditor>frojbk@gmail.com (Tab_1bit0)</managingEditor>
+    <webMaster>frojbk@gmail.com (Tab_1bit0)</webMaster>
+    <copyright>© 2026 Tab_1bit0</copyright>
     <atom:link href="http://localhost:1313/series/index.xml" rel="self" type="application/rss+xml" />
     
   </channel>
