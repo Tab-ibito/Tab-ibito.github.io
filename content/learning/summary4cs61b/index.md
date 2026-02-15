@@ -1,8 +1,11 @@
-+++
-date = '2026-02-15T19:59:54+08:00'
-draft = false
-title = 'CS61b学习总结'
-+++
+---
+date: 2026-02-15T21:00:00+08:00
+draft: false
+title: 'CS61b学习总结'
+
+showToc: true       
+tocOpen: true       
+---
 
 # CS61b Learning
 ---
@@ -205,7 +208,12 @@ https://shuiyuan.sjtu.edu.cn/t/topic/447931/876
 * ……
 
 ## Summary まとめ
-不知道该写什么喵，也不想写些煽情的，该说的上面也都说了呢
+不知道该写什么喵，也不想写些煽情的，该说的上面也都说了呢  
+
+## Links リンク  
+https://github.com/Tab-ibito/cs61b_learning_ended.git
 
 By Tab_1bit0
 2026.2.15
+<p style="color: gray; font-style: italic;">それぞれが好きなことで頑張れるんなら</p>
+<p style="color: gray; font-style: italic;">新しい場所が　ゴールだね</p>

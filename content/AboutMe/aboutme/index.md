@@ -6,7 +6,7 @@ draft: false
 # Blowfish 特有配置
 showToc: true       
 tocOpen: true       
-layout: "background" #
+layout: "background"
 heroStyle: "background"
 showHero: true
 authors:
