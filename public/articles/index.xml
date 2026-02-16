@@ -2,23 +2,33 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Articles on Tab_1bit0的神秘据点（施工中）</title>
-    <link>http://localhost:1313/articles/</link>
+    <link>http://localhost:31110/articles/</link>
     <description>Recent content in Articles on Tab_1bit0的神秘据点（施工中）</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <managingEditor>frojbk@gmail.com (Tab_1bit0)</managingEditor>
     <webMaster>frojbk@gmail.com (Tab_1bit0)</webMaster>
     <copyright>© 2026 Tab_1bit0</copyright>
-    <lastBuildDate>Thu, 01 Jan 2026 00:00:00 +0800</lastBuildDate><atom:link href="http://localhost:1313/articles/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 17 Feb 2026 00:00:00 +0800</lastBuildDate><atom:link href="http://localhost:31110/articles/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>2026农历春节喵</title>
+      <link>http://localhost:31110/articles/springfestival2026/</link>
+      <pubDate>Tue, 17 Feb 2026 00:00:00 +0800</pubDate>
+      <author>frojbk@gmail.com (Tab_1bit0)</author>
+      <guid>http://localhost:31110/articles/springfestival2026/</guid>
+      <description></description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:31110/articles/springfestival2026/featured.png" />
+    </item>
     
     <item>
       <title>Tab的2025年终总结</title>
-      <link>http://localhost:1313/articles/summary2025/</link>
+      <link>http://localhost:31110/articles/summary2025/</link>
       <pubDate>Thu, 01 Jan 2026 00:00:00 +0800</pubDate>
       <author>frojbk@gmail.com (Tab_1bit0)</author>
-      <guid>http://localhost:1313/articles/summary2025/</guid>
+      <guid>http://localhost:31110/articles/summary2025/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/articles/summary2025/featured.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:31110/articles/summary2025/featured.png" />
     </item>
     
   </channel>
