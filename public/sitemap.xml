@@ -33,6 +33,12 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>http://localhost:1313/learning/chp2datalab/</loc>
+    <lastmod>2026-02-25T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>http://localhost:1313/articles/springfestival2026/</loc>
     <lastmod>2026-02-17T00:00:00+08:00</lastmod>
     <changefreq>daily</changefreq>
