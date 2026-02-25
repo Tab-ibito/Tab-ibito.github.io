@@ -1,0 +1,1385 @@
+<!doctype html>
+<html
+  lang="en"
+  dir="ltr"
+  class="scroll-smooth"
+  data-default-appearance="dark"
+  data-auto-appearance="true"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+  
+    <meta http-equiv="content-language" content="en">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color">
+
+  
+  
+    <title>csapp chapter3 机器码汇编 &middot; Tab_1bit0的神秘据点（施工中）</title>
+    <meta name="title" content="csapp chapter3 机器码汇编 &middot; Tab_1bit0的神秘据点（施工中）">
+  
+
+  
+  
+  
+  
+  
+  <link rel="canonical" href="http://localhost:1313/learning/csappchapter3/">
+  
+
+  
+  
+    <meta name="author" content="Tab_1bit0">
+  
+  
+
+  
+  <meta property="og:url" content="http://localhost:1313/learning/csappchapter3/">
+  <meta property="og:site_name" content="Tab_1bit0的神秘据点（施工中）">
+  <meta property="og:title" content="csapp chapter3 机器码汇编">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="learning">
+    <meta property="article:published_time" content="2026-02-25T13:27:02+08:00">
+    <meta property="article:modified_time" content="2026-02-25T13:27:02+08:00">
+    <meta property="og:image" content="http://localhost:1313/learning/csappchapter3/featured.png">
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/learning/csappchapter3/featured.png">
+  <meta name="twitter:title" content="csapp chapter3 机器码汇编">
+
+  
+  
+  
+  
+    
+      
+    
+  
+    
+  
+    
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/css/main.bundle.min.8629e96ccadbee7b62ad0f3eab1742c829db56728f3869f6af3190a6f64fb3cbb77cef448025ac4721ba4b9087643355132e02f364fada72aabe0be44b16bd8e.css"
+    integrity="sha512-hinpbMrb7ntirQ8&#43;qxdCyCnbVnKPOGn2rzGQpvZPs8u3fO9EgCWsRyG6S5CHZDNVEy4C82T62nKqvgvkSxa9jg==">
+
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/appearance.min.6f41174b3a05b680820fe08cadbfa5fb7a7ca347b76a0955cdc68b9d8aca1ce24f0547e138cea33bcc7904d551a90afcb1cc7f2d9fe8557075d501419046c08c.js"
+    integrity="sha512-b0EXSzoFtoCCD&#43;CMrb&#43;l&#43;3p8o0e3aglVzcaLnYrKHOJPBUfhOM6jO8x5BNVRqQr8scx/LZ/oVXB11QFBkEbAjA=="></script>
+  
+  
+  
+  
+  
+  
+    
+    <script src="/lib/zoom/zoom.min.umd.b4b722fcb5d42f34f52b30a92f3521b69f403ca9d96d0d6179eb537cb870f5d83fdf1fe836688d95d5c99fefbda4170487711006e56051fa67ea00da10521721.js" integrity="sha512-tLci/LXULzT1KzCpLzUhtp9APKnZbQ1heetTfLhw9dg/3x/oNmiNldXJn&#43;&#43;9pBcEh3EQBuVgUfpn6gDaEFIXIQ=="></script>
+  
+
+  
+  
+  
+    
+  
+  
+    
+  
+  
+  
+  
+  
+  
+  
+    
+    <script
+      defer
+      type="text/javascript"
+      id="script-bundle"
+      src="/js/main.bundle.min.941eff27287a099c02151ea4dd6935f65767d533fb8aa3dfb5c90d7586ff02bb5591211e1a0d01734a646e184dc2b7b3f7ca47b22f13af1e0d2ec265d2915cc7.js"
+      integrity="sha512-lB7/Jyh6CZwCFR6k3Wk19ldn1TP7iqPftckNdYb/ArtVkSEeGg0Bc0pkbhhNwrez98pHsi8Trx4NLsJl0pFcxw=="
+      data-copy="Copy"
+      data-copied="Copied"></script>
+  
+
+  
+  
+
+<script src="/lib/jquery/jquery.slim.min.03cb160e3cfdb2667a2e2c80d283bebcf63ff8bbc4b629c9ab2babf6fae1d0c07ad470edae783efa4fabda2ac01c58d60e63b98b3c336be8208460f08f4354f5.js" integrity="sha512-A8sWDjz9smZ6LiyA0oO&#43;vPY/&#43;LvEtinJqyur9vrh0MB61HDtrng&#43;&#43;k&#43;r2irAHFjWDmO5izwza&#43;gghGDwj0NU9Q=="></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+
+
+  
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+  
+
+  
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "Learning",
+    "name": "csapp chapter3 机器码汇编",
+    "headline": "csapp chapter3 机器码汇编",
+    
+    "inLanguage": "en",
+    "url" : "http://localhost:1313/learning/csappchapter3/",
+    "author" : {
+      "@type": "Person",
+      "name": "Tab_1bit0"
+    },
+    "copyrightYear": "2026",
+    "dateCreated": "2026-02-25T13:27:02\u002b08:00",
+    "datePublished": "2026-02-25T13:27:02\u002b08:00",
+    
+    "dateModified": "2026-02-25T13:27:02\u002b08:00",
+    
+    
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "642"
+  }]
+  </script>
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+</head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+  
+
+
+
+
+
+
+  
+  <body class="flex flex-col h-screen m-auto leading-7 max-w-7xl px-6 sm:px-14 md:px-24 lg:px-32 text-lg bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral bf-scrollbar">
+    <div id="the-top" class="absolute flex self-center">
+      <a
+        class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+        href="#main-content">
+        <span class="font-bold text-primary-600 pe-2 dark:text-primary-400">&darr;</span>
+        Skip to main content
+      </a>
+    </div>
+    
+    
+      <div class="main-menu flex items-center w-full gap-2 p-1 pl-0">
+  
+    
+    
+  
+  
+    <a href="/" class="text-base font-medium truncate min-w-0 shrink">
+      Tab_1bit0的神秘据点（施工中）
+    </a>
+  
+  <div class="flex items-center ms-auto">
+    <div class="hidden md:flex">
+      <nav class="flex items-center gap-x-5 h-12">
+  
+
+  
+
+  
+
+  
+    <button
+      id="search-button"
+      aria-label="Search"
+      class="text-base bf-icon-color-hover"
+      title="Search (/)">
+      <span class="relative block icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span>
+    </button>
+  
+
+  
+    <div class="flex items-center">
+      <button
+        id="appearance-switcher"
+        aria-label="Dark mode switcher"
+        type="button"
+        class="text-base bf-icon-color-hover">
+        <div class="flex items-center justify-center dark:hidden">
+          <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+</span>
+        </div>
+        <div class="items-center justify-center hidden dark:flex">
+          <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+</span>
+        </div>
+      </button>
+    </div>
+  
+</nav>
+
+
+
+    </div>
+    <div class="flex md:hidden">
+      <div class="flex items-center h-14 gap-4">
+  
+    <button
+      id="search-button-mobile"
+      aria-label="Search"
+      class="flex items-center justify-center bf-icon-color-hover"
+      title="Search (/)">
+      <span class="relative block icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span>
+    </button>
+  
+
+  
+    <button
+      id="appearance-switcher-mobile"
+      type="button"
+      aria-label="Dark mode switcher"
+      class="flex items-center justify-center text-neutral-900 hover:text-primary-600 dark:text-neutral-200 dark:hover:text-primary-400">
+      <div class="dark:hidden">
+        <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+</span>
+      </div>
+      <div class="hidden dark:block">
+        <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+</span>
+      </div>
+    </button>
+  
+
+  
+</div>
+
+
+
+
+
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+    
+    <div class="relative flex flex-col grow">
+      <main id="main-content" class="grow">
+        
+  
+  <article>
+    
+    
+      
+      
+      
+      
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+
+
+
+
+
+  
+    
+    
+      
+      
+    
+  
+
+
+
+
+
+    <div id="hero" class="h-[150px] md:h-[200px]"></div>
+  
+  <div class="fixed inset-x-0 top-0 h-[800px] single_hero_background nozoom">
+    
+    
+    
+    <img
+      id="background-image"
+      src="/learning/csappchapter3/featured_hu_93a3454588d90eb2.png"
+      role="presentation"
+      loading="eager"
+      decoding="async"
+      fetchpriority="high"
+      class="absolute inset-0 w-full h-full object-cover"
+      >
+    <div
+      class="absolute inset-0 bg-gradient-to-t from-neutral dark:from-neutral-800 to-transparent mix-blend-normal"></div>
+    <div
+      class="absolute inset-0 opacity-60 bg-gradient-to-t from-neutral dark:from-neutral-800 to-neutral-100 dark:to-neutral-800 mix-blend-normal"></div>
+  </div>
+
+  
+    <div
+      id="background-blur"
+      class="fixed opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-xl bg-neutral-100/75 dark:bg-neutral-800/60"></div>
+    
+    
+    <script
+      type="text/javascript"
+      src="/js/background-blur.min.605b3b942818f0ab5a717ae446135ec46b8ee5a2ad12ae56fb90dc2a76ce30c388f9fec8bcc18db15bd47e3fa8a09d779fa12aa9c184cf614a315bc72c6c163d.js"
+      integrity="sha512-YFs7lCgY8KtacXrkRhNexGuO5aKtEq5W&#43;5DcKnbOMMOI&#43;f7IvMGNsVvUfj&#43;ooJ13n6EqqcGEz2FKMVvHLGwWPQ=="
+      data-blur-id="background-blur"
+      data-image-id="background-image"
+      data-image-url="/learning/csappchapter3/featured_hu_93a3454588d90eb2.png"></script>
+  
+      
+    
+
+    
+    <header id="single_header" class="mt-5 max-w-prose">
+      
+      <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+        csapp chapter3 机器码汇编
+      </h1>
+      <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+        
+
+
+
+
+
+  
+  
+
+
+
+  
+
+  
+  
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <time datetime="2026-02-25T13:27:02&#43;08:00">25 February 2026</time><span class="px-2 text-primary-500">&middot;</span><span>642 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">4 mins</span><span class="px-2 text-primary-500">&middot;</span><span>
+  
+  
+    
+    
+      
+      
+        
+        
+      
+      
+    
+  
+  <span
+    id="views_learning\csappchapter3\index.md"
+    class="animate-pulse inline-block text-transparent max-h-3 rounded-full -mt-[2px] align-middle bg-neutral-300 dark:bg-neutral-400"
+    title="views"
+    >loading</span
+  >
+  <span class="inline-block align-text-bottom"><span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+<path fill="currentColor" d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></span>
+</span>
+<span class="px-2 text-primary-500">&middot;</span><span>
+  
+  
+    
+    
+      
+      
+        
+        
+      
+      
+    
+  
+  <span
+    id="likes_learning\csappchapter3\index.md"
+    class="animate-pulse inline-block text-transparent max-h-3 rounded-full -mt-[2px] align-middle bg-neutral-300 dark:bg-neutral-400"
+    title="likes"
+    >loading</span
+  >
+  <span class="inline-block align-text-bottom"><span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+<path fill="currentColor" d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"/></svg></span></span>
+</span>
+<span class="px-2 text-primary-500">&middot;</span><span>
+  <button
+    id="button_likes"
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    <span id="button_likes_heart" class="inline-block align-text-bottom hidden"
+      ><span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+<path fill="currentColor" d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"/></svg></span>
+    </span>
+    <span id="button_likes_emtpty_heart" class="inline-block align-text-bottom"
+      ><span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+<path fill="currentColor" d="M244 84L255.1 96L267.1 84.02C300.6 51.37 347 36.51 392.6 44.1C461.5 55.58 512 115.2 512 185.1V190.9C512 232.4 494.8 272.1 464.4 300.4L283.7 469.1C276.2 476.1 266.3 480 256 480C245.7 480 235.8 476.1 228.3 469.1L47.59 300.4C17.23 272.1 0 232.4 0 190.9V185.1C0 115.2 50.52 55.58 119.4 44.1C164.1 36.51 211.4 51.37 244 84C243.1 84 244 84.01 244 84L244 84zM255.1 163.9L210.1 117.1C188.4 96.28 157.6 86.4 127.3 91.44C81.55 99.07 48 138.7 48 185.1V190.9C48 219.1 59.71 246.1 80.34 265.3L256 429.3L431.7 265.3C452.3 246.1 464 219.1 464 190.9V185.1C464 138.7 430.4 99.07 384.7 91.44C354.4 86.4 323.6 96.28 301.9 117.1L255.1 163.9z"/></svg></span></span
+    >
+    <span id="button_likes_text">&nbsp;Like</span>
+  </button>
+</span>
+    
+
+    
+    
+  </div>
+
+  
+
+  
+  
+
+  
+  
+
+
+
+      </div>
+      
+        
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+    
+    
+<div class="flex author">
+  
+  <div class="place-self-center">
+    
+      <div class="text-[0.6rem] uppercase leading-3 text-neutral-500 dark:text-neutral-400">
+        Author
+      </div>
+      <div class="font-semibold leading-6 text-neutral-800 dark:text-neutral-300">
+        Tab_1bit0
+      </div>
+    
+    
+      <div class="text-sm text-neutral-700 dark:text-neutral-400">咕咕咕</div>
+    
+    <div class="text-2xl sm:text-lg">
+</div>
+  </div>
+</div>
+
+  
+
+  
+
+  
+    <div class="mb-5"></div>
+  
+
+      
+    </header>
+
+    
+    <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+      
+      
+      
+      
+      
+
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+        
+
+        <div class="article-content max-w-prose mb-20">
+          
+<h1 class="relative group">CSAPP Learning
+    <div id="csapp-learning" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#csapp-learning" aria-label="Anchor">#</a>
+    </span>
+    
+</h1>
+<hr>
+
+<h2 class="relative group"><strong>寄存器与寻址</strong>
+    <div id="寄存器与寻址" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e5%af%84%e5%ad%98%e5%99%a8%e4%b8%8e%e5%af%bb%e5%9d%80" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<p>寄存器只有16个，所以汇编的时候会<strong>优化</strong>，让最需要的放在寄存位置，其他的先放在后台</p>
+<p>类比于<strong>C语言的指针</strong> *p</p>
+$$Imm(rb,ri,s) = M[Imm+R[rb]+R[ri].s]$$<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="k">struct</span> <span class="n">Idol</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">id</span><span class="p">;</span>       <span class="c1">// 占4字节 (偏移量 0)
+</span></span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">height</span><span class="p">;</span>   <span class="c1">// 占4字节 (偏移量 4)
+</span></span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">score</span><span class="p">;</span>    <span class="c1">// 占4字节 (偏移量 8)
+</span></span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="k">struct</span> <span class="n">Idol</span> <span class="n">niji_club</span><span class="p">[</span><span class="mi">12</span><span class="p">];</span> <span class="c1">// 虹咲学园偶像同好会的12位成员数组喵！
+</span></span></span></code></pre></div></div>
+<p>对于 <code>niji_club[i].score</code> 有</p>
+$$\text{Address} = 8 + r_b + {i \times 12} \cdot 1$$<ul>
+<li>Imm - Immediate 立即数，全局情况下是数组绝对起始位置（取代掉rb），局部则是距离（栈帧顶部指针）偏差值，<strong>固定</strong></li>
+<li>rb - 基址，整个数组在内存的绝对起始位置，<strong>动态</strong></li>
+<li>ri - 动态的访问数组的<strong>下标</strong></li>
+<li>s - 适配数组数据类型大小，1/2/4/8取值（<strong>对应到数据类型的Byte</strong>）</li>
+</ul>
+<p>对于结构体的特殊情况会如上处理，一个Idol的大小是12Byte（超出限制），那么机器会 <strong>将s设为1</strong>，而将ri设为 <strong>12*i</strong>，动态调整</p>
+<p>可以直接使用<code>leaq</code>指令，将目标的<strong>内存地址</strong>直接写入目标寄存器<br>
+在64位的机器中内存地址是64位的，所以没有除了q外其他变种<br>
+<em>（哈Gemi说可能会用leal做int32的运算）</em></p>
+
+<h2 class="relative group"><strong>mov 指令</strong>
+    <div id="mov-指令" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#mov-%e6%8c%87%e4%bb%a4" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<p>赋值，at&amp;t 环境下是 <strong>左 -&gt; 右</strong> 的逻辑。</p>
+<p>memory to memory is <strong>forbidden</strong>.<br>
+<strong>Substitution:</strong></p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">mov memory, register
+</span></span><span class="line"><span class="cl">mov register, memory</span></span></code></pre></div></div>
+
+<h3 class="relative group">特殊情形：
+    <div id="特殊情形" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e7%89%b9%e6%ae%8a%e6%83%85%e5%bd%a2" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<ul>
+<li><strong>movq 动立即数</strong></li>
+<li>
+<ul>
+<li>取32位的two&rsquo;s complement，<strong>符号扩展到64位</strong></li>
+<li>64位的immediate使用<code>movabsq</code></li>
+</ul>
+</li>
+<li><strong>不同大小</strong>零扩展 - ZeroExtend &amp; 符号扩展 - SignExtend</li>
+</ul>
+<p>以及Change Destination Register有关一个特殊规定：</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Bash" data-lang="Bash"><span class="line"><span class="cl"><span class="m">1</span> movabsq <span class="nv">$0</span>x0011223344556677, %rax %rax<span class="o">=</span><span class="m">0011223344556677</span>
+</span></span><span class="line"><span class="cl"><span class="m">2</span> movb <span class="nv">$-</span>1, %al %rax<span class="o">=</span>00112233445566FF
+</span></span><span class="line"><span class="cl"><span class="m">3</span> movw <span class="nv">$-</span>1, %ax %rax<span class="o">=</span>001122334455FFFF
+</span></span><span class="line"><span class="cl"><span class="m">4</span> movl <span class="nv">$-</span>1,%eax %rax<span class="o">=</span>00000000FFFFFFFF <span class="c1"># 32位赋值后高位都被置为0</span>
+</span></span><span class="line"><span class="cl"><span class="m">5</span> movq <span class="nv">$-</span>1,%rax %rax<span class="o">=</span>FFFFFFFFFFFFFFFF </span></span></code></pre></div></div>
+<p><em>32位机器上跑int64？拆两半</em></p>
+
+<h2 class="relative group"><strong>算术运算的优化</strong>
+    <div id="算术运算的优化" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e7%ae%97%e6%9c%af%e8%bf%90%e7%ae%97%e7%9a%84%e4%bc%98%e5%8c%96" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+
+<h3 class="relative group">leaq的加法乘法优化
+    <div id="leaq的加法乘法优化" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#leaq%e7%9a%84%e5%8a%a0%e6%b3%95%e4%b9%98%e6%b3%95%e4%bc%98%e5%8c%96" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p><strong>From</strong></p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="kt">long</span> <span class="nf">scale</span><span class="p">(</span><span class="kt">long</span> <span class="n">x</span><span class="p">,</span> <span class="kt">long</span> <span class="n">y</span><span class="p">,</span> <span class="kt">long</span> <span class="n">z</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">longt</span><span class="o">=</span><span class="n">x</span><span class="o">+</span><span class="mi">4</span><span class="o">*</span><span class="n">y</span><span class="o">+</span><span class="mi">12</span><span class="o">*</span><span class="n">z</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">t</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+<p><strong>To</strong></p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Bash" data-lang="Bash"><span class="line"><span class="cl">x in %rdi, y in %rsi, z in %rdx
+</span></span><span class="line"><span class="cl">scale:
+</span></span><span class="line"><span class="cl">leaq <span class="o">(</span>%rdi,%rsi,4<span class="o">)</span>, %rax <span class="c1"># x + 4*y</span>
+</span></span><span class="line"><span class="cl">leaq <span class="o">(</span>%rdx,%rdx,2<span class="o">)</span>, %rdx <span class="c1"># z + 2*z = 3*z</span>
+</span></span><span class="line"><span class="cl">leaq <span class="o">(</span>%rax,%rdx,4<span class="o">)</span>, %rax <span class="c1"># (x+4*y) + 4*(3*z) = x + 4*y + 12*z</span>
+</span></span><span class="line"><span class="cl">ret</span></span></code></pre></div></div>
+<p>leaq 方法的优化性：</p>
+<ul>
+<li>三元运算，一个时钟周期内一起做乘法和加法</li>
+<li>不需要去内存找值，速度快</li>
+<li>无覆盖性和破坏性</li>
+<li>绕开Condition Code Register的状态改变</li>
+</ul>
+
+<h3 class="relative group">结合位运算优化
+    <div id="结合位运算优化" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e7%bb%93%e5%90%88%e4%bd%8d%e8%bf%90%e7%ae%97%e4%bc%98%e5%8c%96" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p>左移/右移快速对应乘除法</p>
+
+<h2 class="relative group"><strong>条件，跳转，控制</strong>
+    <div id="条件跳转控制" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e6%9d%a1%e4%bb%b6%e8%b7%b3%e8%bd%ac%e6%8e%a7%e5%88%b6" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+
+<h3 class="relative group">关于条件码
+    <div id="关于条件码" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e5%85%b3%e4%ba%8e%e6%9d%a1%e4%bb%b6%e7%a0%81" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p>Condition Code Register 被动态地维护，里面存着各种各样的conditions（溢出/相等/……），每一个Condition Code 都占1bit(0/1)。</p>
+<p>各种算术操作都可能改变里面的条件值。</p>
+<ul>
+<li>CF - Carry Flag 位数变多置1</li>
+<li>ZF - Zero Flag 为0置1</li>
+<li>SF - Sign Flag 负数置1</li>
+<li>OF - Overflow Flag 溢出置1</li>
+</ul>
+<p>不给寄存器赋值只修改条件码——<strong>cmp系列</strong>（按减法结果），<strong>test系列</strong>（按位与结果）</p>
+<p>set系列可以把条件码的值（按一定规律）读出来赋值<br>
+搭配食用：</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Bash" data-lang="Bash"><span class="line"><span class="cl">cmpq %rsi, %rdi
+</span></span><span class="line"><span class="cl">sete %al <span class="c1"># e --&gt; equal</span></span></span></code></pre></div></div>
+<p><strong>组合拳有</strong>：<code>setl</code><em>(where l represents &ldquo;less&rdquo;)</em> 得到的是 <code>OF ^ SF</code>的结果，要考虑溢出（参见Datalab的Solution）</p>
+
+<h3 class="relative group">跳转，分支，循环
+    <div id="跳转分支循环" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e8%b7%b3%e8%bd%ac%e5%88%86%e6%94%af%e5%be%aa%e7%8e%af" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p><code>jmp</code>是无条件跳转，<code>j</code>系列是条件跳转，配合实现循环。</p>
+<p>jmp的跳转 (branch) 指令<strong>在现代处理器</strong>下效率不如条件赋值 (conditional move) 效率高，原因是分支预测器可能在if语句长的情况下猜错了路导致时间浪费的情况。</p>
+<p><strong>但是</strong>：conditional move也会导致计算浪费，无法规避可能报错等情况，实际上跳转的形式会被编译器采用的更多。</p>
+<p>jmp标记实际执行的时候不会被保留，反汇编会给出另一种方便核实的方法：<br>
+通过<code>jmp 8&lt;loop+0x8&gt;</code> 直接锁定它在指令中的字节位置。</p>
+<p>条件赋值使用<code>cmov</code>系列完成，例如<code>cmovge</code>相当于基于大于等于的判断。</p>
+<p>.L2/.L3都只是一个<strong>路标的标记作用</strong>，没有实际的代码分块含义，类似五线谱的D.S.记号（从某处开始继续执行）。</p>
+<p><em>rep repz 的写法比较特殊喵</em></p>
+
+<h3 class="relative group">Switch语句的跳转表（Jump Table）设计
+    <div id="switch语句的跳转表jump-table设计" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#switch%e8%af%ad%e5%8f%a5%e7%9a%84%e8%b7%b3%e8%bd%ac%e8%a1%a8jump-table%e8%ae%be%e8%ae%a1" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="nf">voidswitch_eg</span><span class="p">(</span><span class="n">longx</span><span class="p">,</span><span class="n">longn</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="kt">long</span><span class="o">*</span><span class="n">dest</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">longval</span><span class="o">=</span><span class="n">x</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">switch</span><span class="p">(</span><span class="n">n</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">        <span class="k">case</span> <span class="mi">100</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">val</span> <span class="o">*=</span> <span class="mi">13</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">case</span> <span class="mi">102</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">val</span> <span class="o">+=</span> <span class="mi">10</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="cm">/*Fallthrough*/</span>
+</span></span><span class="line"><span class="cl">        <span class="k">case</span> <span class="mi">103</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">val</span> <span class="o">+=</span> <span class="mi">11</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">case</span> <span class="mi">104</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">case</span> <span class="mi">106</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">val</span> <span class="o">*=</span> <span class="n">val</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">default</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">val</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">*</span><span class="n">dest</span> <span class="o">=</span> <span class="n">val</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">1 switch_eg:
+</span></span><span class="line"><span class="cl">2 subq $100,%rsi Computeindex=n-100
+</span></span><span class="line"><span class="cl">3 cmpq $6,%rsi Compareindex:6
+</span></span><span class="line"><span class="cl">4 ja .L8 If&gt;,gotoloc_def
+</span></span><span class="line"><span class="cl">5 jmp *.L4(,%rsi,8) Goto*jg[index]
+</span></span><span class="line"><span class="cl">6 .L3: loc_A:
+</span></span><span class="line"><span class="cl">7 leaq (%rdi,%rdi,2), %rax 3*x
+</span></span><span class="line"><span class="cl">8 leaq (%rdi,%rax,4), %rdi val=13*x
+</span></span><span class="line"><span class="cl">9 jmp .L2 Gotodone
+</span></span><span class="line"><span class="cl">10 .L5: loc_B:
+</span></span><span class="line"><span class="cl">11 addq $10,%rdi x = x + 10
+</span></span><span class="line"><span class="cl">12 .L6: loc_C:
+</span></span><span class="line"><span class="cl">13 addq $11,%rdi val = x + 11
+</span></span><span class="line"><span class="cl">14 jmp .L2 Gotodone
+</span></span><span class="line"><span class="cl">15 .L7: loc_D:
+</span></span><span class="line"><span class="cl">16 imulq %rdi,%rdi val = x * x
+</span></span><span class="line"><span class="cl">17 jmp .L2 Gotodone
+</span></span><span class="line"><span class="cl">18 .L8: loc_def:
+</span></span><span class="line"><span class="cl">19 movl $0,%edi val = 0
+</span></span><span class="line"><span class="cl">20 .L2: done:
+</span></span><span class="line"><span class="cl">21 movq %rdi,(%rdx) *dest=val
+</span></span><span class="line"><span class="cl">22 ret Return</span></span></code></pre></div></div>
+<p><code>jmp *.L4(,%rsi,8)</code> 访问了.L4地方所存的跳转表，这个是$O(1)$的复杂度访问</p>
+<p><em>这里rb = 0仅是出于教材的案例选取考虑</em></p>
+<p>我们有：</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">.section .rodata
+</span></span><span class="line"><span class="cl">.align8 Alignaddresstomultipleof8
+</span></span><span class="line"><span class="cl">.L4:
+</span></span><span class="line"><span class="cl">.quad .L3
+</span></span><span class="line"><span class="cl">.quad .L8
+</span></span><span class="line"><span class="cl">.quad .L5
+</span></span><span class="line"><span class="cl">.quad .L6
+</span></span><span class="line"><span class="cl">.quad .L7
+</span></span><span class="line"><span class="cl">.quad .L8
+</span></span><span class="line"><span class="cl">.quad .L7</span></span></code></pre></div></div>
+<p>关于.字开头的「伪指令」：</p>
+<ul>
+<li>它的作用是给汇编器看的舞台布置脚本，主要作用是声明。</li>
+<li>不实际参与CPU执行。</li>
+<li>这里的.quad就是开辟了一片空间，可供访问。</li>
+</ul>
+<p>也就是说：</p>
+<ul>
+<li>我们在这里直接定义了一个数组，而且是<strong>static &amp; const</strong> 的</li>
+<li><strong>内存地址</strong>这是一个很宽泛的概念，程序指令和变量都有</li>
+<li>default情况下的.L8被填入了空缺位置，保证数组下标连续性，也符合实际的运行逻辑。</li>
+<li>从case 100这类复杂情况到最后0/1/2这里的内存寻址，实际经历了<strong>编译器</strong>的<strong>自动优化</strong>。
+<ul>
+<li>n-100，&gt;6的时候跳入default。</li>
+<li>&lt;=6 的时候有对应case就进对应case，没有就跳入default。</li>
+</ul>
+</li>
+<li>数组声明长度是8而不是其他更小的数，也是出于其<strong>长度规整性</strong>的考量。</li>
+<li><code>ja</code> means above <strong>unsignedly</strong>. 它避免了比如n=99时候的报错。</li>
+</ul>
+<p>这样，我们直接通过基于switch(n)的n值完成了对应语句块的跳转，</p>
+<p><em><strong>从而在处理多分支情况时，使switch的逻辑相比if-else运行更快，但也意味着空间的更多使用。</strong></em></p>
+
+<h2 class="relative group"><strong>Procedure与栈帧艺术</strong>
+    <div id="procedure与栈帧艺术" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#procedure%e4%b8%8e%e6%a0%88%e5%b8%a7%e8%89%ba%e6%9c%af" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt="alt text"
+    width="1157"
+    height="1168"
+    src="/learning/csappchapter3/image-2_hu_537aa6adb3deba4c.png"
+    srcset="/learning/csappchapter3/image-2_hu_537aa6adb3deba4c.png 800w, /learning/csappchapter3/image-2.png 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/learning/csappchapter3/image-2.png"></figure>
+<br>
+Frame for executing function Q 的内存预留，在被调用函数Q的地方已经被写好：<br>
+<code>subq $16,%rsp</code>把这一部分空间全都给预留出来了。</p>
+
+<h3 class="relative group">Run Time Stack 运行时栈
+    <div id="run-time-stack-运行时栈" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#run-time-stack-%e8%bf%90%e8%a1%8c%e6%97%b6%e6%a0%88" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p>整个程序的所有栈帧都建立在这个大栈上面，地址连续，它不断地扩张着向着低地址生长。</p>
+
+<h4 class="relative group"><strong>Frame for calling function P</strong>
+    <div id="frame-for-calling-function-p" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#frame-for-calling-function-p" aria-label="Anchor">#</a>
+    </span>
+    
+</h4>
+<p>在函数P执行call Q之前，它会先把Argument n ~ Argument 7，<code>%rip</code>按顺序压入栈中，这个时候的<code>%rsp</code>处理完正指着Return address的栈顶，但是是栈内元素增长，没有挪动过<code>%rsp</code>。</p>
+
+<h4 class="relative group"><strong>Frame for executing function Q</strong>
+    <div id="frame-for-executing-function-q" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#frame-for-executing-function-q" aria-label="Anchor">#</a>
+    </span>
+    
+</h4>
+<ul>
+<li>Saved registers - 这里是给各种callee saved暂存寄存器的值所用的</li>
+<li>Local variables - 这里是给各种寄存器里放不下的变量储存用的</li>
+<li>Argument build area - 这里是为后续可能有的函数传参做预留空间</li>
+</ul>
+
+<h4 class="relative group"><strong>寄存器去哪了？</strong>
+    <div id="寄存器去哪了" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e5%af%84%e5%ad%98%e5%99%a8%e5%8e%bb%e5%93%aa%e4%ba%86" aria-label="Anchor">#</a>
+    </span>
+    
+</h4>
+<p>它本体在cpu里面，<strong>根本不是这个栈帧的一部分</strong>。</p>
+
+<h3 class="relative group">加深一下寄存器的知识喵
+    <div id="加深一下寄存器的知识喵" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e5%8a%a0%e6%b7%b1%e4%b8%80%e4%b8%8b%e5%af%84%e5%ad%98%e5%99%a8%e7%9a%84%e7%9f%a5%e8%af%86%e5%96%b5" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<ul>
+<li>%rsp - 是一个可以执行函数跳跃的<strong>栈顶指针</strong></li>
+<li>%rip - 是当前函数所执行指令的<strong>下一条指令的地址</strong>，它是<strong>caller saved</strong></li>
+<li>%rax - 是提供当前函数的返回值，它是<strong>caller-saved</strong>的</li>
+<li>%rdi %rsi %rdx %rcx %r8 %r9 - （64位长度下）函数的第1-6个<strong>传递参数</strong>，它们也都是 <strong>caller saved</strong>
+<ul>
+<li>但它们<strong>既有可能是纯粹数值，也有可能是指针</strong>，根据传参类型确定。</li>
+<li><strong>数组退化：</strong> 函数传参传入数组，<strong>实际上只传了它第0个位置的指针</strong>。</li>
+<li><em>想一想：为什么在为什么在C++，Python，Java里面，我传参传入一个数组，最后结果上会改掉它本身呢？</em>（严谨地说，对于Java/Python的任何对象都适用；C++的Struct情况可能有些特殊）</li>
+</ul>
+</li>
+<li>%r10, %r11 - <strong>caller saved</strong>，which means 储存值可以由被调用的函数callee<strong>覆盖</strong></li>
+<li>%r12 ~ %r15, %rbx, %rbp - <strong>callee saved</strong>，<strong>保存</strong>函数调用之前的寄存器值并提供恢复</li>
+</ul>
+
+<h3 class="relative group">传递参数和局部变量的字节对齐
+    <div id="传递参数和局部变量的字节对齐" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e4%bc%a0%e9%80%92%e5%8f%82%e6%95%b0%e5%92%8c%e5%b1%80%e9%83%a8%e5%8f%98%e9%87%8f%e7%9a%84%e5%ad%97%e8%8a%82%e5%af%b9%e9%bd%90" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p><strong>为什么？</strong> 因为现代处理器以多个（比如8个）字节为单位块抓取数据进行处理，为了处理性能和避免报错。</p>
+<ul>
+<li>
+<p>要求栈所传递的参数以<strong>8字节对齐</strong>的模式储存。</p>
+</li>
+<li>
+<p>对于局部变量要求而言，也要遵守一定的<strong>字节对齐规范</strong>。</p>
+<ul>
+<li>比如，4 字节的 int 必须站在 4 的倍数地址上，8 字节的 long 或指针必须站在 8 的倍数地址上。</li>
+</ul>
+</li>
+<li>
+<p>GCC的局部变量区<strong>整体上</strong>默认是<strong>16字节对齐</strong>的。</p>
+<ul>
+<li>也就是说，即使局部变量区只有一个 <code>char</code>，也是 <code>sub $16 %rsp</code>。</li>
+</ul>
+</li>
+</ul>
+
+<h3 class="relative group">我想用全局变量怎么办？
+    <div id="我想用全局变量怎么办" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e6%88%91%e6%83%b3%e7%94%a8%e5%85%a8%e5%b1%80%e5%8f%98%e9%87%8f%e6%80%8e%e4%b9%88%e5%8a%9e" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p>它们加载在内存的低地址区域（和栈区域隔着Heap区），独立于main函数在内的任何栈帧。<br>
+这里也是用到了<strong>寻址公式</strong>，进行绝对地址的访问。</p>
+
+<h3 class="relative group">怎么写入local variables？
+    <div id="怎么写入local-variables" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e6%80%8e%e4%b9%88%e5%86%99%e5%85%a5local-variables" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p>出于<strong>对齐原则</strong>考虑，这里不会使用<code>pushq</code>，而应直接对<code>%rsp</code>向高地址找。</p>
+
+<h2 class="relative group"><strong>数组与结构体与联合体的访问</strong>
+    <div id="数组与结构体与联合体的访问" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e6%95%b0%e7%bb%84%e4%b8%8e%e7%bb%93%e6%9e%84%e4%bd%93%e4%b8%8e%e8%81%94%e5%90%88%e4%bd%93%e7%9a%84%e8%ae%bf%e9%97%ae" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<p>看上面虹团的例子喵<br>
+二维数组的访问下标由<code>i</code>与<code>j</code>两个下标决定，因此有类似 $ri=i+mj$ 的方法表示。<br>
+此外，出于计算性能考虑，<strong>结构体</strong>也会有类似<strong>字节对齐规范</strong>的要求，实际
+的size可能与各个数据类型的代数加和有所出入。</p>
+<p>形成结构体数组，其紧密排列有可能无法满足<strong>所有元素</strong>的对齐要求，也就是说会对每个单独结构体<strong>添加若干字节的填充</strong>。</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">i</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">j</span>
+</span></span><span class="line"><span class="cl"><span class="kt">char</span> <span class="n">c</span></span></span></code></pre></div></div>
+<p><em>不能耍这种小聪明的说</em>，单个的size还是12</p>
+<p>联合体Union相对于结构体Struct，可以更节省空间</p>
+
+<h2 class="relative group"><strong>缓冲区溢出和解决方案</strong>
+    <div id="缓冲区溢出和解决方案" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e7%bc%93%e5%86%b2%e5%8c%ba%e6%ba%a2%e5%87%ba%e5%92%8c%e8%a7%a3%e5%86%b3%e6%96%b9%e6%a1%88" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<p>C语言并没有检测数组下标溢出的报错，可能程序会突破高地址，把return address给强制覆盖掉了，导致程序回归跳转到意想不到的地方（早期互联网病毒）</p>
+<p><strong>规避办法</strong>：</p>
+<ul>
+<li>程序栈位置随机化</li>
+<li>在缓冲区插入值（金丝雀值）检测是否被篡改</li>
+<li>消除攻击者向系统中插入可执行代码的能力——分开可读和可执行权限</li>
+</ul>
+
+<h2 class="relative group"><strong>若干个细节问题</strong>
+    <div id="若干个细节问题" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e8%8b%a5%e5%b9%b2%e4%b8%aa%e7%bb%86%e8%8a%82%e9%97%ae%e9%a2%98" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<ol>
+<li><em>在main函数执行的时候，为什么没有看到%rsp的设定?</em></li>
+</ol>
+<ul>
+<li>因为系统会自动给一个%rsp位置的分配，不用汇编动手。</li>
+</ul>
+<ol start="2">
+<li><em>main函数的return address是什么，还是会直接让程序结束？</em></li>
+</ol>
+<ul>
+<li>main函数既不是程序的起始，也不是程序的终止。执行完之后回到C运行库中进行清理和exit。</li>
+</ul>
+<ol start="3">
+<li><em>如果遇到连续call了两个函数的情况怎么处理，是重复地将%rip等等给压入栈吗？</em></li>
+</ol>
+<ul>
+<li><strong>不是。</strong> 这些东西完事之后还会被pop出来。</li>
+</ul>
+<ol start="4">
+<li><em>switch语句的那个Jump Table的定义格式是不是很特殊?</em></li>
+</ol>
+<ul>
+<li><strong>是的。</strong> 它模糊了指令与数据之间的边界。</li>
+</ul>
+<ol start="5">
+<li><em>一开始main函数的%rsp会被默认设得位置相对低，这是否意味着本来这个栈就不是恒定装满元素的吗？</em></li>
+</ol>
+<ul>
+<li><strong>是的。</strong> 我们本来就不追求装满。</li>
+<li>另外%rsp低到预设下限以下（一般是超出8MB大小）就是<strong>无限递归</strong>情况，出现栈溢出报错。</li>
+</ul>
+<ol start="6">
+<li><em>是否push指令会没法满足8字节对齐呢？</em></li>
+</ol>
+<ul>
+<li>现在64位编译器一般都只牵涉到使用pushq指令。因此8字节肯定能对齐，但16字节对齐会出问题。</li>
+</ul>
+<ol start="7">
+<li><em>为什么会有</em><code>subq $24, $rsp</code><em>这种下移24位的写法？</em></li>
+</ol>
+<ul>
+<li>因为我们事先在call的时候把8字节的%return address 给 push 进来了，它已经下移了8个字节。维持16字节对齐，下移24位是没问题的。</li>
+</ul>
+<ol start="8">
+<li><em>在csapp的语境下，哪些地方我们见到了pushq?</em></li>
+</ol>
+<ul>
+<li>它藏在call里面</li>
+<li>它在存%rbx等等的时候遇到了</li>
+</ul>
+<p><em><strong>By Tab_1bit0</strong></em></p>
+
+          
+          
+          
+        </div>
+        
+        
+
+        
+
+        
+
+      </div>
+
+      
+      
+        
+        
+          
+          
+        
+        
+        
+        <script
+          type="text/javascript"
+          src="/js/page.min.54b6f4371722649edbe871e431d8670d670878c22be8f36e229fe53cc9b786fe25a834def5e6de621f7a3e37b72bc8cd73839aa5ed907ed6cbd45cd3e1b0fa20.js"
+          integrity="sha512-VLb0NxciZJ7b6HHkMdhnDWcIeMIr6PNuIp/lPMm3hv4lqDTe9ebeYh96Pje3K8jNc4Oape2QftbL1FzT4bD6IA=="
+          data-oid="views_learning\csappchapter3\index.md"
+          data-oid-likes="likes_learning\csappchapter3\index.md"></script>
+      
+    </section>
+
+    
+    <footer class="pt-8 max-w-prose print:hidden">
+      
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600">
+      <div class="flex justify-between pt-3">
+        <span class="flex flex-col">
+          
+            <a
+              class="flex text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+              href="/learning/attacklab/">
+              <span class="leading-6">
+                <span class="inline-block rtl:rotate-180">&larr;</span>&ensp;attackLab
+              </span>
+            </a>
+            
+              <span class="ms-6 mt-1 text-xs text-neutral-500 dark:text-neutral-400">
+                <time datetime="2026-02-25T13:16:14&#43;08:00">25 February 2026</time>
+              </span>
+            
+          
+        </span>
+        <span class="flex flex-col items-end">
+          
+            <a
+              class="flex text-right text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+              href="/learning/bomblab/">
+              <span class="leading-6">
+                Bomblab&ensp;<span class="inline-block rtl:rotate-180">&rarr;</span>
+              </span>
+            </a>
+            
+              <span class="me-6 mt-1 text-xs text-neutral-500 dark:text-neutral-400">
+                <time datetime="2026-02-25T13:33:48&#43;08:00">25 February 2026</time>
+              </span>
+            
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+      
+        
+          <div class="pt-3">
+            <hr class="border-dotted border-neutral-300 dark:border-neutral-600">
+            <div class="pt-3">
+              <div id="disqus_thread"></div>
+<script>
+    window.disqus_config = function () {
+        
+        
+        
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "tab-6" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+            </div>
+          </div>
+        
+      
+    </footer>
+  </article>
+
+        
+
+
+  
+
+
+
+
+
+
+<div
+  id="scroll-to-top"
+  class="fixed bottom-6 end-6 z-50 transform translate-y-4 opacity-0 duration-200">
+  <a
+    href="#the-top"
+    class="pointer-events-auto flex h-12 w-12 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="Scroll to top"
+    title="Scroll to top">
+    &uarr;
+  </a>
+</div>
+
+      </main><footer id="site-footer" class="py-10 print:hidden">
+  
+  
+    
+  
+  <div class="flex items-center justify-between">
+    
+    
+      <p class="text-sm text-neutral-500 dark:text-neutral-400">
+          &copy;
+          2026
+          Tab_1bit0
+      </p>
+    
+
+    
+    
+      <p class="text-xs text-neutral-500 dark:text-neutral-400">
+        
+        
+        Powered by <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+          href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+          href="https://blowfish.page/" target="_blank" rel="noopener noreferrer">Blowfish</a>
+      </p>
+    
+  </div>
+  
+    <script>
+      mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+        margin: 24,
+        background: "rgba(0,0,0,0.5)",
+        scrollOffset: 0,
+      });
+    </script>
+  
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js"
+    integrity="sha512-7gNIjxnJPC77GZ4uMBTqXzyyzn1FFUrbM5mhWMrCfKUoMdsknt5btgJwDvh&#43;sCQ0E53ghYrxgYqw&#43;0GCRyIEpA=="></script>
+  
+  
+</footer>
+<div
+  id="search-wrapper"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh] z-500"
+  data-url="http://localhost:1313/">
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800">
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          <span class="relative block icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span>
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="Search"
+          tabindex="0">
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="Close (Esc)">
+        <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+</span>
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+    </div>
+  </body>
+  
+</html>

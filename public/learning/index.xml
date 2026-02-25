@@ -9,7 +9,37 @@
     <managingEditor>frojbk@gmail.com (Tab_1bit0)</managingEditor>
     <webMaster>frojbk@gmail.com (Tab_1bit0)</webMaster>
     <copyright>© 2026 Tab_1bit0</copyright>
-    <lastBuildDate>Sun, 15 Feb 2026 21:00:00 +0800</lastBuildDate><atom:link href="http://localhost:1313/learning/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 25 Feb 2026 13:33:48 +0800</lastBuildDate><atom:link href="http://localhost:1313/learning/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Bomblab</title>
+      <link>http://localhost:1313/learning/bomblab/</link>
+      <pubDate>Wed, 25 Feb 2026 13:33:48 +0800</pubDate>
+      <author>frojbk@gmail.com (Tab_1bit0)</author>
+      <guid>http://localhost:1313/learning/bomblab/</guid>
+      <description></description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/learning/bomblab/featured.png" />
+    </item>
+    
+    <item>
+      <title>csapp chapter3 机器码汇编</title>
+      <link>http://localhost:1313/learning/csappchapter3/</link>
+      <pubDate>Wed, 25 Feb 2026 13:27:02 +0800</pubDate>
+      <author>frojbk@gmail.com (Tab_1bit0)</author>
+      <guid>http://localhost:1313/learning/csappchapter3/</guid>
+      <description></description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/learning/csappchapter3/featured.png" />
+    </item>
+    
+    <item>
+      <title>attackLab</title>
+      <link>http://localhost:1313/learning/attacklab/</link>
+      <pubDate>Wed, 25 Feb 2026 13:16:14 +0800</pubDate>
+      <author>frojbk@gmail.com (Tab_1bit0)</author>
+      <guid>http://localhost:1313/learning/attacklab/</guid>
+      <description></description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/learning/attacklab/featured.png" />
+    </item>
     
     <item>
       <title>CS61b学习总结</title>

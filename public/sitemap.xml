@@ -3,6 +3,36 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
+    <loc>http://localhost:1313/learning/bomblab/</loc>
+    <lastmod>2026-02-25T13:33:48+08:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:1313/learning/</loc>
+    <lastmod>2026-02-25T13:33:48+08:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:1313/</loc>
+    <lastmod>2026-02-25T13:33:48+08:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:1313/learning/csappchapter3/</loc>
+    <lastmod>2026-02-25T13:27:02+08:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:1313/learning/attacklab/</loc>
+    <lastmod>2026-02-25T13:16:14+08:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>http://localhost:1313/articles/springfestival2026/</loc>
     <lastmod>2026-02-17T00:00:00+08:00</lastmod>
     <changefreq>daily</changefreq>
@@ -15,19 +45,7 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/</loc>
-    <lastmod>2026-02-17T00:00:00+08:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>http://localhost:1313/learning/summary4cs61b/</loc>
-    <lastmod>2026-02-15T21:00:00+08:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>http://localhost:1313/learning/</loc>
     <lastmod>2026-02-15T21:00:00+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
