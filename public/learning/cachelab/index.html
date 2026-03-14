@@ -15,8 +15,8 @@
 
   
   
-    <title>csapp malloclab &middot; Tab_1bit0的神秘据点（施工中）</title>
-    <meta name="title" content="csapp malloclab &middot; Tab_1bit0的神秘据点（施工中）">
+    <title>csapp cachelab &middot; Tab_1bit0的神秘据点（施工中）</title>
+    <meta name="title" content="csapp cachelab &middot; Tab_1bit0的神秘据点（施工中）">
   
 
   
@@ -24,7 +24,7 @@
   
   
   
-  <link rel="canonical" href="http://localhost:1313/learning/malloclab/">
+  <link rel="canonical" href="http://localhost:1313/learning/cachelab/">
   
 
   
@@ -34,20 +34,20 @@
   
 
   
-  <meta property="og:url" content="http://localhost:1313/learning/malloclab/">
+  <meta property="og:url" content="http://localhost:1313/learning/cachelab/">
   <meta property="og:site_name" content="Tab_1bit0的神秘据点（施工中）">
-  <meta property="og:title" content="csapp malloclab">
+  <meta property="og:title" content="csapp cachelab">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="learning">
     <meta property="article:published_time" content="2026-03-14T00:00:00+00:00">
     <meta property="article:modified_time" content="2026-03-14T00:00:00+00:00">
-    <meta property="og:image" content="http://localhost:1313/learning/malloclab/featured.png">
+    <meta property="og:image" content="http://localhost:1313/learning/cachelab/featured.png">
 
   
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="http://localhost:1313/learning/malloclab/featured.png">
-  <meta name="twitter:title" content="csapp malloclab">
+  <meta name="twitter:image" content="http://localhost:1313/learning/cachelab/featured.png">
+  <meta name="twitter:title" content="csapp cachelab">
 
   
   
@@ -191,11 +191,11 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "articleSection": "Learning",
-    "name": "csapp malloclab",
-    "headline": "csapp malloclab",
+    "name": "csapp cachelab",
+    "headline": "csapp cachelab",
     
     "inLanguage": "en",
-    "url" : "http://localhost:1313/learning/malloclab/",
+    "url" : "http://localhost:1313/learning/cachelab/",
     "author" : {
       "@type": "Person",
       "name": "Tab_1bit0"
@@ -209,7 +209,7 @@
     
     
     "mainEntityOfPage": "true",
-    "wordCount": "68"
+    "wordCount": "173"
   }]
   </script>
 
@@ -420,7 +420,7 @@
     
     <img
       id="background-image"
-      src="/learning/malloclab/featured_hu_b7364688b7350ba0.png"
+      src="/learning/cachelab/featured_hu_848dd8abe815fbad.png"
       role="presentation"
       loading="eager"
       decoding="async"
@@ -445,7 +445,7 @@
       integrity="sha512-YFs7lCgY8KtacXrkRhNexGuO5aKtEq5W&#43;5DcKnbOMMOI&#43;f7IvMGNsVvUfj&#43;ooJ13n6EqqcGEz2FKMVvHLGwWPQ=="
       data-blur-id="background-blur"
       data-image-id="background-image"
-      data-image-url="/learning/malloclab/featured_hu_b7364688b7350ba0.png"></script>
+      data-image-url="/learning/cachelab/featured_hu_848dd8abe815fbad.png"></script>
   
       
     
@@ -454,7 +454,7 @@
     <header id="single_header" class="mt-5 max-w-prose">
       
       <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-        csapp malloclab
+        csapp cachelab
       </h1>
       <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
         
@@ -512,7 +512,7 @@
   <div class="flex flex-row flex-wrap items-center">
     
     
-      <time datetime="2026-03-14T00:00:00&#43;00:00">14 March 2026</time><span class="px-2 text-primary-500">&middot;</span><span>68 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">1 min</span><span class="px-2 text-primary-500">&middot;</span><span>
+      <time datetime="2026-03-14T00:00:00&#43;00:00">14 March 2026</time><span class="px-2 text-primary-500">&middot;</span><span>173 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">1 min</span><span class="px-2 text-primary-500">&middot;</span><span>
   
   
     
@@ -526,7 +526,7 @@
     
   
   <span
-    id="views_learning\malloclab\index.md"
+    id="views_learning\cachelab\index.md"
     class="animate-pulse inline-block text-transparent max-h-3 rounded-full -mt-[2px] align-middle bg-neutral-300 dark:bg-neutral-400"
     title="views"
     >loading</span
@@ -548,7 +548,7 @@
     
   
   <span
-    id="likes_learning\malloclab\index.md"
+    id="likes_learning\cachelab\index.md"
     class="animate-pulse inline-block text-transparent max-h-3 rounded-full -mt-[2px] align-middle bg-neutral-300 dark:bg-neutral-400"
     title="likes"
     >loading</span
@@ -656,59 +656,224 @@
     
 </h1>
 <hr>
-<p><em>This document is specially for MallocLab of book CSAPP.</em></p>
+<p><em>This document is specially for CacheLab of book CSAPP.</em></p>
 
-<h2 class="relative group">解法原理 (87/100)
-    <div id="解法原理-87100" class="anchor"></div>
+<h2 class="relative group">PartA Writing A Cache Simulator
+    <div id="parta-writing-a-cache-simulator" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
-        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e8%a7%a3%e6%b3%95%e5%8e%9f%e7%90%86-87100" aria-label="Anchor">#</a>
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#parta-writing-a-cache-simulator" aria-label="Anchor">#</a>
     </span>
     
 </h2>
-<img src="image-19.png" width="50%">
-<img src="image-21.png" width="50%">
-<p>同时结合<strong>分隔空闲列表</strong>的块大小分组方法<strong>简化复杂度</strong>。</p>
-<p>注意我们是被禁止<strong>使用全局静态数组</strong>的，所以分组的指针存在堆的最开头位置。</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="cp">#define HEADER(p) (*(unsigned int *)((char *)(p) + OFFSET))
-</span></span></span><span class="line"><span class="cl"><span class="cp">#define SIZE(p) (HEADER(p) &amp; ~0x1)
-</span></span></span><span class="line"><span class="cl"><span class="cp">#define ISALLOCATED(p) (HEADER(p) &amp; 0x1)
-</span></span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">getSeg</span><span class="p">(</span><span class="kt">unsigned</span> <span class="n">size</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="p">...</span></span></span></code></pre></div></div>
-<p>注意定义一些 <strong>宏</strong> 和 <strong>辅助函数</strong> 来简化代码。</p>
-
-<h2 class="relative group">时间复杂度分析
-    <div id="时间复杂度分析" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
-        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e6%97%b6%e9%97%b4%e5%a4%8d%e6%9d%82%e5%ba%a6%e5%88%86%e6%9e%90" aria-label="Anchor">#</a>
-    </span>
-    
-</h2>
+<p>这一部分其实比较简单，主要得熟悉一下C语言里面<strong>命令行参数读取</strong>，<strong>文件读取</strong>，<strong>指针</strong>，<strong>结构体声明</strong>，<strong>malloc</strong>的写法</p>
+<p>读东西的活全部扔给LLM做了，我是 &#x1f437;</p>
+<p>发现几个比较有意思的点：</p>
 <ul>
-<li><code>malloc()</code> - <strong>优化过的</strong> $O(n)$</li>
-<li><code>free()</code> - $O(1)$，合并情况<strong>最坏</strong> $O(n)$</li>
-<li><code>realloc()</code> - 参考上述</li>
+<li>如何分出64位内存地址的Tag/Set Index/Block，这里要用到之前学过的<strong>位运算</strong></li>
+<li>通过Set Index做的寻Set过程依然类似于下标寻址，它的访问复杂度是 $O(1)$</li>
+<li>但是具体处理下标里的E个cache line，访问需要遍历，复杂度是 $O(E)$</li>
 </ul>
+<hr>
 
-<h2 class="relative group">空间优化策略
-    <div id="空间优化策略" class="anchor"></div>
+<h2 class="relative group">PartB Optimizing Matrix Transpose
+    <div id="partb-optimizing-matrix-transpose" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
-        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e7%a9%ba%e9%97%b4%e4%bc%98%e5%8c%96%e7%ad%96%e7%95%a5" aria-label="Anchor">#</a>
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#partb-optimizing-matrix-transpose" aria-label="Anchor">#</a>
     </span>
     
 </h2>
-<p>时间分比较容易拿满，空间利用率比较关键</p>
+<p>这一部分我们需要优化三个尺寸的矩阵转置函数，测试使用的是S=5，E=1, B=5的direct-mapped形态：</p>
 <ul>
-<li><code>free()</code> 时检查<strong>前后块能否合并</strong></li>
-<li>尾部未分配的时候可以<strong>占用一部分尾部再去扩充堆</strong></li>
-<li><code>realloc</code> 时<strong>原地的增大/减小空间</strong></li>
-<li>&hellip;</li>
+<li>32 * 32</li>
+<li>64 * 64</li>
+<li>61 * 67</li>
 </ul>
+<p>instruction里面明确的提了</p>
+<blockquote><p>Blocking is a useful technique for reducing cache misses.</p>
+</blockquote><hr>
+
+<h3 class="relative group"><strong>问题1：</strong> 为什么Blocking是有效的？
+    <div id="问题1-为什么blocking是有效的" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e9%97%ae%e9%a2%981-%e4%b8%ba%e4%bb%80%e4%b9%88blocking%e6%98%af%e6%9c%89%e6%95%88%e7%9a%84" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt="alt text"
+    width="738"
+    height="103"
+    src="/learning/cachelab/image.png"
+    srcset="/learning/cachelab/image.png 800w, /learning/cachelab/image.png 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/learning/cachelab/image.png"></figure>
+<p>同一个CacheLine里面可以塞下32个不同的内存地址，一个int占4字节，一个Set里有一个Cacheline，<br>
+所以我们有，一个Set里面可以塞32/4=8个 int。</p>
+<p>比如对于一个32*32的Matrix，我们现在读 <code>A[0][0]</code> 读进了某个Set，意味着我们把 <code>A[0][0]</code> 到 <code>A[0][7]</code> 全部放进了这个Set里面。</p>
+<p>我们对这个过程来看，是人畜无害的，<code>A[0][0]</code> 到 <code>A[0][31]</code> 会进入4个不同的Set里面。<br>
+接下来会把这一些值给赋值进入 <code>B[0][0]</code> 到 <code>B[31][0]</code>。<br>
+这个时候就没这么幸运了。
+2^10 = 1024，这意味着每隔着1024个字节，末10位数字相同就会<strong>冲突（Tag不同）</strong>，<br>
+也就是说正好的情况下，我们的Cache最多容纳下256个int。<br>
+对于32*32的矩阵来说，这相当于256/32 = <strong>8行</strong>。
+现在我往里面写B[0][0]到B[7][0]，这是没关系的。<br>
+我再往里写B[8][0]，这个时候<strong>冲突发生了</strong>，会把已有的B[0][0]顶掉，而且是<strong>必然发生的</strong>。</p>
+<p>所以，不妨换一种方法：
+每次和遍历同顺序地处理一个 8*8 的小块，这样能够<strong>避免</strong>写入B的时候必然发生的打架。</p>
+<p>这样我可写B[0][~]到B[7][~]的区块的时候<strong>一次写64个</strong>，之前一次写8个，冲突减少了大部分。</p>
+<hr>
+
+<h3 class="relative group"><strong>问题2：但这里我所有的A与B都用的同一个Cache啊？</strong>
+    <div id="问题2但这里我所有的a与b都用的同一个cache啊" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e9%97%ae%e9%a2%982%e4%bd%86%e8%bf%99%e9%87%8c%e6%88%91%e6%89%80%e6%9c%89%e7%9a%84a%e4%b8%8eb%e9%83%bd%e7%94%a8%e7%9a%84%e5%90%8c%e4%b8%80%e4%b8%aacache%e5%95%8a" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p>恭喜你，你发现了另一个造成大量Miss的原因：<br>
+<strong>A和B争抢位置。</strong><br>
+别的地方我们不知道，但事实上光<strong>主对角线位置的打架</strong>就够喝一壶的了，因为<strong>A和B的存储地址连续</strong>。<br>
+这里我们需要使用<strong>寄存器</strong>作为临时存储，这样我们可以先读完A的8个，再把这8个写进B。<br>
+注意<strong>局部变量不能太多</strong>。不然它们多的部分会被直接<strong>写进内存</strong>，反而降低效率。<br>
+我们令8个局部变量v0-v7，<strong>先把A的8个写进对应的，再将它们赋值进B。</strong><br>
+<em>那我不能用数组v[8]做遍历枚举吗？</em></p>
+<ul>
+<li><strong>不能</strong>。数组是会直接存进内存的。</li>
+</ul>
+<hr>
+
+<h3 class="relative group">总结1：到这里我们完成了对32*32矩阵优化方法的构建。
+    <div id="总结1到这里我们完成了对3232矩阵优化方法的构建" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e6%80%bb%e7%bb%931%e5%88%b0%e8%bf%99%e9%87%8c%e6%88%91%e4%bb%ac%e5%ae%8c%e6%88%90%e4%ba%86%e5%af%b93232%e7%9f%a9%e9%98%b5%e4%bc%98%e5%8c%96%e6%96%b9%e6%b3%95%e7%9a%84%e6%9e%84%e5%bb%ba" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p>最理想情况下我们不包括传参，用到了9个Local Variables：</p>
+<ul>
+<li>v0 - v7</li>
+<li>i
+在题目要求的 <strong>At Most 12 Local Variables per function</strong> 的范围内。（这里和实际硬件略有出入，不过还是可以说明我们变量数是合理的）</li>
+</ul>
+<hr>
+
+<h3 class="relative group"><strong>问题3：为什么我在64*64的情况下，我的8*8反而比4*4跑的慢了？</strong>
+    <div id="问题3为什么我在64" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e9%97%ae%e9%a2%983%e4%b8%ba%e4%bb%80%e4%b9%88%e6%88%91%e5%9c%a864" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p>因为这个时候，Cache里面最多放得下矩阵的256/32=4行。<br>
+写入B[0][0]到B[3][0]的时候还是没有问题的，但是<strong>B[4][0]就炸了。</strong><br>
+也就是说，我们的主线是解决<strong>B自己和自己打架</strong>的问题。</p>
+<p><em>但是单纯用4*4也没法满分啊？</em></p>
+<p>因为这个时候我们每次读A的时候Set里面存进了8个，<strong>但我们只用了4个</strong>。</p>
+<p><em>为什么后4个再用要重新发生miss?</em></p>
+<p>理由同上，由于<strong>A和B是存储地址连续的</strong>，64*64的情况下<strong>对角线打架</strong>的影响会更大。</p>
+<p>所以我们要研发一个解决方案。</p>
+<p><strong>我一开始给的解决方案：</strong> 引入v8-v11，每次v0-v7先读A[0][0~7]，然后把v0-v3先写了，再用v0-v3读A[1][0~3]，v8-v11读A[1][8~11]，再写v0-v3，再写v4~v11。<br>
+<strong>我的想法：</strong>  这样我可以每次都利用好8个A读进来的，并且能一次<strong>写8个</strong>再发生冲突，做到一定程度上的优化。</p>
+<p><strong>LLM给的解决方案：</strong>
+<figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt="alt text"
+    width="719"
+    height="983"
+    src="/learning/cachelab/image-1.png"
+    srcset="/learning/cachelab/image-1.png 800w, /learning/cachelab/image-1.png 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/learning/cachelab/image-1.png"></figure>
+</p>
+<p>这样可以直接<strong>写完32个</strong>B的前4行再去写后4行<br>
+注意一个点：右上区块我们写的直接是<strong>转置形式</strong>。<br>
+如果我们不转置，那就意味着我们一次会摸到B的4~7<strong>全部四行</strong>，然后发生大规模的冲突！<br>
+所以我们最好先把转置过的形态放进右上角，这样我们往左下角写的时候可以<strong>直接一行一行写</strong>。</p>
+<p><em>那我右上角竖着读，横着写行不行？</em><br>
+依旧会发生和<strong>不转置类似的问题</strong>，在写的时候行列不同步就是会造成这样的问题的。
+从for循环遍历的角度来讲，这样写可以让<strong>B的第0行用完了就再也不用了，占着Cache坑位的变成了第4行</strong>，冲突自然变少。</p>
+<p><em>反思我的解决方案有什么不好？</em>
+一次只能处理8个，而且要来回横跳4次，并且要极限地使用至少12个local variables才能完成，效率显然不高，代码也会更复杂。</p>
+<hr>
+
+<h3 class="relative group"><strong>总结2：对64*64矩阵的优化，我们实质上解决了在8*8处理的时候会产生冲突的部分。</strong>
+    <div id="总结2对6464矩阵的优化我们实质上解决了在88处理的时候会产生冲突的部分" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e6%80%bb%e7%bb%932%e5%af%b96464%e7%9f%a9%e9%98%b5%e7%9a%84%e4%bc%98%e5%8c%96%e6%88%91%e4%bb%ac%e5%ae%9e%e8%b4%a8%e4%b8%8a%e8%a7%a3%e5%86%b3%e4%ba%86%e5%9c%a888%e5%a4%84%e7%90%86%e7%9a%84%e6%97%b6%e5%80%99%e4%bc%9a%e4%ba%a7%e7%94%9f%e5%86%b2%e7%aa%81%e7%9a%84%e9%83%a8%e5%88%86" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<hr>
+
+<h3 class="relative group"><strong>问题4：为什么61*67时候，我不用设一堆的v0-v7了呢？</strong>
+    <div id="问题4为什么6167时候我不用设一堆的v0-v7了呢" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e9%97%ae%e9%a2%984%e4%b8%ba%e4%bb%80%e4%b9%886167%e6%97%b6%e5%80%99%e6%88%91%e4%b8%8d%e7%94%a8%e8%ae%be%e4%b8%80%e5%a0%86%e7%9a%84v0-v7%e4%ba%86%e5%91%a2" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p>回忆一下前面为什么要令一堆v0-v7：我们要防止<strong>对角线打架</strong>。<br>
+但在这里异形的情况下，对角线是不可能打架的，而且61和67大质数的情况将任何<strong>打架的风险都降得很低</strong>。</p>
+<hr>
+
+<h3 class="relative group"><strong>问题5：为什么61*67的情况下，我采用16*16分块的方法效率是最高的？</strong>
+    <div id="问题5为什么6167的情况下我采用1616分块的方法效率是最高的" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e9%97%ae%e9%a2%985%e4%b8%ba%e4%bb%80%e4%b9%886167%e7%9a%84%e6%83%85%e5%86%b5%e4%b8%8b%e6%88%91%e9%87%87%e7%94%a81616%e5%88%86%e5%9d%97%e7%9a%84%e6%96%b9%e6%b3%95%e6%95%88%e7%8e%87%e6%98%af%e6%9c%80%e9%ab%98%e7%9a%84" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p>因为一方面，16是8的倍数，所以读进A的使用率是100%，它们<strong>一口气存进B打架的可能性也不高</strong>，这说明了<strong>16*\16的效率不会比8*8要低</strong>。</p>
+<p>另外一方面，别忘了最重要的制约打架的因素：<strong>每隔1024个字节就会映射进同一个Set里面！<strong>也就是说8*8的分块让</strong>Spacial locality</strong>更坏了，位置之间的相对跨度变大，触发这一条惩罚受到的miss影响更大。</p>
+<p>此外，相比<strong>32*32</strong>乃至于不分块等方法，16*16又能够充分地保护住，减小打架可能性。</p>
+
+<h3 class="relative group"><strong>问题6：边缘的情况怎么办？</strong>
+    <div id="问题6边缘的情况怎么办" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e9%97%ae%e9%a2%986%e8%be%b9%e7%bc%98%e7%9a%84%e6%83%85%e5%86%b5%e6%80%8e%e4%b9%88%e5%8a%9e" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p>我们不用特别操心，让for循环条件写成<code>k &lt; N &amp;&amp; k &lt;= i + block_size</code>就可以了。
+对边缘做一些无谓的优化很可能进一步<strong>破坏它的空间局部性</strong>，最后适得其反。</p>
+<hr>
+
+<h3 class="relative group"><strong>总结3： Miss影响性和分块大小之间应该是一条U形曲线，小了和大了都会加大惩罚，16*16位于曲线的底端位置</strong>。
+    <div id="总结3-miss影响性和分块大小之间应该是一条u形曲线小了和大了都会加大惩罚1616位于曲线的底端位置" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e6%80%bb%e7%bb%933-miss%e5%bd%b1%e5%93%8d%e6%80%a7%e5%92%8c%e5%88%86%e5%9d%97%e5%a4%a7%e5%b0%8f%e4%b9%8b%e9%97%b4%e5%ba%94%e8%af%a5%e6%98%af%e4%b8%80%e6%9d%a1u%e5%bd%a2%e6%9b%b2%e7%ba%bf%e5%b0%8f%e4%ba%86%e5%92%8c%e5%a4%a7%e4%ba%86%e9%83%bd%e4%bc%9a%e5%8a%a0%e5%a4%a7%e6%83%a9%e7%bd%9a1616%e4%bd%8d%e4%ba%8e%e6%9b%b2%e7%ba%bf%e7%9a%84%e5%ba%95%e7%ab%af%e4%bd%8d%e7%bd%ae" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
 <hr>
 <p><em><strong>By Tab_1bit0</strong></em></p>
 
@@ -738,8 +903,8 @@
           type="text/javascript"
           src="/js/page.min.54b6f4371722649edbe871e431d8670d670878c22be8f36e229fe53cc9b786fe25a834def5e6de621f7a3e37b72bc8cd73839aa5ed907ed6cbd45cd3e1b0fa20.js"
           integrity="sha512-VLb0NxciZJ7b6HHkMdhnDWcIeMIr6PNuIp/lPMm3hv4lqDTe9ebeYh96Pje3K8jNc4Oape2QftbL1FzT4bD6IA=="
-          data-oid="views_learning\malloclab\index.md"
-          data-oid-likes="likes_learning\malloclab\index.md"></script>
+          data-oid="views_learning\cachelab\index.md"
+          data-oid-likes="likes_learning\cachelab\index.md"></script>
       
     </section>
 
@@ -757,9 +922,9 @@
           
             <a
               class="flex text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
-              href="/learning/proxylab/">
+              href="/learning/malloclab/">
               <span class="leading-6">
-                <span class="inline-block rtl:rotate-180">&larr;</span>&ensp;csapp proxylab
+                <span class="inline-block rtl:rotate-180">&larr;</span>&ensp;csapp malloclab
               </span>
             </a>
             
@@ -770,19 +935,6 @@
           
         </span>
         <span class="flex flex-col items-end">
-          
-            <a
-              class="flex text-right text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
-              href="/learning/cachelab/">
-              <span class="leading-6">
-                csapp cachelab&ensp;<span class="inline-block rtl:rotate-180">&rarr;</span>
-              </span>
-            </a>
-            
-              <span class="me-6 mt-1 text-xs text-neutral-500 dark:text-neutral-400">
-                <time datetime="2026-03-14T00:00:00&#43;00:00">14 March 2026</time>
-              </span>
-            
           
         </span>
       </div>
