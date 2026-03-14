@@ -4,7 +4,7 @@
   dir="ltr"
   class="scroll-smooth"
   data-default-appearance="dark"
-  data-auto-appearance="true"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  data-auto-appearance="true"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=25624&amp;path=livereload" data-no-instant defer></script>
   <meta charset="utf-8">
   
     <meta http-equiv="content-language" content="en">
@@ -24,7 +24,7 @@
   
   
   
-  <link rel="canonical" href="http://localhost:1313/learning/malloclab/">
+  <link rel="canonical" href="http://localhost:25624/learning/malloclab/">
   
 
   
@@ -34,7 +34,7 @@
   
 
   
-  <meta property="og:url" content="http://localhost:1313/learning/malloclab/">
+  <meta property="og:url" content="http://localhost:25624/learning/malloclab/">
   <meta property="og:site_name" content="Tab_1bit0的神秘据点（施工中）">
   <meta property="og:title" content="csapp malloclab">
   <meta property="og:locale" content="en">
@@ -42,11 +42,11 @@
     <meta property="article:section" content="learning">
     <meta property="article:published_time" content="2026-03-14T00:00:00+00:00">
     <meta property="article:modified_time" content="2026-03-14T00:00:00+00:00">
-    <meta property="og:image" content="http://localhost:1313/learning/malloclab/featured.png">
+    <meta property="og:image" content="http://localhost:25624/learning/malloclab/featured.png">
 
   
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="http://localhost:1313/learning/malloclab/featured.png">
+  <meta name="twitter:image" content="http://localhost:25624/learning/malloclab/featured.png">
   <meta name="twitter:title" content="csapp malloclab">
 
   
@@ -195,7 +195,7 @@
     "headline": "csapp malloclab",
     
     "inLanguage": "en",
-    "url" : "http://localhost:1313/learning/malloclab/",
+    "url" : "http://localhost:25624/learning/malloclab/",
     "author" : {
       "@type": "Person",
       "name": "Tab_1bit0"
@@ -667,15 +667,16 @@
     </span>
     
 </h2>
-<img src="image-19.png" width="50%">
-<img src="image-21.png" width="50%">
+<img src="image-19.png" width="50%">  
+<img src="image-21.png" width="50%">  
 <p>同时结合<strong>分隔空闲列表</strong>的块大小分组方法<strong>简化复杂度</strong>。</p>
 <p>注意我们是被禁止<strong>使用全局静态数组</strong>的，所以分组的指针存在堆的最开头位置。</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="cp">#define HEADER(p) (*(unsigned int *)((char *)(p) + OFFSET))
-</span></span></span><span class="line"><span class="cl"><span class="cp">#define SIZE(p) (HEADER(p) &amp; ~0x1)
-</span></span></span><span class="line"><span class="cl"><span class="cp">#define ISALLOCATED(p) (HEADER(p) &amp; 0x1)
-</span></span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">getSeg</span><span class="p">(</span><span class="kt">unsigned</span> <span class="n">size</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="p">...</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="cp">#define HEADER(p) (*(unsigned int *)((char *)(p) + OFFSET))  
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define SIZE(p) (HEADER(p) &amp; ~0x1)  
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define ISALLOCATED(p) (HEADER(p) &amp; 0x1)  
+</span></span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">getSeg</span><span class="p">(</span><span class="kt">unsigned</span> <span class="n">size</span><span class="p">);</span>  
+</span></span><span class="line"><span class="cl"><span class="p">...</span>  
+</span></span></code></pre></div></div>
 <p>注意定义一些 <strong>宏</strong> 和 <strong>辅助函数</strong> 来简化代码。</p>
 
 <h2 class="relative group">时间复杂度分析
@@ -891,7 +892,7 @@
 <div
   id="search-wrapper"
   class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh] z-500"
-  data-url="http://localhost:1313/">
+  data-url="http://localhost:25624/">
   <div
     id="search-modal"
     class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800">

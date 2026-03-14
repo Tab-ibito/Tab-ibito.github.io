@@ -4,7 +4,7 @@
   dir="ltr"
   class="scroll-smooth"
   data-default-appearance="dark"
-  data-auto-appearance="true"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  data-auto-appearance="true"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=25624&amp;path=livereload" data-no-instant defer></script>
   <meta charset="utf-8">
   
     <meta http-equiv="content-language" content="en">
@@ -24,7 +24,7 @@
   
   
   
-  <link rel="canonical" href="http://localhost:1313/learning/ch.8/">
+  <link rel="canonical" href="http://localhost:25624/learning/ch.8/">
   
 
   
@@ -34,7 +34,7 @@
   
 
   
-  <meta property="og:url" content="http://localhost:1313/learning/ch.8/">
+  <meta property="og:url" content="http://localhost:25624/learning/ch.8/">
   <meta property="og:site_name" content="Tab_1bit0的神秘据点（施工中）">
   <meta property="og:title" content="csapp 第8章 进程 信号 异常流">
   <meta property="og:locale" content="en">
@@ -42,11 +42,11 @@
     <meta property="article:section" content="learning">
     <meta property="article:published_time" content="2026-03-14T00:00:00+00:00">
     <meta property="article:modified_time" content="2026-03-14T00:00:00+00:00">
-    <meta property="og:image" content="http://localhost:1313/learning/ch.8/featured.png">
+    <meta property="og:image" content="http://localhost:25624/learning/ch.8/featured.png">
 
   
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="http://localhost:1313/learning/ch.8/featured.png">
+  <meta name="twitter:image" content="http://localhost:25624/learning/ch.8/featured.png">
   <meta name="twitter:title" content="csapp 第8章 进程 信号 异常流">
 
   
@@ -195,7 +195,7 @@
     "headline": "csapp 第8章 进程 信号 异常流",
     
     "inLanguage": "en",
-    "url" : "http://localhost:1313/learning/ch.8/",
+    "url" : "http://localhost:25624/learning/ch.8/",
     "author" : {
       "@type": "Person",
       "name": "Tab_1bit0"
@@ -703,7 +703,7 @@
       </tr>
   </tbody>
 </table>
-<p>CPU中会存放一个特殊的寄存器：<strong>异常表基址寄存器</strong> (Exception Table Base Register)，指向这个跳转表初始位置。
+<p>CPU中会存放一个特殊的寄存器：<strong>异常表基址寄存器</strong> (Exception Table Base Register)，指向这个跳转表初始位置。<br>
 从而我们通过register+编号的方式定位到相应的处理程序。</p>
 <p>异常处理相当于<strong>特殊的Procedure调用</strong>。</p>
 <ul>
@@ -778,7 +778,7 @@
     </span>
     
 </h3>
-<img src="image-4.png" width="50%">
+<img src="image-4.png" width="50%">  
 <ul>
 <li><code>Divide Error</code> 是除法错误，就是使除法器出现问题，例如除数为0。这种时候的处理方法一般是<strong>终止</strong>程序。</li>
 <li><code>General Protection Fault</code> 是一般保护错误，一般是程序接触到了<strong>不存在或无权访问</strong>的内存区域。这种时候的处理方法一般是<strong>终止</strong>程序。</li>
@@ -796,11 +796,11 @@
     </span>
     
 </h3>
-<img src="image-5.png" width="50%">
-注意这张表格和上面所说的跳转表**不一样**，这些Number是**系统函数的调用编号**。
-汇编中通过 `syscall` 指令来实现系统层面调用。
-<img src="image-6.png" width="50%">
-注意在C语言中`write()` 和 `exit()` 实际上是为 `syscall` 提供**包装**。
+<img src="image-5.png" width="50%">  
+注意这张表格和上面所说的跳转表**不一样**，这些Number是**系统函数的调用编号**。  
+汇编中通过 `syscall` 指令来实现系统层面调用。  
+<img src="image-6.png" width="50%">  
+注意在C语言中`write()` 和 `exit()` 实际上是为 `syscall` 提供**包装**。  
 
 <h2 class="relative group">进程 Process
     <div id="进程-process" class="anchor"></div>
@@ -811,7 +811,7 @@
     </span>
     
 </h2>
-<p>区分于<strong>程序</strong>，进程是一个被创建的<strong>实例</strong>。
+<p>区分于<strong>程序</strong>，进程是一个被创建的<strong>实例</strong>。<br>
 作为一个单个的非实例的<strong>程序</strong>，我们会假设它</p>
 <ul>
 <li>自由地占用虚拟内存地址</li>
@@ -846,7 +846,7 @@
     </span>
     
 </h3>
-<p><strong>内核</strong>为每一个进程维持一个<strong>上下文</strong>，以便于进程的挂起和恢复。
+<p><strong>内核</strong>为每一个进程维持一个<strong>上下文</strong>，以便于进程的挂起和恢复。<br>
 内部包括了</p>
 <ul>
 <li>general-purpose registers</li>
@@ -863,7 +863,7 @@
 <li>切换新的上下文</li>
 <li>重定位控制流</li>
 </ul>
-<p>这个过程发生在<strong>很多个进程并发</strong>，或者有需要<strong>调用系统函数</strong>的情况
+<p>这个过程发生在<strong>很多个进程并发</strong>，或者有需要<strong>调用系统函数</strong>的情况<br>
 但上下文切换花费的成本代价显然<strong>非常大</strong>。</p>
 
 <h3 class="relative group">用户模式和内核模式
@@ -876,8 +876,8 @@
     
 </h3>
 <p>通过Control Register这个<strong>寄存器</strong>维护<strong>模式位</strong>，标示当前程序权限。</p>
-<p>内核模式可以调用任何内核指令，访问任何内存。
-用户权限不能执行<strong>特权指令</strong>，如调用I/O，停止处理器，改变模式位等。
+<p>内核模式可以调用任何内核指令，访问任何内存。<br>
+用户权限不能执行<strong>特权指令</strong>，如调用I/O，停止处理器，改变模式位等。<br>
 用户权限只能通过系统调用<strong>间接地</strong>访问内核的内存代码数据，比如<strong>处理异常</strong>，<strong>用户模式</strong>调用内核中的代码，这些内核中的代码在<strong>内核模式</strong>执行，最后回到<strong>用户模式</strong>。</p>
 
 <h3 class="relative group">子进程与fork()函数
@@ -889,21 +889,22 @@
     </span>
     
 </h3>
-<p>在父进程中执行 <code>fork()</code> 函数会拉起一个和父进程相同的子进程，所有信息一致，但是存在内存的不同<strong>实际位置</strong>。
+<p>在父进程中执行 <code>fork()</code> 函数会拉起一个和父进程相同的子进程，所有信息一致，但是存在内存的不同<strong>实际位置</strong>。<br>
 <em>我们该如何区分父进程与子进程同一位置的这个函数呢？</em></p>
 <ul>
 <li>在父进程中，<code>fork()</code> 函数会返回一个子进程的标识码 <code>pid</code> (&gt;0)</li>
 <li>在子进程中，<code>fork()</code> 函数会返回0，并且是从这一句fork开始起执行。</li>
-<li>这就是<em>调用一次，返回2次</em>的特殊性。
+<li>这就是<em>调用一次，返回2次</em>的特殊性。<br>
 如果我们执行</li>
 </ul>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="cm">/*in function main()*/</span>
-</span></span><span class="line"><span class="cl"><span class="nf">printf</span><span class="p">(</span><span class="s">&#34;This is the father process.</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="nf">fork</span><span class="p">();</span> <span class="c1">// #1
-</span></span></span><span class="line"><span class="cl"><span class="nf">fork</span><span class="p">();</span> <span class="c1">// #2
-</span></span></span><span class="line"><span class="cl"><span class="nf">printf</span><span class="p">(</span><span class="s">&#34;Hello, World!</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span></span></span></code></pre></div></div>
-<p>它实际上执行方法：
-<img src="image-7.png" width="50%">
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="cm">/*in function main()*/</span>  
+</span></span><span class="line"><span class="cl"><span class="nf">printf</span><span class="p">(</span><span class="s">&#34;This is the father process.</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>  
+</span></span><span class="line"><span class="cl"><span class="nf">fork</span><span class="p">();</span> <span class="c1">// #1  
+</span></span></span><span class="line"><span class="cl"><span class="nf">fork</span><span class="p">();</span> <span class="c1">// #2  
+</span></span></span><span class="line"><span class="cl"><span class="nf">printf</span><span class="p">(</span><span class="s">&#34;Hello, World!</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>  
+</span></span></code></pre></div></div>
+<p>它实际上执行方法：<br>
+<img src="image-7.png" width="50%"><br>
 这四个hello的输出，由于<strong>并发执行</strong>的原因，实际顺序具有任意性。</p>
 
 <h3 class="relative group">execve()函数
@@ -916,11 +917,11 @@
     
 </h3>
 <p>输入一次不返回，包括3个参数：</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">filename</span><span class="p">;</span> <span class="c1">// 启动文件名
-</span></span></span><span class="line"><span class="cl"><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">argv</span><span class="p">[];</span> <span class="c1">// 命令行启动参数
-</span></span></span><span class="line"><span class="cl"><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">envp</span><span class="p">[];</span> <span class="c1">// 环境参数
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">filename</span><span class="p">;</span> <span class="c1">// 启动文件名  
+</span></span></span><span class="line"><span class="cl"><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">argv</span><span class="p">[];</span> <span class="c1">// 命令行启动参数  
+</span></span></span><span class="line"><span class="cl"><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">envp</span><span class="p">[];</span> <span class="c1">// 环境参数  
 </span></span></span></code></pre></div></div>
-<p>它负责调取<strong>加载器</strong>，<strong>覆盖当前进程</strong>，比如把shell用新的某个进程覆盖掉。
+<p>它负责调取<strong>加载器</strong>，<strong>覆盖当前进程</strong>，比如把shell用新的某个进程覆盖掉。<br>
 比如从Shell中运行可执行文件。</p>
 
 <h3 class="relative group">waitpid()函数
@@ -932,16 +933,17 @@
     </span>
     
 </h3>
-<p>进程结束后还是会赖在内存里占用空间，称为<strong>僵死进程</strong>。
-父进程中的 <code>waitpid()</code> 函数可以回收清理这些僵尸进程。
+<p>进程结束后还是会赖在内存里占用空间，称为<strong>僵死进程</strong>。<br>
+父进程中的 <code>waitpid()</code> 函数可以回收清理这些僵尸进程。<br>
 它有三个参数</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="kt">pid_t</span> <span class="n">pid</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="o">*</span><span class="n">statusp</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">options</span><span class="p">;</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="kt">pid_t</span> <span class="n">pid</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="o">*</span><span class="n">statusp</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">options</span><span class="p">;</span>  
+</span></span></code></pre></div></div>
 <p>返回值是<strong>被回收子进程的pid</strong>。</p>
 <ul>
 <li>pid = -1: 监控所有子进程</li>
-<li>pid &gt; 0: 监控特定pid子进程
+<li>pid &gt; 0: 监控特定pid子进程<br>
 指针*statusp指向对子进程监控状态，即退出情况，具体可以通过<code>wait.h</code>中宏查询。</li>
 </ul>
 <p>pid = -1时，子进程的回收也具有<strong>顺序任意性</strong>，需要代码人为约束。</p>
@@ -956,13 +958,13 @@
     </span>
     
 </h3>
-<p>一般子进程与父进程隶属于同一个进程族；也可以使用 <code>setpgid(pid_t pid, pid_t pgid)</code> 人为设置。
+<p>一般子进程与父进程隶属于同一个进程族；也可以使用 <code>setpgid(pid_t pid, pid_t pgid)</code> 人为设置。<br>
 这里当</p>
 <ul>
 <li>pid = 0: 不改pid</li>
 <li>pgid = 0: 使用进程的pid值作为pgid值</li>
 </ul>
-<p>使用 类似 <code>ls | sort</code> 创建<strong>作业</strong>会给作业分配不同的进程组。
+<p>使用 类似 <code>ls | sort</code> 创建<strong>作业</strong>会给作业分配不同的进程组。<br>
 （这句指令的意思是把 <code>ls</code> 的输出喂给 <code>sort</code> 进行输入的管道）</p>
 
 <h2 class="relative group">信号 Signal
@@ -974,7 +976,7 @@
     </span>
     
 </h2>
-<p>是<strong>用户层</strong>的软件形式的<strong>特殊异常</strong>。
+<p>是<strong>用户层</strong>的软件形式的<strong>特殊异常</strong>。<br>
 <img src="image-8.png" width="50%"></p>
 
 <h3 class="relative group">发送信号
@@ -990,8 +992,8 @@
 <li>键盘：Ctrl+C终止前台进程；Ctrl+Z挂起前台进程</li>
 <li>Shell：</li>
 </ul>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Shell" data-lang="Shell"><span class="line"><span class="cl">    /bin/kill -9 <span class="m">11111</span> <span class="c1">#杀死进程号11111那个</span>
-</span></span><span class="line"><span class="cl">    /bin/kill -9 -11111 <span class="c1">#杀死进程组11111里面所有进程</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Shell" data-lang="Shell"><span class="line"><span class="cl">    /bin/kill -9 <span class="m">11111</span> <span class="c1">#杀死进程号11111那个  </span>
+</span></span><span class="line"><span class="cl">    /bin/kill -9 -11111 <span class="c1">#杀死进程组11111里面所有进程  </span></span></span></code></pre></div></div>
 <ul>
 <li>进程内部调用函数kill()</li>
 <li>进程内部调用函数alarm()</li>
@@ -1014,13 +1016,13 @@
 <li>The process suspends until restarted by a SIGCONT signal 进程挂起直到被唤醒</li>
 <li>The process ignores the signal 进程忽略该信号</li>
 </ul>
-<p>信号处理过程类似于异常处理。
+<p>信号处理过程类似于异常处理。<br>
 注意：</p>
 <ul>
 <li>一种类型的待处理信号只会存在一个，剩下的会被丢弃</li>
 <li>信号处理程序<strong>可以被其他信号处理程序中断</strong></li>
 </ul>
-<p><em>如果有好多个信号怎么办？</em>
+<p><em>如果有好多个信号怎么办？</em><br>
 在某个信号处理程序执行完之后，会先切到kernel mode再切回user mode以<strong>刷新状态</strong>。</p>
 <p>缺点：</p>
 <ul>
@@ -1048,10 +1050,10 @@
     
 </h3>
 <p>Signal 是<strong>内核层面</strong>向<strong>用户层面</strong>提供的信号，类似于<strong>交通信号灯</strong>，除了类似于 <code>SIGKILL</code> 这类的强制性执行默认动作，其他都可以在编程语言中捕获并自行处理。<br>
-CSAPP书中有一个<strong>案例</strong>，其中Signal在<strong>指挥交通</strong>，保证父进程在子进程结束后继续执行下一步。再比如 <code>sigsuspend()</code> 方法也行之有效。
+CSAPP书中有一个<strong>案例</strong>，其中Signal在<strong>指挥交通</strong>，保证父进程在子进程结束后继续执行下一步。再比如 <code>sigsuspend()</code> 方法也行之有效。<br>
 Signal和它的捕获处理方法具有<strong>异步性</strong>。</p>
-<p>Exception是<strong>硬件层面</strong>异常。其中的Abort类型和Fault类型在出错时会<strong>最高权限地打断</strong>进程执行，而不是像Signal可以被捕捉重新处理具有<strong>妥协性</strong>。
-但是我们调用系统函数 <code>trap</code> 类型如果遇到了错误情况，并不会强制像fault这样直接爆掉，而是会提供错误码和错误信息<strong>返回给用户层</strong>。
+<p>Exception是<strong>硬件层面</strong>异常。其中的Abort类型和Fault类型在出错时会<strong>最高权限地打断</strong>进程执行，而不是像Signal可以被捕捉重新处理具有<strong>妥协性</strong>。<br>
+但是我们调用系统函数 <code>trap</code> 类型如果遇到了错误情况，并不会强制像fault这样直接爆掉，而是会提供错误码和错误信息<strong>返回给用户层</strong>。<br>
 这些信息经过(JVM等)进一步处理，是可以被<strong>try-catch</strong>捕捉到的。</p>
 <p><code>try-catch</code> 语句具有<strong>同步性</strong>，它必须需要<strong>主函数执行到了某一个特定区块</strong>才能触发。并且 <code>try-catch</code> 这些异常都是在C++/Java语境下定义的<strong>高级层面上的异常情况</strong>，即便它们本质上可能是一个trap意外的<strong>包装</strong>。</p>
 <p>案例：<em><code>java.io.IOException</code> 的工作原理就是系统发出来的错误情况提供到了JVM上。</em></p>
@@ -1066,9 +1068,10 @@ Signal和它的捕获处理方法具有<strong>异步性</strong>。</p>
     
 </h3>
 <p>Shell后台使用了指令组合：</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="nf">fork</span><span class="p">();</span>
-</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="n">pid</span> <span class="o">==</span> <span class="mi">0</span> <span class="n">then</span> <span class="nf">execve</span><span class="p">(...);</span>
-</span></span><span class="line"><span class="cl"><span class="nf">waitpid</span><span class="p">(...);</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="nf">fork</span><span class="p">();</span>  
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="n">pid</span> <span class="o">==</span> <span class="mi">0</span> <span class="n">then</span> <span class="nf">execve</span><span class="p">(...);</span>  
+</span></span><span class="line"><span class="cl"><span class="nf">waitpid</span><span class="p">(...);</span>  
+</span></span></code></pre></div></div>
 <p>Shell它<code>fork</code>出一个子进程，再把这个子进程用<code>execve</code>覆盖掉，并且用<code>waitpid</code>暂时挂起父进程，最后清理。</p>
 
 <h3 class="relative group">Signal的异步性让我想到了javascript里面的addEventListener()的监听函数，这个两者间有什么关系？
@@ -1091,7 +1094,7 @@ Signal和它的捕获处理方法具有<strong>异步性</strong>。</p>
     </span>
     
 </h3>
-<p>在同一Shell下，前台进程一般只有一个进程或者（不一定是整个）进程组。
+<p>在同一Shell下，前台进程一般只有一个进程或者（不一定是整个）进程组。<br>
 <code>ls | sort</code> 案例中，ls和sort是同一个进程组，但是和Shell不是同一个进程组。运行的时候ls和sort都活跃在前台。</p>
 <hr>
 <p><em><strong>By Tab_1bit0</strong></em></p>
@@ -1275,7 +1278,7 @@ Signal和它的捕获处理方法具有<strong>异步性</strong>。</p>
 <div
   id="search-wrapper"
   class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh] z-500"
-  data-url="http://localhost:1313/">
+  data-url="http://localhost:25624/">
   <div
     id="search-modal"
     class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800">

@@ -4,7 +4,7 @@
   dir="ltr"
   class="scroll-smooth"
   data-default-appearance="dark"
-  data-auto-appearance="true"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  data-auto-appearance="true"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=25624&amp;path=livereload" data-no-instant defer></script>
   <meta charset="utf-8">
   
     <meta http-equiv="content-language" content="en">
@@ -24,7 +24,7 @@
   
   
   
-  <link rel="canonical" href="http://localhost:1313/learning/proxylab/">
+  <link rel="canonical" href="http://localhost:25624/learning/proxylab/">
   
 
   
@@ -34,7 +34,7 @@
   
 
   
-  <meta property="og:url" content="http://localhost:1313/learning/proxylab/">
+  <meta property="og:url" content="http://localhost:25624/learning/proxylab/">
   <meta property="og:site_name" content="Tab_1bit0的神秘据点（施工中）">
   <meta property="og:title" content="csapp proxylab">
   <meta property="og:locale" content="en">
@@ -42,11 +42,11 @@
     <meta property="article:section" content="learning">
     <meta property="article:published_time" content="2026-03-14T00:00:00+00:00">
     <meta property="article:modified_time" content="2026-03-14T00:00:00+00:00">
-    <meta property="og:image" content="http://localhost:1313/learning/proxylab/featured.png">
+    <meta property="og:image" content="http://localhost:25624/learning/proxylab/featured.png">
 
   
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="http://localhost:1313/learning/proxylab/featured.png">
+  <meta name="twitter:image" content="http://localhost:25624/learning/proxylab/featured.png">
   <meta name="twitter:title" content="csapp proxylab">
 
   
@@ -195,7 +195,7 @@
     "headline": "csapp proxylab",
     
     "inLanguage": "en",
-    "url" : "http://localhost:1313/learning/proxylab/",
+    "url" : "http://localhost:25624/learning/proxylab/",
     "author" : {
       "@type": "Person",
       "name": "Tab_1bit0"
@@ -736,22 +736,24 @@
     
 </h2>
 <p>由于代理访问服务器的<strong>时间需求很长</strong>，为了方便访问，我们需要在Proxy上<strong>做缓存</strong>，存一些相关的文件数据，这样可以直接提供<strong>一部分</strong>以提高效率。</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="cp">#define MAX_CACHE_SIZE 1049000
-</span></span></span><span class="line"><span class="cl"><span class="cp">#define MAX_OBJECT_SIZE 102400
-</span></span></span><span class="line"><span class="cl"><span class="cp">#define MAXLINE 8192
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="cp">#define MAX_CACHE_SIZE 1049000  
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define MAX_OBJECT_SIZE 102400  
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define MAXLINE 8192  
 </span></span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">static</span> <span class="kt">int</span> <span class="n">cache_used</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">static</span> <span class="kt">int</span> <span class="n">cache_used</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>  
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">struct</span> <span class="n">Cache</span><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="kt">char</span> <span class="n">url</span><span class="p">[</span><span class="n">MAXLINE</span><span class="p">];</span>
-</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">history</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="kt">char</span> <span class="n">content</span><span class="p">[</span><span class="n">MAX_OBJECT_SIZE</span><span class="p">];</span>
-</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">size</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="n">cache</span><span class="p">[</span><span class="mi">8</span><span class="p">];</span></span></span></code></pre></div></div>
+</span></span><span class="line"><span class="cl"><span class="k">struct</span> <span class="n">Cache</span><span class="p">{</span>  
+</span></span><span class="line"><span class="cl">    <span class="kt">char</span> <span class="n">url</span><span class="p">[</span><span class="n">MAXLINE</span><span class="p">];</span>  
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">history</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl">    <span class="kt">char</span> <span class="n">content</span><span class="p">[</span><span class="n">MAX_OBJECT_SIZE</span><span class="p">];</span>  
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">size</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="n">cache</span><span class="p">[</span><span class="mi">8</span><span class="p">];</span>  
+</span></span></code></pre></div></div>
 <p>我们根据要求<strong>手动</strong>创建一个8长度的 <code>cache</code> <strong>结构体数组</strong>，这样避免手动 <code>malloc</code> 挤占堆区且不方便管理。</p>
 <p>然后定义</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">cache_load</span><span class="p">(</span><span class="kt">char</span> <span class="n">url</span><span class="p">[</span><span class="n">MAXLINE</span><span class="p">]);</span>
-</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">cache_save</span><span class="p">(</span><span class="kt">char</span> <span class="n">url</span><span class="p">[</span><span class="n">MAXLINE</span><span class="p">],</span> <span class="kt">int</span> <span class="n">size</span><span class="p">,</span> <span class="kt">char</span> <span class="n">content</span><span class="p">[</span><span class="n">MAX_OBJECT_SIZE</span><span class="p">]);</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">cache_load</span><span class="p">(</span><span class="kt">char</span> <span class="n">url</span><span class="p">[</span><span class="n">MAXLINE</span><span class="p">]);</span>  
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">cache_save</span><span class="p">(</span><span class="kt">char</span> <span class="n">url</span><span class="p">[</span><span class="n">MAXLINE</span><span class="p">],</span> <span class="kt">int</span> <span class="n">size</span><span class="p">,</span> <span class="kt">char</span> <span class="n">content</span><span class="p">[</span><span class="n">MAX_OBJECT_SIZE</span><span class="p">]);</span>  
+</span></span></code></pre></div></div>
 <p>这两个方法。</p>
 <p><strong>注意C的细节问题</strong>：字符串最后一位以 <code>\0</code> 终止，但我们读写（二进制）文件的时候，由于文件编码可能中间出现 <code>\0</code>，所以<strong>读写字符串和二进制bytes</strong>的方法不同。</p>
 <p>其余实现方法同Cachelab。</p>
@@ -948,7 +950,7 @@
 <div
   id="search-wrapper"
   class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh] z-500"
-  data-url="http://localhost:1313/">
+  data-url="http://localhost:25624/">
   <div
     id="search-modal"
     class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800">

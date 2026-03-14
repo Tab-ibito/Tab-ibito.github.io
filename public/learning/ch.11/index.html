@@ -4,7 +4,7 @@
   dir="ltr"
   class="scroll-smooth"
   data-default-appearance="dark"
-  data-auto-appearance="true"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  data-auto-appearance="true"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=25624&amp;path=livereload" data-no-instant defer></script>
   <meta charset="utf-8">
   
     <meta http-equiv="content-language" content="en">
@@ -24,7 +24,7 @@
   
   
   
-  <link rel="canonical" href="http://localhost:1313/learning/ch.11/">
+  <link rel="canonical" href="http://localhost:25624/learning/ch.11/">
   
 
   
@@ -34,7 +34,7 @@
   
 
   
-  <meta property="og:url" content="http://localhost:1313/learning/ch.11/">
+  <meta property="og:url" content="http://localhost:25624/learning/ch.11/">
   <meta property="og:site_name" content="Tab_1bit0的神秘据点（施工中）">
   <meta property="og:title" content="csapp 第11章 网络编程">
   <meta property="og:locale" content="en">
@@ -42,11 +42,11 @@
     <meta property="article:section" content="learning">
     <meta property="article:published_time" content="2026-03-14T00:00:00+00:00">
     <meta property="article:modified_time" content="2026-03-14T00:00:00+00:00">
-    <meta property="og:image" content="http://localhost:1313/learning/ch.11/featured.png">
+    <meta property="og:image" content="http://localhost:25624/learning/ch.11/featured.png">
 
   
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="http://localhost:1313/learning/ch.11/featured.png">
+  <meta name="twitter:image" content="http://localhost:25624/learning/ch.11/featured.png">
   <meta name="twitter:title" content="csapp 第11章 网络编程">
 
   
@@ -195,7 +195,7 @@
     "headline": "csapp 第11章 网络编程",
     
     "inLanguage": "en",
-    "url" : "http://localhost:1313/learning/ch.11/",
+    "url" : "http://localhost:25624/learning/ch.11/",
     "author" : {
       "@type": "Person",
       "name": "Tab_1bit0"
@@ -209,7 +209,7 @@
     
     
     "mainEntityOfPage": "true",
-    "wordCount": "317"
+    "wordCount": "315"
   }]
   </script>
 
@@ -512,7 +512,7 @@
   <div class="flex flex-row flex-wrap items-center">
     
     
-      <time datetime="2026-03-14T00:00:00&#43;00:00">14 March 2026</time><span class="px-2 text-primary-500">&middot;</span><span>317 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">2 mins</span><span class="px-2 text-primary-500">&middot;</span><span>
+      <time datetime="2026-03-14T00:00:00&#43;00:00">14 March 2026</time><span class="px-2 text-primary-500">&middot;</span><span>315 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">2 mins</span><span class="px-2 text-primary-500">&middot;</span><span>
   
   
     
@@ -667,7 +667,7 @@
     </span>
     
 </h2>
-<img src="image-26.png" width="50%">
+<img src="image-26.png" width="50%">  
 <p>关注两对概念与工作流程：</p>
 <ul>
 <li>client &amp; server</li>
@@ -683,7 +683,7 @@
     </span>
     
 </h2>
-<img src="image-27.png" width="50%">
+<img src="image-27.png" width="50%">  
 <p>最重要的是体现了<strong>封装</strong>的思想。</p>
 <p>但是依然有很多的<strong>细节问题</strong>没能解决：</p>
 
@@ -707,7 +707,7 @@
     </span>
     
 </h4>
-<p>相当于<strong>住址信息</strong>，要上哪里去找人。
+<p>相当于<strong>住址信息</strong>，要上哪里去找人。<br>
 在网络上传输的字节数据都<strong>使用大端法存储</strong>，尽管主机中是小端法。</p>
 
 <h4 class="relative group">Internet Domain Names 域名
@@ -719,8 +719,8 @@
     </span>
     
 </h4>
-<img src="image-29.png" width="50%">
-本地部署的是 `127.0.0.1` (localhost)。
+<img src="image-29.png" width="50%">  
+<p>本地部署的是 <code>127.0.0.1</code> (localhost)。</p>
 <p><strong>DNS</strong> (Domain Name System) 指的是域名到IP的映射。</p>
 
 <h4 class="relative group">Internet Connections 网络连接
@@ -732,8 +732,8 @@
     </span>
     
 </h4>
-<p>使用Socket（套接字）来保证信息传输准确性。
-Socket Address包括 <strong>ip地址 + 16位整数端口号 (port)</strong>。
+<p>使用Socket（套接字）来保证信息传输准确性。<br>
+Socket Address包括 <strong>ip地址 + 16位整数端口号 (port)</strong>。<br>
 有一些约定俗成的常用端口号，比如email服务用25，Web服务器用80。</p>
 
 <h2 class="relative group">Socket Interface 套接字接口
@@ -745,7 +745,7 @@ Socket Address包括 <strong>ip地址 + 16位整数端口号 (port)</strong>。
     </span>
     
 </h2>
-<img src="image-30.png" width="50%">
+<img src="image-30.png" width="50%">  
 
 <h3 class="relative group">相关方法实现
     <div id="相关方法实现" class="anchor"></div>
@@ -756,22 +756,24 @@ Socket Address包括 <strong>ip地址 + 16位整数端口号 (port)</strong>。
     </span>
     
 </h3>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">socket</span><span class="p">(</span><span class="kt">int</span> <span class="n">domain</span><span class="p">,</span> <span class="kt">int</span> <span class="n">type</span><span class="p">,</span> <span class="kt">int</span> <span class="n">protocol</span><span class="p">);</span>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">socket</span><span class="p">(</span><span class="kt">int</span> <span class="n">domain</span><span class="p">,</span> <span class="kt">int</span> <span class="n">type</span><span class="p">,</span> <span class="kt">int</span> <span class="n">protocol</span><span class="p">);</span>  
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">connect</span><span class="p">(</span><span class="kt">int</span> <span class="n">clientfd</span><span class="p">,</span> <span class="k">const</span> <span class="k">struct</span> <span class="n">sockaddr</span> <span class="o">*</span><span class="n">addr</span><span class="p">,</span> <span class="kt">socklen_t</span> <span class="n">addrlen</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">connect</span><span class="p">(</span><span class="kt">int</span> <span class="n">clientfd</span><span class="p">,</span> <span class="k">const</span> <span class="k">struct</span> <span class="n">sockaddr</span> <span class="o">*</span><span class="n">addr</span><span class="p">,</span> <span class="kt">socklen_t</span> <span class="n">addrlen</span><span class="p">);</span>  
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">bind</span><span class="p">(</span><span class="kt">int</span> <span class="n">sockfd</span><span class="p">,</span> <span class="k">const</span> <span class="k">struct</span> <span class="n">sockaddr</span> <span class="o">*</span><span class="n">addr</span><span class="p">,</span> <span class="kt">socklen_t</span> <span class="n">addrlen</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">bind</span><span class="p">(</span><span class="kt">int</span> <span class="n">sockfd</span><span class="p">,</span> <span class="k">const</span> <span class="k">struct</span> <span class="n">sockaddr</span> <span class="o">*</span><span class="n">addr</span><span class="p">,</span> <span class="kt">socklen_t</span> <span class="n">addrlen</span><span class="p">);</span>  
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">listen</span><span class="p">(</span><span class="kt">int</span> <span class="n">sockfd</span><span class="p">,</span> <span class="kt">int</span> <span class="n">backlog</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">listen</span><span class="p">(</span><span class="kt">int</span> <span class="n">sockfd</span><span class="p">,</span> <span class="kt">int</span> <span class="n">backlog</span><span class="p">);</span>  
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">accept</span><span class="p">(</span><span class="kt">int</span> <span class="n">listenfd</span><span class="p">,</span> <span class="k">struct</span> <span class="n">sockaddr</span> <span class="o">*</span><span class="n">addr</span><span class="p">,</span> <span class="kt">int</span> <span class="o">*</span><span class="n">addrlen</span><span class="p">);</span></span></span></code></pre></div></div>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">getaddrinfo</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">host</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">service</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl"><span class="k">const</span> <span class="k">struct</span> <span class="n">addrinfo</span> <span class="o">*</span><span class="n">hints</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl"><span class="k">struct</span> <span class="n">addrinfo</span> <span class="o">**</span><span class="n">result</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">accept</span><span class="p">(</span><span class="kt">int</span> <span class="n">listenfd</span><span class="p">,</span> <span class="k">struct</span> <span class="n">sockaddr</span> <span class="o">*</span><span class="n">addr</span><span class="p">,</span> <span class="kt">int</span> <span class="o">*</span><span class="n">addrlen</span><span class="p">);</span>  
+</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">getaddrinfo</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">host</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">service</span><span class="p">,</span>  
+</span></span><span class="line"><span class="cl"><span class="k">const</span> <span class="k">struct</span> <span class="n">addrinfo</span> <span class="o">*</span><span class="n">hints</span><span class="p">,</span>  
+</span></span><span class="line"><span class="cl"><span class="k">struct</span> <span class="n">addrinfo</span> <span class="o">**</span><span class="n">result</span><span class="p">);</span>  
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">freeaddrinfo</span><span class="p">(</span><span class="k">struct</span> <span class="n">addrinfo</span> <span class="o">*</span><span class="n">result</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">freeaddrinfo</span><span class="p">(</span><span class="k">struct</span> <span class="n">addrinfo</span> <span class="o">*</span><span class="n">result</span><span class="p">);</span>  
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="nf">gai_strerror</span><span class="p">(</span><span class="kt">int</span> <span class="n">errcode</span><span class="p">);</span></span></span></code></pre></div></div>
+</span></span><span class="line"><span class="cl"><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="nf">gai_strerror</span><span class="p">(</span><span class="kt">int</span> <span class="n">errcode</span><span class="p">);</span>  
+</span></span></code></pre></div></div>
 <p>工作原理：</p>
 <ul>
 <li><strong>转换</strong> - 将主机名称 <code>host</code> 和 端口 <code>service</code> 自动安全地转换成复杂的网络通信需要的<strong>二进制结构体</strong>。</li>
@@ -779,28 +781,32 @@ Socket Address包括 <strong>ip地址 + 16位整数端口号 (port)</strong>。
 <li><strong>个性化</strong> - 将获取的信息可以通过 <code>hints</code> 设置<strong>喜好</strong>，以特定形式提供给用户</li>
 </ul>
 <p><code>freeaddrinfo</code> 的功能是释放 <code>getaddrinfo</code> 的内存，防止内存泄漏。</p>
-<img src="image-31.png" width="50%">
-<img src="image-32.png" width="50%">
-* `ai_flags` 可以通过**掩码位运算**得到对应的hints内容；
-* `ai_family` `ai_socktype` `ai_protocol` 都可以**直接作为参数传给** * `socket`；
-`ai_addrlen` 和 `ai_addr` 又分别可以传给 `bind` 和 `connect`。
+<img src="image-31.png" width="50%">  
+<img src="image-32.png" width="50%">  
+<ul>
+<li><code>ai_flags</code> 可以通过<strong>掩码位运算</strong>得到对应的hints内容；</li>
+<li><code>ai_family</code> <code>ai_socktype</code> <code>ai_protocol</code> 都可以<strong>直接作为参数传给</strong> * <code>socket</code>；<br>
+<code>ai_addrlen</code> 和 <code>ai_addr</code> 又分别可以传给 <code>bind</code> 和 <code>connect</code>。</li>
+</ul>
 <p>此外这里我们把 <code>result</code> 传参传入，函数<strong>直接修改</strong> <code>result</code> 对应的内容。</p>
 <p><em>为什么result要设计成<strong>双重指针</strong>？</em></p>
 <ul>
 <li>因为一个域名可以有<strong>很多个</strong>不同的ip地址对应。</li>
 </ul>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">getnameinfo</span><span class="p">(</span><span class="k">const</span> <span class="k">struct</span> <span class="n">sockaddr</span> <span class="o">*</span><span class="n">sa</span><span class="p">,</span> <span class="kt">socklen_t</span> <span class="n">salen</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl"><span class="kt">char</span> <span class="o">*</span><span class="n">host</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">hostlen</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl"><span class="kt">char</span> <span class="o">*</span><span class="n">service</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">servlen</span><span class="p">,</span> <span class="kt">int</span> <span class="n">flags</span><span class="p">);</span></span></span></code></pre></div></div>
-<p>这个是上述的<strong>逆操作</strong>，如果不想要*host，把*host设成NULL，hostlen参数置0即可。
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">getnameinfo</span><span class="p">(</span><span class="k">const</span> <span class="k">struct</span> <span class="n">sockaddr</span> <span class="o">*</span><span class="n">sa</span><span class="p">,</span> <span class="kt">socklen_t</span> <span class="n">salen</span><span class="p">,</span>  
+</span></span><span class="line"><span class="cl"><span class="kt">char</span> <span class="o">*</span><span class="n">host</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">hostlen</span><span class="p">,</span>  
+</span></span><span class="line"><span class="cl"><span class="kt">char</span> <span class="o">*</span><span class="n">service</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">servlen</span><span class="p">,</span> <span class="kt">int</span> <span class="n">flags</span><span class="p">);</span>  
+</span></span></code></pre></div></div>
+<p>这个是上述的<strong>逆操作</strong>，如果不想要*host，把*host设成NULL，hostlen参数置0即可。<br>
 <code>flag</code> 也是位掩码，设置<strong>返回格式</strong>，比如service name还是port。</p>
 <p><em><strong>service name 与 port 有什么区别和联系？</strong></em></p>
 <ul>
 <li>service name是对一些特殊状态端口号的<strong>别名区分</strong>，比如 <code>80</code> 对应 <code>http</code>。</li>
 </ul>
 <p>此外，csapp给了两个扩展方法：</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">open_clientfd</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">hostname</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">port</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">open_listenfd</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">port</span><span class="p">);</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">open_clientfd</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">hostname</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">port</span><span class="p">);</span>  
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">open_listenfd</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">port</span><span class="p">);</span>  
+</span></span></code></pre></div></div>
 <p>这两个方法封装了<strong>整个建立连接过程</strong>，直接返回对应文件的文件标识符。</p>
 
 <h2 class="relative group">Web Servers
@@ -828,7 +834,7 @@ Socket Address包括 <strong>ip地址 + 16位整数端口号 (port)</strong>。
 <li>提供<strong>静态内容</strong>，比如 <em><a href="https://tab-ibito.github.io/learning/bomblab"  target="_blank" rel="noreferrer">https://tab-ibito.github.io/learning/bomblab</a></em></li>
 <li>运行可执行文件返回结果，即<strong>动态内容</strong>。</li>
 </ul>
-<p>所有文件都通过URL定位。可执行文件的启动项参数通过 <code>/?id=1&amp;name=Tabibito</code> 的后置项输入。
+<p>所有文件都通过URL定位。可执行文件的启动项参数通过 <code>/?id=1&amp;name=Tabibito</code> 的后置项输入。<br>
 有三个<strong>特征</strong>：</p>
 <ul>
 <li>静态和动态不显著区分</li>
@@ -907,7 +913,7 @@ Socket Address包括 <strong>ip地址 + 16位整数端口号 (port)</strong>。
 </h3>
 <p>Request方面，通过 <code>/?id=1&amp;name=Tabibito</code> 的后置项<strong>输入传参</strong>（CGI-Environment）。</p>
 <p>服务器接受之后会 <code>fork</code> 并 <code>execve</code> 对应地址内容的<strong>子进程</strong>，传入参数开始工作。</p>
-<p>子进程把输出结果给到 <code>stdout</code>，但是它重定向到<strong>对应socket的文件描述符</strong>去，即 <code>dup2(connfd, STDOUT_FILENO)</code>，这个过程发生在执行 <code>execve()</code> 前。
+<p>子进程把输出结果给到 <code>stdout</code>，但是它重定向到<strong>对应socket的文件描述符</strong>去，即 <code>dup2(connfd, STDOUT_FILENO)</code>，这个过程发生在执行 <code>execve()</code> 前。<br>
 此外，子进程有<strong>完成HTTP Response</strong>的责任。</p>
 <hr>
 <p><em><strong>By Tab_1bit0</strong></em></p>
@@ -1091,7 +1097,7 @@ Socket Address包括 <strong>ip地址 + 16位整数端口号 (port)</strong>。
 <div
   id="search-wrapper"
   class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh] z-500"
-  data-url="http://localhost:1313/">
+  data-url="http://localhost:25624/">
   <div
     id="search-modal"
     class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800">

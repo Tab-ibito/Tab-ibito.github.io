@@ -4,7 +4,7 @@
   dir="ltr"
   class="scroll-smooth"
   data-default-appearance="dark"
-  data-auto-appearance="true"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  data-auto-appearance="true"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=25624&amp;path=livereload" data-no-instant defer></script>
   <meta charset="utf-8">
   
     <meta http-equiv="content-language" content="en">
@@ -24,7 +24,7 @@
   
   
   
-  <link rel="canonical" href="http://localhost:1313/learning/cachelab/">
+  <link rel="canonical" href="http://localhost:25624/learning/cachelab/">
   
 
   
@@ -34,7 +34,7 @@
   
 
   
-  <meta property="og:url" content="http://localhost:1313/learning/cachelab/">
+  <meta property="og:url" content="http://localhost:25624/learning/cachelab/">
   <meta property="og:site_name" content="Tab_1bit0的神秘据点（施工中）">
   <meta property="og:title" content="csapp cachelab">
   <meta property="og:locale" content="en">
@@ -42,11 +42,11 @@
     <meta property="article:section" content="learning">
     <meta property="article:published_time" content="2026-03-14T00:00:00+00:00">
     <meta property="article:modified_time" content="2026-03-14T00:00:00+00:00">
-    <meta property="og:image" content="http://localhost:1313/learning/cachelab/featured.png">
+    <meta property="og:image" content="http://localhost:25624/learning/cachelab/featured.png">
 
   
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="http://localhost:1313/learning/cachelab/featured.png">
+  <meta name="twitter:image" content="http://localhost:25624/learning/cachelab/featured.png">
   <meta name="twitter:title" content="csapp cachelab">
 
   
@@ -195,7 +195,7 @@
     "headline": "csapp cachelab",
     
     "inLanguage": "en",
-    "url" : "http://localhost:1313/learning/cachelab/",
+    "url" : "http://localhost:25624/learning/cachelab/",
     "author" : {
       "@type": "Person",
       "name": "Tab_1bit0"
@@ -722,13 +722,13 @@
 <p>比如对于一个32*32的Matrix，我们现在读 <code>A[0][0]</code> 读进了某个Set，意味着我们把 <code>A[0][0]</code> 到 <code>A[0][7]</code> 全部放进了这个Set里面。</p>
 <p>我们对这个过程来看，是人畜无害的，<code>A[0][0]</code> 到 <code>A[0][31]</code> 会进入4个不同的Set里面。<br>
 接下来会把这一些值给赋值进入 <code>B[0][0]</code> 到 <code>B[31][0]</code>。<br>
-这个时候就没这么幸运了。
+这个时候就没这么幸运了。<br>
 2^10 = 1024，这意味着每隔着1024个字节，末10位数字相同就会<strong>冲突（Tag不同）</strong>，<br>
 也就是说正好的情况下，我们的Cache最多容纳下256个int。<br>
-对于32*32的矩阵来说，这相当于256/32 = <strong>8行</strong>。
+对于32*32的矩阵来说，这相当于256/32 = <strong>8行</strong>。<br>
 现在我往里面写B[0][0]到B[7][0]，这是没关系的。<br>
 我再往里写B[8][0]，这个时候<strong>冲突发生了</strong>，会把已有的B[0][0]顶掉，而且是<strong>必然发生的</strong>。</p>
-<p>所以，不妨换一种方法：
+<p>所以，不妨换一种方法：<br>
 每次和遍历同顺序地处理一个 8*8 的小块，这样能够<strong>避免</strong>写入B的时候必然发生的打架。</p>
 <p>这样我可写B[0][~]到B[7][~]的区块的时候<strong>一次写64个</strong>，之前一次写8个，冲突减少了大部分。</p>
 <hr>
@@ -766,7 +766,7 @@
 <p>最理想情况下我们不包括传参，用到了9个Local Variables：</p>
 <ul>
 <li>v0 - v7</li>
-<li>i
+<li>i<br>
 在题目要求的 <strong>At Most 12 Local Variables per function</strong> 的范围内。（这里和实际硬件略有出入，不过还是可以说明我们变量数是合理的）</li>
 </ul>
 <hr>
@@ -790,7 +790,7 @@
 <p>所以我们要研发一个解决方案。</p>
 <p><strong>我一开始给的解决方案：</strong> 引入v8-v11，每次v0-v7先读A[0][0~7]，然后把v0-v3先写了，再用v0-v3读A[1][0~3]，v8-v11读A[1][8~11]，再写v0-v3，再写v4~v11。<br>
 <strong>我的想法：</strong>  这样我可以每次都利用好8个A读进来的，并且能一次<strong>写8个</strong>再发生冲突，做到一定程度上的优化。</p>
-<p><strong>LLM给的解决方案：</strong>
+<p><strong>LLM给的解决方案：</strong><br>
 <figure><img
     class="my-0 rounded-md"
     loading="lazy"
@@ -809,9 +809,9 @@
 如果我们不转置，那就意味着我们一次会摸到B的4~7<strong>全部四行</strong>，然后发生大规模的冲突！<br>
 所以我们最好先把转置过的形态放进右上角，这样我们往左下角写的时候可以<strong>直接一行一行写</strong>。</p>
 <p><em>那我右上角竖着读，横着写行不行？</em><br>
-依旧会发生和<strong>不转置类似的问题</strong>，在写的时候行列不同步就是会造成这样的问题的。
+依旧会发生和<strong>不转置类似的问题</strong>，在写的时候行列不同步就是会造成这样的问题的。<br>
 从for循环遍历的角度来讲，这样写可以让<strong>B的第0行用完了就再也不用了，占着Cache坑位的变成了第4行</strong>，冲突自然变少。</p>
-<p><em>反思我的解决方案有什么不好？</em>
+<p><em>反思我的解决方案有什么不好？</em><br>
 一次只能处理8个，而且要来回横跳4次，并且要极限地使用至少12个local variables才能完成，效率显然不高，代码也会更复杂。</p>
 <hr>
 
@@ -861,7 +861,7 @@
     </span>
     
 </h3>
-<p>我们不用特别操心，让for循环条件写成<code>k &lt; N &amp;&amp; k &lt;= i + block_size</code>就可以了。
+<p>我们不用特别操心，让for循环条件写成<code>k &lt; N &amp;&amp; k &lt;= i + block_size</code>就可以了。<br>
 对边缘做一些无谓的优化很可能进一步<strong>破坏它的空间局部性</strong>，最后适得其反。</p>
 <hr>
 
@@ -1043,7 +1043,7 @@
 <div
   id="search-wrapper"
   class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh] z-500"
-  data-url="http://localhost:1313/">
+  data-url="http://localhost:25624/">
   <div
     id="search-modal"
     class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800">

@@ -4,7 +4,7 @@
   dir="ltr"
   class="scroll-smooth"
   data-default-appearance="dark"
-  data-auto-appearance="true"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  data-auto-appearance="true"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=25624&amp;path=livereload" data-no-instant defer></script>
   <meta charset="utf-8">
   
     <meta http-equiv="content-language" content="en">
@@ -24,7 +24,7 @@
   
   
   
-  <link rel="canonical" href="http://localhost:1313/learning/ch.12/">
+  <link rel="canonical" href="http://localhost:25624/learning/ch.12/">
   
 
   
@@ -34,7 +34,7 @@
   
 
   
-  <meta property="og:url" content="http://localhost:1313/learning/ch.12/">
+  <meta property="og:url" content="http://localhost:25624/learning/ch.12/">
   <meta property="og:site_name" content="Tab_1bit0的神秘据点（施工中）">
   <meta property="og:title" content="csapp 第12章 并发编程">
   <meta property="og:locale" content="en">
@@ -42,11 +42,11 @@
     <meta property="article:section" content="learning">
     <meta property="article:published_time" content="2026-03-14T00:00:00+00:00">
     <meta property="article:modified_time" content="2026-03-14T00:00:00+00:00">
-    <meta property="og:image" content="http://localhost:1313/learning/ch.12/featured.png">
+    <meta property="og:image" content="http://localhost:25624/learning/ch.12/featured.png">
 
   
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="http://localhost:1313/learning/ch.12/featured.png">
+  <meta name="twitter:image" content="http://localhost:25624/learning/ch.12/featured.png">
   <meta name="twitter:title" content="csapp 第12章 并发编程">
 
   
@@ -195,7 +195,7 @@
     "headline": "csapp 第12章 并发编程",
     
     "inLanguage": "en",
-    "url" : "http://localhost:1313/learning/ch.12/",
+    "url" : "http://localhost:25624/learning/ch.12/",
     "author" : {
       "@type": "Person",
       "name": "Tab_1bit0"
@@ -695,7 +695,7 @@
     
 </h3>
 <p>特点：基于<strong>I/O多路复用</strong>。</p>
-<img src="image-33.png" width="50%">
+<img src="image-33.png" width="50%">  
 <p>即我们人为的编辑了一张 <code>fdset</code>，并通过 <code>select</code> 告诉系统<strong>挂起</strong>原进程，<strong>监听</strong>这个集合里面的对应文件的读写操作，<code>select</code> 监听到后，也会<strong>重置</strong> <code>fdset</code>，告诉用户<strong>哪个文件</strong>的读写被监听到。</p>
 <p><code>fdset</code> 实质上是一个<strong>n位二进制数</strong>，低往高第k位代表<strong>是否</strong>监听了<strong>文件描述符为k的</strong>文件。</p>
 <p>我们用 <code>FD_ZERO</code> 等这四个宏来<strong>操作</strong>这张 <code>fdset</code> 。</p>
@@ -711,7 +711,7 @@
     
 </h4>
 <p>CSAPP书中用结构体 <code>pool</code> 维护了这么一个事情</p>
-<img src="image-34.png" width="50%">
+<img src="image-34.png" width="50%">  
 <p>在一个大的 <code>while(1)</code> 里面:</p>
 <ul>
 <li>一开始 <code>pool</code> 的 <code>read_set</code> 里面只有listenfd和stdin</li>
@@ -754,7 +754,7 @@
 </h3>
 <p>一个进程中产生<strong>若干线程</strong>，每个线程都有<strong>独立的context</strong>，包括<em>线程 ID (TID)、程序计数器 (PC)、寄存器集合，以及<strong>独立的程序栈</strong> (Stack)</em>。</p>
 <p>但是，一个进程中所有线程<strong>共享相同的虚拟地址</strong>。</p>
-<img src="image-35.png" width="50%">
+<img src="image-35.png" width="50%">  
 <p>这里会发生context switch，但是相比<strong>进程</strong>而言更快。它会由于慢的 <code>sleep()</code> 或 <code>read</code> 等系统函数触发，也会因为<strong>系统内部定时器</strong>触发。</p>
 
 <h4 class="relative group">C语言线程实现：pthread
@@ -766,34 +766,37 @@
     </span>
     
 </h4>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="kt">void</span> <span class="o">*</span><span class="nf">thread</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">vargp</span><span class="p">)</span> <span class="cm">/* Thread routine */</span>
-</span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;Hello, world!</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="kt">void</span> <span class="o">*</span><span class="nf">thread</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">vargp</span><span class="p">)</span> <span class="cm">/* Thread routine */</span>  
+</span></span><span class="line"><span class="cl"><span class="p">{</span>  
+</span></span><span class="line"><span class="cl">    <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;Hello, world!</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>  
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl"><span class="p">}</span>  
+</span></span></code></pre></div></div>
 <p>人工声明某个线程内部<strong>做什么事情</strong>，传到下面<code>func *</code>f的地方。</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">pthread_create</span><span class="p">(</span><span class="kt">pthread_t</span> <span class="o">*</span><span class="n">tid</span><span class="p">,</span> <span class="kt">pthread_attr_t</span> <span class="o">*</span><span class="n">attr</span><span class="p">,</span> <span class="n">func</span> <span class="o">*</span><span class="n">f</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="n">arg</span><span class="p">);</span>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">pthread_create</span><span class="p">(</span><span class="kt">pthread_t</span> <span class="o">*</span><span class="n">tid</span><span class="p">,</span> <span class="kt">pthread_attr_t</span> <span class="o">*</span><span class="n">attr</span><span class="p">,</span> <span class="n">func</span> <span class="o">*</span><span class="n">f</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="n">arg</span><span class="p">);</span>  
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kt">pthread_t</span> <span class="nf">pthread_self</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kt">pthread_t</span> <span class="nf">pthread_self</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>  
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">pthread_exit</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">thread_return</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">pthread_exit</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">thread_return</span><span class="p">);</span>  
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">pthread_cancel</span><span class="p">(</span><span class="kt">pthread_t</span> <span class="n">tid</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">pthread_cancel</span><span class="p">(</span><span class="kt">pthread_t</span> <span class="n">tid</span><span class="p">);</span>  
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">pthread_join</span><span class="p">(</span><span class="kt">pthread_t</span> <span class="n">tid</span><span class="p">,</span> <span class="kt">void</span> <span class="o">**</span><span class="n">thread_return</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">pthread_join</span><span class="p">(</span><span class="kt">pthread_t</span> <span class="n">tid</span><span class="p">,</span> <span class="kt">void</span> <span class="o">**</span><span class="n">thread_return</span><span class="p">);</span>  
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">pthread_detach</span><span class="p">(</span><span class="kt">pthread_t</span> <span class="n">tid</span><span class="p">);</span></span></span></code></pre></div></div>
-<p>通过 <code>pthread_create</code> 创建一个线程。
-<code>pthread_self</code> 返回当前线程tid值。
-<code>pthread_exit</code> <strong>显式终止</strong>线程，如果<strong>进程的主线程调用</strong>，那么会先等同伴线程都终止，在终止主线程和进程。
-<code>pthread_cancel</code> 传入tid，<strong>终止</strong>该线程。
-<em>如果某个线程调用exit()函数终止，那么会把<strong>所有线程和进程</strong>一并终止掉。</em>
-<code>pthread_join</code> <strong>等待</strong>特定线程终止。
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">pthread_detach</span><span class="p">(</span><span class="kt">pthread_t</span> <span class="n">tid</span><span class="p">);</span>  
+</span></span></code></pre></div></div>
+<p>通过 <code>pthread_create</code> 创建一个线程。<br>
+<code>pthread_self</code> 返回当前线程tid值。<br>
+<code>pthread_exit</code> <strong>显式终止</strong>线程，如果<strong>进程的主线程调用</strong>，那么会先等同伴线程都终止，在终止主线程和进程。<br>
+<code>pthread_cancel</code> 传入tid，<strong>终止</strong>该线程。<br>
+<em>如果某个线程调用exit()函数终止，那么会把<strong>所有线程和进程</strong>一并终止掉。</em><br>
+<code>pthread_join</code> <strong>等待</strong>特定线程终止。<br>
 <code>pthread_detach</code> 使得线程从默认的joinable变成detached，这意味着它<strong>不能被其他线程监控或终止</strong>，也意味着它的内存区域清理发生在<strong>终止后系统自动清理</strong>。</p>
 <p>注意到<em>thread_return</em>指针是为了<strong>回收相应joinable线程的内存空间</strong>，防止内存泄漏。</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;pthread.h&gt;</span><span class="cp">
-</span></span></span><span class="line"><span class="cl"><span class="kt">pthread_once_t</span> <span class="n">once_control</span> <span class="o">=</span> <span class="n">PTHREAD_ONCE_INIT</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">pthread_once</span><span class="p">(</span><span class="kt">pthread_once_t</span> <span class="o">*</span><span class="n">once_control</span><span class="p">,</span> <span class="kt">void</span> <span class="p">(</span><span class="o">*</span><span class="n">init_routine</span><span class="p">)(</span><span class="kt">void</span><span class="p">));</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;pthread.h&gt;  </span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="kt">pthread_once_t</span> <span class="n">once_control</span> <span class="o">=</span> <span class="n">PTHREAD_ONCE_INIT</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">pthread_once</span><span class="p">(</span><span class="kt">pthread_once_t</span> <span class="o">*</span><span class="n">once_control</span><span class="p">,</span> <span class="kt">void</span> <span class="p">(</span><span class="o">*</span><span class="n">init_routine</span><span class="p">)(</span><span class="kt">void</span><span class="p">));</span>  
+</span></span></code></pre></div></div>
 <p>初始化，定义一些全局变量时用。</p>
 
 <h5 class="relative group">案例
@@ -805,7 +808,7 @@
     </span>
     
 </h5>
-<img src="image-38.png" width="50%">
+<img src="image-38.png" width="50%">  
 
 <h4 class="relative group">Shared Variables
     <div id="shared-variables" class="anchor"></div>
@@ -835,15 +838,16 @@
     </span>
     
 </h2>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="kt">void</span> <span class="o">*</span><span class="nf">thread</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">vargp</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="kt">long</span> <span class="n">i</span><span class="p">,</span> <span class="n">niters</span> <span class="o">=</span> <span class="o">*</span><span class="p">((</span><span class="kt">long</span> <span class="o">*</span><span class="p">)</span><span class="n">vargp</span><span class="p">);</span>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="kt">void</span> <span class="o">*</span><span class="nf">thread</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">vargp</span><span class="p">)</span>  
+</span></span><span class="line"><span class="cl"><span class="p">{</span>  
+</span></span><span class="line"><span class="cl">    <span class="kt">long</span> <span class="n">i</span><span class="p">,</span> <span class="n">niters</span> <span class="o">=</span> <span class="o">*</span><span class="p">((</span><span class="kt">long</span> <span class="o">*</span><span class="p">)</span><span class="n">vargp</span><span class="p">);</span>  
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">niters</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="n">cnt</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">niters</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>  
+</span></span><span class="line"><span class="cl">        <span class="n">cnt</span><span class="o">++</span><span class="p">;</span>  
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl"><span class="p">}</span>  
+</span></span></code></pre></div></div>
 <p>我们同时运行两个这个线程，最后会发现 <strong>cnt的值不等于2*niters</strong>，并且每次运行<strong>结果都不相同</strong>。</p>
 
 <h3 class="relative group">为什么？
@@ -855,9 +859,9 @@
     </span>
     
 </h3>
-<img src="image-40.png" width="50%">
+<img src="image-40.png" width="50%">  
 <p><code>cnt(%rip)</code> 是特殊<strong>相对寻址</strong>方式，因为 <code>cnt</code> 是全局变量。</p>
-<img src="image-39.png" width="50%">
+<img src="image-39.png" width="50%">  
 <p>因为这里线程工作顺序可能会乱套。汇编的角度而言，<code>cnt++</code> 的过程包括了Load, Update, Save<strong>三步</strong>的过程。如果两个 <code>cnt++</code> 的时序错乱了，就会出现存值的错位情况。</p>
 <p><em>为什么有两个%rdx?</em></p>
 <ul>
@@ -873,8 +877,8 @@
     </span>
     
 </h3>
-<img src="image-41.png" width="50%">
-<p>根据两个进程的执行走向transition顺序，我们可以画出进程图 <strong>trajectory</strong>（轨迹）
+<img src="image-41.png" width="50%">  
+<p>根据两个进程的执行走向transition顺序，我们可以画出进程图 <strong>trajectory</strong>（轨迹）<br>
 在上面案例中，我们的 Load &ndash; Update &ndash; Save 是<strong>关键步骤</strong>，绝对不可以互相打断，即在 Unsafe Region 中执行会导致出错。</p>
 <p>我们必须要 <strong>synchronize</strong>（同步），a classic approach is based on the idea of a <strong>semaphore</strong>（信号量），实现 <strong>Mutual Exclusion</strong>（互斥）的机制。</p>
 <ul>
@@ -905,16 +909,18 @@
 </li>
 </ul>
 <p>在C语言中通过以下方法维护：</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;semaphore.h&gt;</span><span class="cp">
-</span></span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">sem_init</span><span class="p">(</span><span class="kt">sem_t</span> <span class="o">*</span><span class="n">sem</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">value</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">sem_wait</span><span class="p">(</span><span class="kt">sem_t</span> <span class="o">*</span><span class="n">s</span><span class="p">);</span> <span class="cm">/* P(s) */</span>
-</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">sem_post</span><span class="p">(</span><span class="kt">sem_t</span> <span class="o">*</span><span class="n">s</span><span class="p">);</span> <span class="cm">/* V(s) */</span></span></span></code></pre></div></div>
-<img src="image-42.png" width="50%">
-<p>这个s相当于是一个开启进入 Critical Session 的<strong>钥匙锁</strong>，一人一用。
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;semaphore.h&gt;  </span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">sem_init</span><span class="p">(</span><span class="kt">sem_t</span> <span class="o">*</span><span class="n">sem</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">value</span><span class="p">);</span>  
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">sem_wait</span><span class="p">(</span><span class="kt">sem_t</span> <span class="o">*</span><span class="n">s</span><span class="p">);</span> <span class="cm">/* P(s) */</span>  
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">sem_post</span><span class="p">(</span><span class="kt">sem_t</span> <span class="o">*</span><span class="n">s</span><span class="p">);</span> <span class="cm">/* V(s) */</span>  
+</span></span></code></pre></div></div>
+<img src="image-42.png" width="50%">  
+<p>这个s相当于是一个开启进入 Critical Session 的<strong>钥匙锁</strong>，一人一用。<br>
 我们<strong>把核心代码改成</strong>：</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="nf">P</span><span class="p">(</span><span class="o">&amp;</span><span class="n">mutex</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="n">cnt</span><span class="o">++</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="nf">V</span><span class="p">(</span><span class="o">&amp;</span><span class="n">mutex</span><span class="p">);</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="nf">P</span><span class="p">(</span><span class="o">&amp;</span><span class="n">mutex</span><span class="p">);</span>  
+</span></span><span class="line"><span class="cl"><span class="n">cnt</span><span class="o">++</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl"><span class="nf">V</span><span class="p">(</span><span class="o">&amp;</span><span class="n">mutex</span><span class="p">);</span>  
+</span></span></code></pre></div></div>
 <p><em>为什么P和V操作<strong>可以保证是原子性</strong>的？</em></p>
 <p>因为经过了操作系统和硬件的<strong>特殊封装</strong>，提供给它们特用的<strong>自旋锁</strong>。</p>
 
@@ -928,7 +934,7 @@
     
 </h3>
 <p><em>The producer <strong>generates</strong> items and <strong>inserts</strong> them into a bounded buffer. The consumer <strong>removes</strong> items from the buffer and then <strong>consumes</strong> them.</em></p>
-<img src="image-43.png" width="50%">
+<img src="image-43.png" width="50%">  
 <p>注意这个过程中对buf区域的<strong>保护</strong>。</p>
 
 <h3 class="relative group">Readers-Writers Problem
@@ -946,7 +952,7 @@
 <li>第一类：利好Readers。只有当<strong>没有任何Reader在读数据</strong>，Writer才有权限工作。换言之，拿缓冲区钥匙<strong>权限等级</strong> <strong>Readers &gt; Writers</strong></li>
 <li>第二类：利好Writers。Writer<strong>只需要待在序列中的Readers读完</strong>，就可以上去工作，而不管排队时后面来的Readers。</li>
 </ul>
-<img src="image-44.png" width="50%">
+<img src="image-44.png" width="50%">  
 <p>注意 <code>readcnt == 0</code> 的条件。</p>
 <p>我们也可以通过这个模型实现类似<strong>I/O多路复用</strong>中的<strong>Event Driven</strong>机制。</p>
 
@@ -960,7 +966,7 @@
     
 </h2>
 <p>实际的CPU是<strong>多核并行</strong>，而并行（Parallel）是并发（Concurrent）的subset，要针对<strong>并行</strong>进行优化。</p>
-<img src="image-45.png" width="50%">
+<img src="image-45.png" width="50%">  
 <p>针对</p>
 <ul>
 <li><strong>唯一全局变量上锁</strong></li>
@@ -969,7 +975,7 @@
 </ul>
 <p>这三种方法来运行 <code>psum</code> 的求和运算任务，我们发现<strong>上锁解锁，访问主存的时间成本很高</strong>，并且<strong>过度上锁拖累效率</strong>。</p>
 <p>我们用<strong>Speedup</strong>（加速比）以及<strong>Efficiency</strong>（并行效率）衡量增加线程数带来的改变。</p>
-<p><strong>$$S_p = \frac{T_1}{T_p}$$</strong>
+<p><strong>$$S_p = \frac{T_1}{T_p}$$</strong><br>
 <strong>$$E_p = \frac{T_1}{p*T_p}$$</strong></p>
 <p><strong>弱扩展与强扩展</strong>（Weak/Strong Scaling）是两个重要的<strong>性能考核</strong>指标。</p>
 <ul>
@@ -1044,7 +1050,7 @@
     
 </h3>
 <p><em>Most Linux functions, including the functions defined in the standard C library (such as malloc, free, realloc, printf, and scanf), <strong>are thread-safe, with only a few exceptions</strong>.</em></p>
-<img src="image-46.png" width="50%">
+<img src="image-46.png" width="50%">  
 
 <h4 class="relative group">Race 竞态条件
     <div id="race-竞态条件" class="anchor"></div>
@@ -1055,36 +1061,38 @@
     </span>
     
 </h4>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="kt">pthread_t</span> <span class="n">tid</span><span class="p">[</span><span class="n">N</span><span class="p">];</span>
-</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>  
+</span></span><span class="line"><span class="cl"><span class="p">{</span>  
+</span></span><span class="line"><span class="cl">    <span class="kt">pthread_t</span> <span class="n">tid</span><span class="p">[</span><span class="n">N</span><span class="p">];</span>  
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>  
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">N</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="nf">Pthread_create</span><span class="p">(</span><span class="o">&amp;</span><span class="n">tid</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="nb">NULL</span><span class="p">,</span> <span class="kr">thread</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">i</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">N</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="nf">Pthread_join</span><span class="p">(</span><span class="n">tid</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="nb">NULL</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    <span class="nf">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">N</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>  
+</span></span><span class="line"><span class="cl">        <span class="nf">Pthread_create</span><span class="p">(</span><span class="o">&amp;</span><span class="n">tid</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="nb">NULL</span><span class="p">,</span> <span class="kr">thread</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">i</span><span class="p">);</span>  
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">N</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>  
+</span></span><span class="line"><span class="cl">        <span class="nf">Pthread_join</span><span class="p">(</span><span class="n">tid</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="nb">NULL</span><span class="p">);</span>  
+</span></span><span class="line"><span class="cl">    <span class="nf">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>  
+</span></span><span class="line"><span class="cl"><span class="p">}</span>  
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="cm">/* Thread routine */</span>
-</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="o">*</span><span class="nf">thread</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">vargp</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">myid</span> <span class="o">=</span> <span class="o">*</span><span class="p">((</span><span class="kt">int</span> <span class="o">*</span><span class="p">)</span><span class="n">vargp</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;Hello from thread %d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">myid</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
-<p>发生了什么？
+</span></span><span class="line"><span class="cl"><span class="cm">/* Thread routine */</span>  
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="o">*</span><span class="nf">thread</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">vargp</span><span class="p">)</span>  
+</span></span><span class="line"><span class="cl"><span class="p">{</span>  
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">myid</span> <span class="o">=</span> <span class="o">*</span><span class="p">((</span><span class="kt">int</span> <span class="o">*</span><span class="p">)</span><span class="n">vargp</span><span class="p">);</span>  
+</span></span><span class="line"><span class="cl">    <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;Hello from thread %d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">myid</span><span class="p">);</span>  
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl"><span class="p">}</span>  
+</span></span></code></pre></div></div>
+<p>发生了什么？<br>
 <code>Pthread_create</code> 的时候， <code>&amp;i</code> 把 i 变量的地址交给了新创建的进程，这意味着新进程有<strong>直接读写i原值的权限</strong>。</p>
 <p>如果新线程的 <code>int myid = *((int *)vargp);</code> 执行的比 <code>i++</code> 更慢，就意味着i的值不会式预期所示的。这叫做Race。</p>
 <p>解决方法：</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="n">ptr</span> <span class="o">=</span> <span class="nf">Malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
-</span></span><span class="line"><span class="cl"><span class="o">*</span><span class="n">ptr</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="nf">Pthread_create</span><span class="p">(</span><span class="o">&amp;</span><span class="n">tid</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="nb">NULL</span><span class="p">,</span> <span class="kr">thread</span><span class="p">,</span> <span class="n">ptr</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="cm">/*In function main*/</span>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="n">ptr</span> <span class="o">=</span> <span class="nf">Malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>  
+</span></span><span class="line"><span class="cl"><span class="o">*</span><span class="n">ptr</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl"><span class="nf">Pthread_create</span><span class="p">(</span><span class="o">&amp;</span><span class="n">tid</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="nb">NULL</span><span class="p">,</span> <span class="kr">thread</span><span class="p">,</span> <span class="n">ptr</span><span class="p">);</span>  
+</span></span><span class="line"><span class="cl"><span class="cm">/*In function main*/</span>  
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nf">Free</span><span class="p">(</span><span class="n">vargp</span><span class="p">);</span> 
-</span></span><span class="line"><span class="cl"><span class="cm">/*In Thread*/</span></span></span></code></pre></div></div>
+</span></span><span class="line"><span class="cl"><span class="nf">Free</span><span class="p">(</span><span class="n">vargp</span><span class="p">);</span>  
+</span></span><span class="line"><span class="cl"><span class="cm">/*In Thread*/</span>  
+</span></span></code></pre></div></div>
 <p>注意这里<strong>异步性</strong>的问题，我们的 <code>malloc()</code> 要由<strong>创建的线程</strong>回收。</p>
 
 <h4 class="relative group">Deadlock 死锁
@@ -1096,10 +1104,10 @@
     </span>
     
 </h4>
-<img src="image-47.png" width="50%">
+<img src="image-47.png" width="50%">  
 <p>途中的 Deadlock State <strong>进入后s和t都被上锁了</strong>，换言之<strong>怎么动都动不了</strong>。</p>
-<p>这类问题很难预测，也很难解决。可以通过一个简单的工作来<strong>预防</strong>：
-Mutex Lock Ordering Rule - <strong>acquires its mutexes in order and releases them in reverse order.</strong>
+<p>这类问题很难预测，也很难解决。可以通过一个简单的工作来<strong>预防</strong>：<br>
+Mutex Lock Ordering Rule - <strong>acquires its mutexes in order and releases them in reverse order.</strong><br>
 即保证所有的<strong>包含嵌套关系</strong>成立。</p>
 <hr>
 <p><em><strong>By Tab_1bit0</strong></em></p>
@@ -1283,7 +1291,7 @@ Mutex Lock Ordering Rule - <strong>acquires its mutexes in order and releases th
 <div
   id="search-wrapper"
   class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh] z-500"
-  data-url="http://localhost:1313/">
+  data-url="http://localhost:25624/">
   <div
     id="search-modal"
     class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800">

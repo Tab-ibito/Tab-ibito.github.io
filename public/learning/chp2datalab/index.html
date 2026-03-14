@@ -4,7 +4,7 @@
   dir="ltr"
   class="scroll-smooth"
   data-default-appearance="dark"
-  data-auto-appearance="true"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  data-auto-appearance="true"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=25624&amp;path=livereload" data-no-instant defer></script>
   <meta charset="utf-8">
   
     <meta http-equiv="content-language" content="en">
@@ -24,7 +24,7 @@
   
   
   
-  <link rel="canonical" href="http://localhost:1313/learning/chp2datalab/">
+  <link rel="canonical" href="http://localhost:25624/learning/chp2datalab/">
   
 
   
@@ -34,7 +34,7 @@
   
 
   
-  <meta property="og:url" content="http://localhost:1313/learning/chp2datalab/">
+  <meta property="og:url" content="http://localhost:25624/learning/chp2datalab/">
   <meta property="og:site_name" content="Tab_1bit0的神秘据点（施工中）">
   <meta property="og:title" content="csapp 第2章 信息存储 整数浮点数">
   <meta property="og:locale" content="en">
@@ -42,11 +42,11 @@
     <meta property="article:section" content="learning">
     <meta property="article:published_time" content="2026-02-25T00:00:00+00:00">
     <meta property="article:modified_time" content="2026-02-25T00:00:00+00:00">
-    <meta property="og:image" content="http://localhost:1313/learning/chp2datalab/featured.png">
+    <meta property="og:image" content="http://localhost:25624/learning/chp2datalab/featured.png">
 
   
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="http://localhost:1313/learning/chp2datalab/featured.png">
+  <meta name="twitter:image" content="http://localhost:25624/learning/chp2datalab/featured.png">
   <meta name="twitter:title" content="csapp 第2章 信息存储 整数浮点数">
 
   
@@ -195,7 +195,7 @@
     "headline": "csapp 第2章 信息存储 整数浮点数",
     
     "inLanguage": "en",
-    "url" : "http://localhost:1313/learning/chp2datalab/",
+    "url" : "http://localhost:25624/learning/chp2datalab/",
     "author" : {
       "@type": "Person",
       "name": "Tab_1bit0"
@@ -787,20 +787,20 @@
     
 </h3>
 <p><strong>这是一个很巧妙的二分处理法</strong></p>
-<div class="highlight-wrapper"><pre tabindex="0"><code class="language-int" data-lang="int">  int sign = x &gt;&gt; 31; 
-  x = sign ^ x;
-  b16 = !!(x &gt;&gt; 16) &lt;&lt; 4; 
-  x = x &gt;&gt; b16;
-  b8 = !!(x &gt;&gt; 8) &lt;&lt; 3;
-  x = x &gt;&gt; b8;
-  b4 = !!(x &gt;&gt; 4) &lt;&lt; 2;
-  x = x &gt;&gt; b4;
-  b2 = !!(x &gt;&gt; 2) &lt;&lt; 1;
-  x = x &gt;&gt; b2;
-  b1 = !!(x &gt;&gt; 1);
-  x = x &gt;&gt; b1;
-  b0 = x;
-  return b16 + b8 + b4 + b2 + b1 + b0 + 1;</code></pre></div>
+<div class="highlight-wrapper"><pre tabindex="0"><code class="language-int" data-lang="int">  int sign = x &gt;&gt; 31;  
+  x = sign ^ x;  
+  b16 = !!(x &gt;&gt; 16) &lt;&lt; 4;  
+  x = x &gt;&gt; b16;  
+  b8 = !!(x &gt;&gt; 8) &lt;&lt; 3;  
+  x = x &gt;&gt; b8;  
+  b4 = !!(x &gt;&gt; 4) &lt;&lt; 2;  
+  x = x &gt;&gt; b4;  
+  b2 = !!(x &gt;&gt; 2) &lt;&lt; 1;  
+  x = x &gt;&gt; b2;  
+  b1 = !!(x &gt;&gt; 1);  
+  x = x &gt;&gt; b1;  
+  b0 = x;  
+  return b16 + b8 + b4 + b2 + b1 + b0 + 1;  </code></pre></div>
 <p>不用枚举32遍的<br>
 这个代码不是我写的，哈Gemi的比我写的整洁</p>
 <p>还有三个Float的功能复现，思维难度相比不大</p>
@@ -988,7 +988,7 @@
 <div
   id="search-wrapper"
   class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh] z-500"
-  data-url="http://localhost:1313/">
+  data-url="http://localhost:25624/">
   <div
     id="search-modal"
     class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800">

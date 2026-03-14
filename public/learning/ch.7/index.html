@@ -4,7 +4,7 @@
   dir="ltr"
   class="scroll-smooth"
   data-default-appearance="dark"
-  data-auto-appearance="true"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  data-auto-appearance="true"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=25624&amp;path=livereload" data-no-instant defer></script>
   <meta charset="utf-8">
   
     <meta http-equiv="content-language" content="en">
@@ -24,7 +24,7 @@
   
   
   
-  <link rel="canonical" href="http://localhost:1313/learning/ch.7/">
+  <link rel="canonical" href="http://localhost:25624/learning/ch.7/">
   
 
   
@@ -34,7 +34,7 @@
   
 
   
-  <meta property="og:url" content="http://localhost:1313/learning/ch.7/">
+  <meta property="og:url" content="http://localhost:25624/learning/ch.7/">
   <meta property="og:site_name" content="Tab_1bit0的神秘据点（施工中）">
   <meta property="og:title" content="csapp 第7章 链接">
   <meta property="og:locale" content="en">
@@ -42,11 +42,11 @@
     <meta property="article:section" content="learning">
     <meta property="article:published_time" content="2026-03-14T00:00:00+00:00">
     <meta property="article:modified_time" content="2026-03-14T00:00:00+00:00">
-    <meta property="og:image" content="http://localhost:1313/learning/ch.7/featured.png">
+    <meta property="og:image" content="http://localhost:25624/learning/ch.7/featured.png">
 
   
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="http://localhost:1313/learning/ch.7/featured.png">
+  <meta name="twitter:image" content="http://localhost:25624/learning/ch.7/featured.png">
   <meta name="twitter:title" content="csapp 第7章 链接">
 
   
@@ -195,7 +195,7 @@
     "headline": "csapp 第7章 链接",
     
     "inLanguage": "en",
-    "url" : "http://localhost:1313/learning/ch.7/",
+    "url" : "http://localhost:25624/learning/ch.7/",
     "author" : {
       "@type": "Person",
       "name": "Tab_1bit0"
@@ -675,7 +675,7 @@
     </span>
     
 </h2>
-<p>可重定位目标文件是经过<strong>编译+汇编</strong>之后得到的 <code>.o</code> 后缀名文件。
+<p>可重定位目标文件是经过<strong>编译+汇编</strong>之后得到的 <code>.o</code> 后缀名文件。<br>
 包括三部分：</p>
 <ul>
 <li><strong>ELF Header</strong></li>
@@ -692,7 +692,7 @@
     </span>
     
 </h3>
-<p><strong>开头16个字节</strong>：
+<p><strong>开头16个字节</strong>：<br>
 前4个字节（魔数 ELF Magic）是</p>
 <table>
   <thead>
@@ -712,10 +712,10 @@
       </tr>
   </tbody>
 </table>
-<p>作用：确认文件类型。
-第5个字节表示位数，0x2是64位，0x1是32位。
-第6个字节是端序，0x1小端序，0x2大端序。
-第7个字节是文件版本号，一般是0x1。
+<p>作用：确认文件类型。<br>
+第5个字节表示位数，0x2是64位，0x1是32位。<br>
+第6个字节是端序，0x1小端序，0x2大端序。<br>
+第7个字节是文件版本号，一般是0x1。<br>
 剩下9个字节置空。</p>
 <p>ELF Header包含<strong>64字节</strong>，剩下字节填充其他信息，例如Type可以是可重定位/可执行/共享文件。</p>
 
@@ -736,7 +736,7 @@
 <li>其他的一些信息，其中重点关注</li>
 <li><strong>.symtab 符号表</strong>:</li>
 </ul>
-<img src="image-3.png" width="50%">
+<img src="image-3.png" width="50%">  
 <ul>
 <li><strong>LOCAL</strong> - 局部的静态变量</li>
 <li><strong>GLOBAL</strong> - 全局变量</li>
@@ -809,7 +809,7 @@
     </span>
     
 </h3>
-<p>在Linux中，用.a后缀名文件集成了一系列.o文件，例如 <code>libc.a</code> 中集成了 <code>scanf.o</code> <code>printf.o</code> 等一系列文件。
+<p>在Linux中，用.a后缀名文件集成了一系列.o文件，例如 <code>libc.a</code> 中集成了 <code>scanf.o</code> <code>printf.o</code> 等一系列文件。<br>
 我们也可以人为的用指令集成.a文件，在编译是要手动导入它。</p>
 
 <h3 class="relative group">那么.h后缀文件做什么用？
@@ -834,23 +834,23 @@
     
 </h3>
 <p>输入</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Shell" data-lang="Shell"><span class="line"><span class="cl">linux&gt; gcc -static -o prog main.o ./libvector.a <span class="c1"># 结束后自动引用libc.a</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Shell" data-lang="Shell"><span class="line"><span class="cl">linux&gt; gcc -static -o prog main.o ./libvector.a <span class="c1"># 结束后自动引用libc.a  </span></span></span></code></pre></div></div>
 <p>在生成prog这个可执行文件的时候，会按输入顺序从左往右扫读</p>
 <ul>
 <li>prog main.o</li>
 <li>./libvector.a</li>
 <li>clib.a</li>
 </ul>
-<p>可以分为<strong>目标文件</strong>和<strong>静态库文件</strong>。
+<p>可以分为<strong>目标文件</strong>和<strong>静态库文件</strong>。<br>
 这三个文件，并建立3个集合：</p>
 <ul>
 <li>E集合：<strong>目标文件，以及使用了且定义过的符号对应的.o文件</strong></li>
 <li>U集合：<strong>使用了但未定义的符号</strong></li>
 <li>D集合：<strong>已经定义了的全局符号</strong></li>
 </ul>
-<p>在读取的过程中这三个集合的元素会移动，最后会<strong>只保留E集合中的元素</strong>，确定要引用的文件。
-如果U集合最后还是<strong>非空</strong>，那么会出现找不到符号的<strong>报错</strong>。
-所以文件扫读顺序<strong>可能会直接影响执行失败</strong>。
+<p>在读取的过程中这三个集合的元素会移动，最后会<strong>只保留E集合中的元素</strong>，确定要引用的文件。<br>
+如果U集合最后还是<strong>非空</strong>，那么会出现找不到符号的<strong>报错</strong>。<br>
+所以文件扫读顺序<strong>可能会直接影响执行失败</strong>。<br>
 静态库之间链状引用可能需要ABC的链接顺序，循环引用可能需要ABA的顺序。</p>
 
 <h3 class="relative group">链接器的工作过程（重定位）
@@ -887,12 +887,13 @@
 </h4>
 <p>所有调用不同文件中函数的 <code>call</code> 指令要<strong>重新指向实际的函数地址</strong>，这一步需要依赖<strong>Relocation Entries</strong>（重定位条目），它由<strong>汇编器</strong>产生，放在 <code>.o</code> 文件的特定位置，提供给链接器用。<br>
 这个字段长这个样子：</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="mi">1</span> <span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl"><span class="mi">2</span>     <span class="kt">long</span> <span class="n">offset</span><span class="p">;</span> <span class="cm">/*Offset of the reference to relocate*/</span>
-</span></span><span class="line"><span class="cl"><span class="mi">3</span>     <span class="kt">long</span> <span class="nl">type</span><span class="p">:</span> <span class="mi">32</span><span class="p">,</span> <span class="cm">/*Relocation type*/</span>
-</span></span><span class="line"><span class="cl"><span class="mi">4</span>          <span class="nl">symbol</span><span class="p">:</span> <span class="mi">32</span><span class="p">;</span><span class="cm">/*Symboltable index*/</span>
-</span></span><span class="line"><span class="cl"><span class="mi">5</span>     <span class="kt">long</span> <span class="n">addend</span><span class="p">;</span> <span class="cm">/*Constant part of relocation expression*/</span>
-</span></span><span class="line"><span class="cl"><span class="mi">6</span> <span class="p">}</span> <span class="n">Elf64_Rela</span><span class="p">;</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="mi">1</span> <span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>  
+</span></span><span class="line"><span class="cl"><span class="mi">2</span>     <span class="kt">long</span> <span class="n">offset</span><span class="p">;</span> <span class="cm">/*Offset of the reference to relocate*/</span>  
+</span></span><span class="line"><span class="cl"><span class="mi">3</span>     <span class="kt">long</span> <span class="nl">type</span><span class="p">:</span> <span class="mi">32</span><span class="p">,</span> <span class="cm">/*Relocation type*/</span>  
+</span></span><span class="line"><span class="cl"><span class="mi">4</span>          <span class="nl">symbol</span><span class="p">:</span> <span class="mi">32</span><span class="p">;</span><span class="cm">/*Symboltable index*/</span>  
+</span></span><span class="line"><span class="cl"><span class="mi">5</span>     <span class="kt">long</span> <span class="n">addend</span><span class="p">;</span> <span class="cm">/*Constant part of relocation expression*/</span>  
+</span></span><span class="line"><span class="cl"><span class="mi">6</span> <span class="p">}</span> <span class="n">Elf64_Rela</span><span class="p">;</span>  
+</span></span></code></pre></div></div>
 <p><em><strong>其实调用库函数，调用同一个文件里的非static函数，调用.data区域的变量等所有无法确定最终位置的事情，都会有重定位过程发生。</strong></em></p>
 <ul>
 <li>symbol: 要重定位的符号名字，比如sum() 函数就叫sum</li>
@@ -1018,7 +1019,7 @@ $$ *ref\_ptr = ADDR_\text{Target Data} + r.addend\text{(= 0 in default)} $$<p><b
 <li>一个系统可能运行成百上千个进程，如果要把比如标准I/O函数的静态库也通过链接器复制成百上千遍很占内存</li>
 </ul>
 <p>共享库 - <code>.so</code> in linux and <code>.dll</code> in windows<br>
-它能被加载到任意内存地址，和任意内存中程序链接起来，which is called 动态链接。
+它能被加载到任意内存地址，和任意内存中程序链接起来，which is called 动态链接。<br>
 <figure><img
     class="my-0 rounded-md"
     loading="lazy"
@@ -1031,7 +1032,7 @@ $$ *ref\_ptr = ADDR_\text{Target Data} + r.addend\text{(= 0 in default)} $$<p><b
     srcset="/learning/ch.7/image-9.png 800w, /learning/ch.7/image-9.png 1280w"
     sizes="(min-width: 768px) 50vw, 65vw"
     data-zoom-src="/learning/ch.7/image-9.png"></figure>
-
+<br>
 Dynamic linker 完成重定位的工作，主要是通过 GOT (全局偏移表) 和 PLT (过程链接表) 这两个数据结构来完成。</p>
 <p>Dynamic linking 的优点：<strong>运行时</strong>也可以加载和链接——</p>
 <ul>
@@ -1218,7 +1219,7 @@ Dynamic linker 完成重定位的工作，主要是通过 GOT (全局偏移表) 
 <div
   id="search-wrapper"
   class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh] z-500"
-  data-url="http://localhost:1313/">
+  data-url="http://localhost:25624/">
   <div
     id="search-modal"
     class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800">

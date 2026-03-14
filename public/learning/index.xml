@@ -2,183 +2,183 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Learning on Tab_1bit0的神秘据点（施工中）</title>
-    <link>http://localhost:1313/learning/</link>
+    <link>http://localhost:25624/learning/</link>
     <description>Recent content in Learning on Tab_1bit0的神秘据点（施工中）</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <managingEditor>frojbk@gmail.com (Tab_1bit0)</managingEditor>
     <webMaster>frojbk@gmail.com (Tab_1bit0)</webMaster>
     <copyright>© 2026 Tab_1bit0</copyright>
-    <lastBuildDate>Sat, 14 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/learning/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 14 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:25624/learning/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>csapp cachelab</title>
-      <link>http://localhost:1313/learning/cachelab/</link>
+      <link>http://localhost:25624/learning/cachelab/</link>
       <pubDate>Sat, 14 Mar 2026 00:00:00 +0000</pubDate>
       <author>frojbk@gmail.com (Tab_1bit0)</author>
-      <guid>http://localhost:1313/learning/cachelab/</guid>
+      <guid>http://localhost:25624/learning/cachelab/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/learning/cachelab/featured.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:25624/learning/cachelab/featured.png" />
     </item>
     
     <item>
       <title>csapp malloclab</title>
-      <link>http://localhost:1313/learning/malloclab/</link>
+      <link>http://localhost:25624/learning/malloclab/</link>
       <pubDate>Sat, 14 Mar 2026 00:00:00 +0000</pubDate>
       <author>frojbk@gmail.com (Tab_1bit0)</author>
-      <guid>http://localhost:1313/learning/malloclab/</guid>
+      <guid>http://localhost:25624/learning/malloclab/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/learning/malloclab/featured.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:25624/learning/malloclab/featured.png" />
     </item>
     
     <item>
       <title>csapp proxylab</title>
-      <link>http://localhost:1313/learning/proxylab/</link>
+      <link>http://localhost:25624/learning/proxylab/</link>
       <pubDate>Sat, 14 Mar 2026 00:00:00 +0000</pubDate>
       <author>frojbk@gmail.com (Tab_1bit0)</author>
-      <guid>http://localhost:1313/learning/proxylab/</guid>
+      <guid>http://localhost:25624/learning/proxylab/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/learning/proxylab/featured.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:25624/learning/proxylab/featured.png" />
     </item>
     
     <item>
       <title>csapp shelllab</title>
-      <link>http://localhost:1313/learning/shelllab/</link>
+      <link>http://localhost:25624/learning/shelllab/</link>
       <pubDate>Sat, 14 Mar 2026 00:00:00 +0000</pubDate>
       <author>frojbk@gmail.com (Tab_1bit0)</author>
-      <guid>http://localhost:1313/learning/shelllab/</guid>
+      <guid>http://localhost:25624/learning/shelllab/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/learning/shelllab/featured.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:25624/learning/shelllab/featured.png" />
     </item>
     
     <item>
       <title>csapp 第10章 文件</title>
-      <link>http://localhost:1313/learning/ch.10/</link>
+      <link>http://localhost:25624/learning/ch.10/</link>
       <pubDate>Sat, 14 Mar 2026 00:00:00 +0000</pubDate>
       <author>frojbk@gmail.com (Tab_1bit0)</author>
-      <guid>http://localhost:1313/learning/ch.10/</guid>
+      <guid>http://localhost:25624/learning/ch.10/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/learning/ch.10/featured.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:25624/learning/ch.10/featured.png" />
     </item>
     
     <item>
       <title>csapp 第11章 网络编程</title>
-      <link>http://localhost:1313/learning/ch.11/</link>
+      <link>http://localhost:25624/learning/ch.11/</link>
       <pubDate>Sat, 14 Mar 2026 00:00:00 +0000</pubDate>
       <author>frojbk@gmail.com (Tab_1bit0)</author>
-      <guid>http://localhost:1313/learning/ch.11/</guid>
+      <guid>http://localhost:25624/learning/ch.11/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/learning/ch.11/featured.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:25624/learning/ch.11/featured.png" />
     </item>
     
     <item>
       <title>csapp 第12章 并发编程</title>
-      <link>http://localhost:1313/learning/ch.12/</link>
+      <link>http://localhost:25624/learning/ch.12/</link>
       <pubDate>Sat, 14 Mar 2026 00:00:00 +0000</pubDate>
       <author>frojbk@gmail.com (Tab_1bit0)</author>
-      <guid>http://localhost:1313/learning/ch.12/</guid>
+      <guid>http://localhost:25624/learning/ch.12/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/learning/ch.12/featured.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:25624/learning/ch.12/featured.png" />
     </item>
     
     <item>
       <title>csapp 第5章 优化程序性能</title>
-      <link>http://localhost:1313/learning/ch.5/</link>
+      <link>http://localhost:25624/learning/ch.5/</link>
       <pubDate>Sat, 14 Mar 2026 00:00:00 +0000</pubDate>
       <author>frojbk@gmail.com (Tab_1bit0)</author>
-      <guid>http://localhost:1313/learning/ch.5/</guid>
+      <guid>http://localhost:25624/learning/ch.5/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/learning/ch.5/featured.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:25624/learning/ch.5/featured.png" />
     </item>
     
     <item>
       <title>csapp 第6章 信息的存储</title>
-      <link>http://localhost:1313/learning/ch.6/</link>
+      <link>http://localhost:25624/learning/ch.6/</link>
       <pubDate>Sat, 14 Mar 2026 00:00:00 +0000</pubDate>
       <author>frojbk@gmail.com (Tab_1bit0)</author>
-      <guid>http://localhost:1313/learning/ch.6/</guid>
+      <guid>http://localhost:25624/learning/ch.6/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/learning/ch.6/featured.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:25624/learning/ch.6/featured.png" />
     </item>
     
     <item>
       <title>csapp 第7章 链接</title>
-      <link>http://localhost:1313/learning/ch.7/</link>
+      <link>http://localhost:25624/learning/ch.7/</link>
       <pubDate>Sat, 14 Mar 2026 00:00:00 +0000</pubDate>
       <author>frojbk@gmail.com (Tab_1bit0)</author>
-      <guid>http://localhost:1313/learning/ch.7/</guid>
+      <guid>http://localhost:25624/learning/ch.7/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/learning/ch.7/featured.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:25624/learning/ch.7/featured.png" />
     </item>
     
     <item>
       <title>csapp 第8章 进程 信号 异常流</title>
-      <link>http://localhost:1313/learning/ch.8/</link>
+      <link>http://localhost:25624/learning/ch.8/</link>
       <pubDate>Sat, 14 Mar 2026 00:00:00 +0000</pubDate>
       <author>frojbk@gmail.com (Tab_1bit0)</author>
-      <guid>http://localhost:1313/learning/ch.8/</guid>
+      <guid>http://localhost:25624/learning/ch.8/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/learning/ch.8/featured.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:25624/learning/ch.8/featured.png" />
     </item>
     
     <item>
       <title>csapp 第9章 虚拟内存</title>
-      <link>http://localhost:1313/learning/ch.9/</link>
+      <link>http://localhost:25624/learning/ch.9/</link>
       <pubDate>Sat, 14 Mar 2026 00:00:00 +0000</pubDate>
       <author>frojbk@gmail.com (Tab_1bit0)</author>
-      <guid>http://localhost:1313/learning/ch.9/</guid>
+      <guid>http://localhost:25624/learning/ch.9/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/learning/ch.9/featured.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:25624/learning/ch.9/featured.png" />
     </item>
     
     <item>
       <title>Bomblab</title>
-      <link>http://localhost:1313/learning/bomblab/</link>
+      <link>http://localhost:25624/learning/bomblab/</link>
       <pubDate>Wed, 25 Feb 2026 13:33:48 +0800</pubDate>
       <author>frojbk@gmail.com (Tab_1bit0)</author>
-      <guid>http://localhost:1313/learning/bomblab/</guid>
+      <guid>http://localhost:25624/learning/bomblab/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/learning/bomblab/featured.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:25624/learning/bomblab/featured.png" />
     </item>
     
     <item>
       <title>csapp chapter3 机器码汇编</title>
-      <link>http://localhost:1313/learning/csappchapter3/</link>
+      <link>http://localhost:25624/learning/csappchapter3/</link>
       <pubDate>Wed, 25 Feb 2026 13:27:02 +0800</pubDate>
       <author>frojbk@gmail.com (Tab_1bit0)</author>
-      <guid>http://localhost:1313/learning/csappchapter3/</guid>
+      <guid>http://localhost:25624/learning/csappchapter3/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/learning/csappchapter3/featured.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:25624/learning/csappchapter3/featured.png" />
     </item>
     
     <item>
       <title>attackLab</title>
-      <link>http://localhost:1313/learning/attacklab/</link>
+      <link>http://localhost:25624/learning/attacklab/</link>
       <pubDate>Wed, 25 Feb 2026 13:16:14 +0800</pubDate>
       <author>frojbk@gmail.com (Tab_1bit0)</author>
-      <guid>http://localhost:1313/learning/attacklab/</guid>
+      <guid>http://localhost:25624/learning/attacklab/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/learning/attacklab/featured.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:25624/learning/attacklab/featured.png" />
     </item>
     
     <item>
       <title>csapp 第2章 信息存储 整数浮点数</title>
-      <link>http://localhost:1313/learning/chp2datalab/</link>
+      <link>http://localhost:25624/learning/chp2datalab/</link>
       <pubDate>Wed, 25 Feb 2026 00:00:00 +0000</pubDate>
       <author>frojbk@gmail.com (Tab_1bit0)</author>
-      <guid>http://localhost:1313/learning/chp2datalab/</guid>
+      <guid>http://localhost:25624/learning/chp2datalab/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/learning/chp2datalab/featured.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:25624/learning/chp2datalab/featured.png" />
     </item>
     
     <item>
       <title>CS61b学习总结</title>
-      <link>http://localhost:1313/learning/summary4cs61b/</link>
+      <link>http://localhost:25624/learning/summary4cs61b/</link>
       <pubDate>Sun, 15 Feb 2026 21:00:00 +0800</pubDate>
       <author>frojbk@gmail.com (Tab_1bit0)</author>
-      <guid>http://localhost:1313/learning/summary4cs61b/</guid>
+      <guid>http://localhost:25624/learning/summary4cs61b/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/learning/summary4cs61b/featured.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:25624/learning/summary4cs61b/featured.png" />
     </item>
     
   </channel>

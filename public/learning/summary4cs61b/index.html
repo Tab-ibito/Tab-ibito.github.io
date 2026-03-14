@@ -4,7 +4,7 @@
   dir="ltr"
   class="scroll-smooth"
   data-default-appearance="dark"
-  data-auto-appearance="true"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  data-auto-appearance="true"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=25624&amp;path=livereload" data-no-instant defer></script>
   <meta charset="utf-8">
   
     <meta http-equiv="content-language" content="en">
@@ -24,7 +24,7 @@
   
   
   
-  <link rel="canonical" href="http://localhost:1313/learning/summary4cs61b/">
+  <link rel="canonical" href="http://localhost:25624/learning/summary4cs61b/">
   
 
   
@@ -34,7 +34,7 @@
   
 
   
-  <meta property="og:url" content="http://localhost:1313/learning/summary4cs61b/">
+  <meta property="og:url" content="http://localhost:25624/learning/summary4cs61b/">
   <meta property="og:site_name" content="Tab_1bit0的神秘据点（施工中）">
   <meta property="og:title" content="CS61b学习总结">
   <meta property="og:locale" content="en">
@@ -42,11 +42,11 @@
     <meta property="article:section" content="learning">
     <meta property="article:published_time" content="2026-02-15T21:00:00+08:00">
     <meta property="article:modified_time" content="2026-02-15T21:00:00+08:00">
-    <meta property="og:image" content="http://localhost:1313/learning/summary4cs61b/featured.png">
+    <meta property="og:image" content="http://localhost:25624/learning/summary4cs61b/featured.png">
 
   
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="http://localhost:1313/learning/summary4cs61b/featured.png">
+  <meta name="twitter:image" content="http://localhost:25624/learning/summary4cs61b/featured.png">
   <meta name="twitter:title" content="CS61b学习总结">
 
   
@@ -195,7 +195,7 @@
     "headline": "CS61b学习总结",
     
     "inLanguage": "en",
-    "url" : "http://localhost:1313/learning/summary4cs61b/",
+    "url" : "http://localhost:25624/learning/summary4cs61b/",
     "author" : {
       "@type": "Person",
       "name": "Tab_1bit0"
@@ -656,8 +656,8 @@
 <li>帮我总结概要翻译文本难读的部分，解释清楚工作规则的细节</li>
 <li>帮我读那个.in文件的又长又难懂的报错信息</li>
 </ul>
-<p><em>回忆</em>
-一开始写init的时候，借鉴.git的文件设置
+<p><em>回忆</em><br>
+一开始写init的时候，借鉴.git的文件设置<br>
 参见记录：https://shuiyuan.sjtu.edu.cn/t/topic/447931/807</p>
 <blockquote><p>proj2正在努力的找突破口……</p>
 <p>打算先这么入手：</p>
@@ -673,18 +673,19 @@
 </li>
 </ul>
 <p>思路：尝试做init，init需要构造一个repo，那么需要</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">.gitlet/
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">----objects/ # 存序列化的文件，应该是staging area
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">----ref/
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">--------heads/ # 存各种的分支
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">------------master # master分支的commit
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">--------remotes/ # 存远程分支（后期用到）</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">.gitlet/  
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">----objects/ # 存序列化的文件，应该是staging area  
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">----ref/  
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">--------heads/ # 存各种的分支  
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">------------master # master分支的commit  
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">--------remotes/ # 存远程分支（后期用到）  
+</span></span><span class="line"><span class="cl"> </span></span></code></pre></div></div>
 <p>这个文件结构是好构建的，但是这里的commit内容究竟</p>
 <ul>
 <li>
@@ -741,7 +742,7 @@
 </li>
 <li>加上了merge commit这一类很特殊的commit机制，知道了实际上可能<strong>有第二个父亲</strong>的设定</li>
 <li>修改了找祖先的逻辑，自己手搓了有向无环图的节点开始的遍历，和结合bfs找共同祖先的算法</li>
-<li><em>各种各样其他的细节问题</em>
+<li><em>各种各样其他的细节问题</em><br>
 这整个过程那是十分痛苦的debugging，而且一个Bug会牵连其他许许多多的Bug，LLM在这个过程中，说实话，也没帮上什么正忙（笑）</li>
 </ul>
 <p>总结下来这里会出这么多岔子，<strong>最主要有两个原因</strong>，也希望能给将来可能学习这门课程的你提个醒：</p>
@@ -770,7 +771,7 @@
 <p>所有寻址应该基于Objects和文件管理做而不是指望heads里面的history</p>
 </li>
 </ul>
-</blockquote><p>其实后面做到remote的extra credit的部分就很简单了。
+</blockquote><p>其实后面做到remote的extra credit的部分就很简单了。<br>
 <strong>喵喵喵</strong></p>
 
 <h2 class="relative group">What I Have Learned 学んだこと
@@ -813,7 +814,7 @@
     
 </h2>
 <p><a href="https://tab-ibito.github.io/"  target="_blank" rel="noreferrer">https://tab-ibito.github.io/</a></p>
-<p>By Tab_1bit0
+<p>By Tab_1bit0<br>
 2026.2.15</p>
 <p style="color: gray; font-style: italic;">それぞれが好きなことで頑張れるんなら</p>  
 <p style="color: gray; font-style: italic;">新しい場所が　ゴールだね</p>  
@@ -983,7 +984,7 @@
 <div
   id="search-wrapper"
   class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh] z-500"
-  data-url="http://localhost:1313/">
+  data-url="http://localhost:25624/">
   <div
     id="search-modal"
     class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800">

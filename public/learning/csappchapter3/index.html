@@ -4,7 +4,7 @@
   dir="ltr"
   class="scroll-smooth"
   data-default-appearance="dark"
-  data-auto-appearance="true"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  data-auto-appearance="true"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=25624&amp;path=livereload" data-no-instant defer></script>
   <meta charset="utf-8">
   
     <meta http-equiv="content-language" content="en">
@@ -24,7 +24,7 @@
   
   
   
-  <link rel="canonical" href="http://localhost:1313/learning/csappchapter3/">
+  <link rel="canonical" href="http://localhost:25624/learning/csappchapter3/">
   
 
   
@@ -34,7 +34,7 @@
   
 
   
-  <meta property="og:url" content="http://localhost:1313/learning/csappchapter3/">
+  <meta property="og:url" content="http://localhost:25624/learning/csappchapter3/">
   <meta property="og:site_name" content="Tab_1bit0的神秘据点（施工中）">
   <meta property="og:title" content="csapp chapter3 机器码汇编">
   <meta property="og:locale" content="en">
@@ -42,11 +42,11 @@
     <meta property="article:section" content="learning">
     <meta property="article:published_time" content="2026-02-25T13:27:02+08:00">
     <meta property="article:modified_time" content="2026-02-25T13:27:02+08:00">
-    <meta property="og:image" content="http://localhost:1313/learning/csappchapter3/featured.png">
+    <meta property="og:image" content="http://localhost:25624/learning/csappchapter3/featured.png">
 
   
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="http://localhost:1313/learning/csappchapter3/featured.png">
+  <meta name="twitter:image" content="http://localhost:25624/learning/csappchapter3/featured.png">
   <meta name="twitter:title" content="csapp chapter3 机器码汇编">
 
   
@@ -195,7 +195,7 @@
     "headline": "csapp chapter3 机器码汇编",
     
     "inLanguage": "en",
-    "url" : "http://localhost:1313/learning/csappchapter3/",
+    "url" : "http://localhost:25624/learning/csappchapter3/",
     "author" : {
       "@type": "Person",
       "name": "Tab_1bit0"
@@ -668,12 +668,12 @@
 </h2>
 <p>寄存器只有16个，所以汇编的时候会<strong>优化</strong>，让最需要的放在寄存位置，其他的先放在后台</p>
 <p>类比于<strong>C语言的指针</strong> *p</p>
-$$Imm(rb,ri,s) = M[Imm+R[rb]+R[ri].s]$$<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="k">struct</span> <span class="n">Idol</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">id</span><span class="p">;</span>       <span class="c1">// 占4字节 (偏移量 0)
-</span></span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">height</span><span class="p">;</span>   <span class="c1">// 占4字节 (偏移量 4)
-</span></span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">score</span><span class="p">;</span>    <span class="c1">// 占4字节 (偏移量 8)
-</span></span></span><span class="line"><span class="cl"><span class="p">};</span>
-</span></span><span class="line"><span class="cl"><span class="k">struct</span> <span class="n">Idol</span> <span class="n">niji_club</span><span class="p">[</span><span class="mi">12</span><span class="p">];</span> <span class="c1">// 虹咲学园偶像同好会的12位成员数组喵！
+$$Imm(rb,ri,s) = M[Imm+R[rb]+R[ri].s]$$<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="k">struct</span> <span class="n">Idol</span> <span class="p">{</span>  
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">id</span><span class="p">;</span>       <span class="c1">// 占4字节 (偏移量 0)  
+</span></span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">height</span><span class="p">;</span>   <span class="c1">// 占4字节 (偏移量 4)  
+</span></span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">score</span><span class="p">;</span>    <span class="c1">// 占4字节 (偏移量 8)  
+</span></span></span><span class="line"><span class="cl"><span class="p">};</span>  
+</span></span><span class="line"><span class="cl"><span class="k">struct</span> <span class="n">Idol</span> <span class="n">niji_club</span><span class="p">[</span><span class="mi">12</span><span class="p">];</span> <span class="c1">// 虹咲学园偶像同好会的12位成员数组喵！  
 </span></span></span></code></pre></div></div>
 <p>对于 <code>niji_club[i].score</code> 有</p>
 $$\text{Address} = 8 + r_b + {i \times 12} \cdot 1$$<ul>
@@ -699,8 +699,8 @@ $$\text{Address} = 8 + r_b + {i \times 12} \cdot 1$$<ul>
 <p>赋值，at&amp;t 环境下是 <strong>左 -&gt; 右</strong> 的逻辑。</p>
 <p>memory to memory is <strong>forbidden</strong>.<br>
 <strong>Substitution:</strong></p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">mov memory, register
-</span></span><span class="line"><span class="cl">mov register, memory</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">mov memory, register  
+</span></span><span class="line"><span class="cl">mov register, memory  </span></span></code></pre></div></div>
 
 <h3 class="relative group">特殊情形：
     <div id="特殊情形" class="anchor"></div>
@@ -722,11 +722,11 @@ $$\text{Address} = 8 + r_b + {i \times 12} \cdot 1$$<ul>
 <li><strong>不同大小</strong>零扩展 - ZeroExtend &amp; 符号扩展 - SignExtend</li>
 </ul>
 <p>以及Change Destination Register有关一个特殊规定：</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Bash" data-lang="Bash"><span class="line"><span class="cl"><span class="m">1</span> movabsq <span class="nv">$0</span>x0011223344556677, %rax %rax<span class="o">=</span><span class="m">0011223344556677</span>
-</span></span><span class="line"><span class="cl"><span class="m">2</span> movb <span class="nv">$-</span>1, %al %rax<span class="o">=</span>00112233445566FF
-</span></span><span class="line"><span class="cl"><span class="m">3</span> movw <span class="nv">$-</span>1, %ax %rax<span class="o">=</span>001122334455FFFF
-</span></span><span class="line"><span class="cl"><span class="m">4</span> movl <span class="nv">$-</span>1,%eax %rax<span class="o">=</span>00000000FFFFFFFF <span class="c1"># 32位赋值后高位都被置为0</span>
-</span></span><span class="line"><span class="cl"><span class="m">5</span> movq <span class="nv">$-</span>1,%rax %rax<span class="o">=</span>FFFFFFFFFFFFFFFF </span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Bash" data-lang="Bash"><span class="line"><span class="cl"><span class="m">1</span> movabsq <span class="nv">$0</span>x0011223344556677, %rax %rax<span class="o">=</span><span class="m">0011223344556677</span>  
+</span></span><span class="line"><span class="cl"><span class="m">2</span> movb <span class="nv">$-</span>1, %al %rax<span class="o">=</span>00112233445566FF  
+</span></span><span class="line"><span class="cl"><span class="m">3</span> movw <span class="nv">$-</span>1, %ax %rax<span class="o">=</span>001122334455FFFF  
+</span></span><span class="line"><span class="cl"><span class="m">4</span> movl <span class="nv">$-</span>1,%eax %rax<span class="o">=</span>00000000FFFFFFFF <span class="c1"># 32位赋值后高位都被置为0  </span>
+</span></span><span class="line"><span class="cl"><span class="m">5</span> movq <span class="nv">$-</span>1,%rax %rax<span class="o">=</span>FFFFFFFFFFFFFFFF  </span></span></code></pre></div></div>
 <p><em>32位机器上跑int64？拆两半</em></p>
 
 <h2 class="relative group"><strong>算术运算的优化</strong>
@@ -749,17 +749,18 @@ $$\text{Address} = 8 + r_b + {i \times 12} \cdot 1$$<ul>
     
 </h3>
 <p><strong>From</strong></p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="kt">long</span> <span class="nf">scale</span><span class="p">(</span><span class="kt">long</span> <span class="n">x</span><span class="p">,</span> <span class="kt">long</span> <span class="n">y</span><span class="p">,</span> <span class="kt">long</span> <span class="n">z</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="n">longt</span><span class="o">=</span><span class="n">x</span><span class="o">+</span><span class="mi">4</span><span class="o">*</span><span class="n">y</span><span class="o">+</span><span class="mi">12</span><span class="o">*</span><span class="n">z</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">t</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="kt">long</span> <span class="nf">scale</span><span class="p">(</span><span class="kt">long</span> <span class="n">x</span><span class="p">,</span> <span class="kt">long</span> <span class="n">y</span><span class="p">,</span> <span class="kt">long</span> <span class="n">z</span><span class="p">)</span> <span class="p">{</span>  
+</span></span><span class="line"><span class="cl">    <span class="n">longt</span><span class="o">=</span><span class="n">x</span><span class="o">+</span><span class="mi">4</span><span class="o">*</span><span class="n">y</span><span class="o">+</span><span class="mi">12</span><span class="o">*</span><span class="n">z</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">t</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl"><span class="p">}</span>  
+</span></span></code></pre></div></div>
 <p><strong>To</strong></p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Bash" data-lang="Bash"><span class="line"><span class="cl">x in %rdi, y in %rsi, z in %rdx
-</span></span><span class="line"><span class="cl">scale:
-</span></span><span class="line"><span class="cl">leaq <span class="o">(</span>%rdi,%rsi,4<span class="o">)</span>, %rax <span class="c1"># x + 4*y</span>
-</span></span><span class="line"><span class="cl">leaq <span class="o">(</span>%rdx,%rdx,2<span class="o">)</span>, %rdx <span class="c1"># z + 2*z = 3*z</span>
-</span></span><span class="line"><span class="cl">leaq <span class="o">(</span>%rax,%rdx,4<span class="o">)</span>, %rax <span class="c1"># (x+4*y) + 4*(3*z) = x + 4*y + 12*z</span>
-</span></span><span class="line"><span class="cl">ret</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Bash" data-lang="Bash"><span class="line"><span class="cl">x in %rdi, y in %rsi, z in %rdx  
+</span></span><span class="line"><span class="cl">scale:  
+</span></span><span class="line"><span class="cl">leaq <span class="o">(</span>%rdi,%rsi,4<span class="o">)</span>, %rax <span class="c1"># x + 4*y  </span>
+</span></span><span class="line"><span class="cl">leaq <span class="o">(</span>%rdx,%rdx,2<span class="o">)</span>, %rdx <span class="c1"># z + 2*z = 3*z  </span>
+</span></span><span class="line"><span class="cl">leaq <span class="o">(</span>%rax,%rdx,4<span class="o">)</span>, %rax <span class="c1"># (x+4*y) + 4*(3*z) = x + 4*y + 12*z  </span>
+</span></span><span class="line"><span class="cl">ret  </span></span></code></pre></div></div>
 <p>leaq 方法的优化性：</p>
 <ul>
 <li>三元运算，一个时钟周期内一起做乘法和加法</li>
@@ -809,8 +810,8 @@ $$\text{Address} = 8 + r_b + {i \times 12} \cdot 1$$<ul>
 <p>不给寄存器赋值只修改条件码——<strong>cmp系列</strong>（按减法结果），<strong>test系列</strong>（按位与结果）</p>
 <p>set系列可以把条件码的值（按一定规律）读出来赋值<br>
 搭配食用：</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Bash" data-lang="Bash"><span class="line"><span class="cl">cmpq %rsi, %rdi
-</span></span><span class="line"><span class="cl">sete %al <span class="c1"># e --&gt; equal</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Bash" data-lang="Bash"><span class="line"><span class="cl">cmpq %rsi, %rdi  
+</span></span><span class="line"><span class="cl">sete %al <span class="c1"># e --&gt; equal  </span></span></span></code></pre></div></div>
 <p><strong>组合拳有</strong>：<code>setl</code><em>(where l represents &ldquo;less&rdquo;)</em> 得到的是 <code>OF ^ SF</code>的结果，要考虑溢出（参见Datalab的Solution）</p>
 
 <h3 class="relative group">跳转，分支，循环
@@ -840,64 +841,65 @@ $$\text{Address} = 8 + r_b + {i \times 12} \cdot 1$$<ul>
     </span>
     
 </h3>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="nf">voidswitch_eg</span><span class="p">(</span><span class="n">longx</span><span class="p">,</span><span class="n">longn</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl"><span class="kt">long</span><span class="o">*</span><span class="n">dest</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="n">longval</span><span class="o">=</span><span class="n">x</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="k">switch</span><span class="p">(</span><span class="n">n</span><span class="p">){</span>
-</span></span><span class="line"><span class="cl">        <span class="k">case</span> <span class="mi">100</span><span class="o">:</span>
-</span></span><span class="line"><span class="cl">            <span class="n">val</span> <span class="o">*=</span> <span class="mi">13</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">            <span class="k">break</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="k">case</span> <span class="mi">102</span><span class="o">:</span>
-</span></span><span class="line"><span class="cl">            <span class="n">val</span> <span class="o">+=</span> <span class="mi">10</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">            <span class="cm">/*Fallthrough*/</span>
-</span></span><span class="line"><span class="cl">        <span class="k">case</span> <span class="mi">103</span><span class="o">:</span>
-</span></span><span class="line"><span class="cl">            <span class="n">val</span> <span class="o">+=</span> <span class="mi">11</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">            <span class="k">break</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="k">case</span> <span class="mi">104</span><span class="o">:</span>
-</span></span><span class="line"><span class="cl">        <span class="k">case</span> <span class="mi">106</span><span class="o">:</span>
-</span></span><span class="line"><span class="cl">            <span class="n">val</span> <span class="o">*=</span> <span class="n">val</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">            <span class="k">break</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="k">default</span><span class="o">:</span>
-</span></span><span class="line"><span class="cl">            <span class="n">val</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="o">*</span><span class="n">dest</span> <span class="o">=</span> <span class="n">val</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">1 switch_eg:
-</span></span><span class="line"><span class="cl">2 subq $100,%rsi Computeindex=n-100
-</span></span><span class="line"><span class="cl">3 cmpq $6,%rsi Compareindex:6
-</span></span><span class="line"><span class="cl">4 ja .L8 If&gt;,gotoloc_def
-</span></span><span class="line"><span class="cl">5 jmp *.L4(,%rsi,8) Goto*jg[index]
-</span></span><span class="line"><span class="cl">6 .L3: loc_A:
-</span></span><span class="line"><span class="cl">7 leaq (%rdi,%rdi,2), %rax 3*x
-</span></span><span class="line"><span class="cl">8 leaq (%rdi,%rax,4), %rdi val=13*x
-</span></span><span class="line"><span class="cl">9 jmp .L2 Gotodone
-</span></span><span class="line"><span class="cl">10 .L5: loc_B:
-</span></span><span class="line"><span class="cl">11 addq $10,%rdi x = x + 10
-</span></span><span class="line"><span class="cl">12 .L6: loc_C:
-</span></span><span class="line"><span class="cl">13 addq $11,%rdi val = x + 11
-</span></span><span class="line"><span class="cl">14 jmp .L2 Gotodone
-</span></span><span class="line"><span class="cl">15 .L7: loc_D:
-</span></span><span class="line"><span class="cl">16 imulq %rdi,%rdi val = x * x
-</span></span><span class="line"><span class="cl">17 jmp .L2 Gotodone
-</span></span><span class="line"><span class="cl">18 .L8: loc_def:
-</span></span><span class="line"><span class="cl">19 movl $0,%edi val = 0
-</span></span><span class="line"><span class="cl">20 .L2: done:
-</span></span><span class="line"><span class="cl">21 movq %rdi,(%rdx) *dest=val
-</span></span><span class="line"><span class="cl">22 ret Return</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="nf">voidswitch_eg</span><span class="p">(</span><span class="n">longx</span><span class="p">,</span><span class="n">longn</span><span class="p">,</span>  
+</span></span><span class="line"><span class="cl"><span class="kt">long</span><span class="o">*</span><span class="n">dest</span><span class="p">)</span>  
+</span></span><span class="line"><span class="cl"><span class="p">{</span>  
+</span></span><span class="line"><span class="cl">    <span class="n">longval</span><span class="o">=</span><span class="n">x</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl">    <span class="k">switch</span><span class="p">(</span><span class="n">n</span><span class="p">){</span>  
+</span></span><span class="line"><span class="cl">        <span class="k">case</span> <span class="mi">100</span><span class="o">:</span>  
+</span></span><span class="line"><span class="cl">            <span class="n">val</span> <span class="o">*=</span> <span class="mi">13</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl">            <span class="k">break</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl">        <span class="k">case</span> <span class="mi">102</span><span class="o">:</span>  
+</span></span><span class="line"><span class="cl">            <span class="n">val</span> <span class="o">+=</span> <span class="mi">10</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl">            <span class="cm">/*Fallthrough*/</span>  
+</span></span><span class="line"><span class="cl">        <span class="k">case</span> <span class="mi">103</span><span class="o">:</span>  
+</span></span><span class="line"><span class="cl">            <span class="n">val</span> <span class="o">+=</span> <span class="mi">11</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl">            <span class="k">break</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl">        <span class="k">case</span> <span class="mi">104</span><span class="o">:</span>  
+</span></span><span class="line"><span class="cl">        <span class="k">case</span> <span class="mi">106</span><span class="o">:</span>  
+</span></span><span class="line"><span class="cl">            <span class="n">val</span> <span class="o">*=</span> <span class="n">val</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl">            <span class="k">break</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl">        <span class="k">default</span><span class="o">:</span>  
+</span></span><span class="line"><span class="cl">            <span class="n">val</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>  
+</span></span><span class="line"><span class="cl"><span class="o">*</span><span class="n">dest</span> <span class="o">=</span> <span class="n">val</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl"><span class="p">}</span>  
+</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">1 switch_eg:  
+</span></span><span class="line"><span class="cl">2 subq $100,%rsi Computeindex=n-100  
+</span></span><span class="line"><span class="cl">3 cmpq $6,%rsi Compareindex:6  
+</span></span><span class="line"><span class="cl">4 ja .L8 If&gt;,gotoloc_def  
+</span></span><span class="line"><span class="cl">5 jmp *.L4(,%rsi,8) Goto*jg[index]  
+</span></span><span class="line"><span class="cl">6 .L3: loc_A:  
+</span></span><span class="line"><span class="cl">7 leaq (%rdi,%rdi,2), %rax 3*x  
+</span></span><span class="line"><span class="cl">8 leaq (%rdi,%rax,4), %rdi val=13*x  
+</span></span><span class="line"><span class="cl">9 jmp .L2 Gotodone  
+</span></span><span class="line"><span class="cl">10 .L5: loc_B:  
+</span></span><span class="line"><span class="cl">11 addq $10,%rdi x = x + 10  
+</span></span><span class="line"><span class="cl">12 .L6: loc_C:  
+</span></span><span class="line"><span class="cl">13 addq $11,%rdi val = x + 11  
+</span></span><span class="line"><span class="cl">14 jmp .L2 Gotodone  
+</span></span><span class="line"><span class="cl">15 .L7: loc_D:  
+</span></span><span class="line"><span class="cl">16 imulq %rdi,%rdi val = x * x  
+</span></span><span class="line"><span class="cl">17 jmp .L2 Gotodone  
+</span></span><span class="line"><span class="cl">18 .L8: loc_def:  
+</span></span><span class="line"><span class="cl">19 movl $0,%edi val = 0  
+</span></span><span class="line"><span class="cl">20 .L2: done:  
+</span></span><span class="line"><span class="cl">21 movq %rdi,(%rdx) *dest=val  
+</span></span><span class="line"><span class="cl">22 ret Return  </span></span></code></pre></div></div>
 <p><code>jmp *.L4(,%rsi,8)</code> 访问了.L4地方所存的跳转表，这个是$O(1)$的复杂度访问</p>
 <p><em>这里rb = 0仅是出于教材的案例选取考虑</em></p>
 <p>我们有：</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">.section .rodata
-</span></span><span class="line"><span class="cl">.align8 Alignaddresstomultipleof8
-</span></span><span class="line"><span class="cl">.L4:
-</span></span><span class="line"><span class="cl">.quad .L3
-</span></span><span class="line"><span class="cl">.quad .L8
-</span></span><span class="line"><span class="cl">.quad .L5
-</span></span><span class="line"><span class="cl">.quad .L6
-</span></span><span class="line"><span class="cl">.quad .L7
-</span></span><span class="line"><span class="cl">.quad .L8
-</span></span><span class="line"><span class="cl">.quad .L7</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">.section .rodata  
+</span></span><span class="line"><span class="cl">.align8 Alignaddresstomultipleof8  
+</span></span><span class="line"><span class="cl">.L4:  
+</span></span><span class="line"><span class="cl">.quad .L3  
+</span></span><span class="line"><span class="cl">.quad .L8  
+</span></span><span class="line"><span class="cl">.quad .L5  
+</span></span><span class="line"><span class="cl">.quad .L6  
+</span></span><span class="line"><span class="cl">.quad .L7  
+</span></span><span class="line"><span class="cl">.quad .L8  
+</span></span><span class="line"><span class="cl">.quad .L7  </span></span></code></pre></div></div>
 <p>关于.字开头的「伪指令」：</p>
 <ul>
 <li>它的作用是给汇编器看的舞台布置脚本，主要作用是声明。</li>
@@ -1080,12 +1082,13 @@ Frame for executing function Q 的内存预留，在被调用函数Q的地方已
 </h2>
 <p>看上面虹团的例子喵<br>
 二维数组的访问下标由<code>i</code>与<code>j</code>两个下标决定，因此有类似 $ri=i+mj$ 的方法表示。<br>
-此外，出于计算性能考虑，<strong>结构体</strong>也会有类似<strong>字节对齐规范</strong>的要求，实际
+此外，出于计算性能考虑，<strong>结构体</strong>也会有类似<strong>字节对齐规范</strong>的要求，实际<br>
 的size可能与各个数据类型的代数加和有所出入。</p>
 <p>形成结构体数组，其紧密排列有可能无法满足<strong>所有元素</strong>的对齐要求，也就是说会对每个单独结构体<strong>添加若干字节的填充</strong>。</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">i</span>
-</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">j</span>
-</span></span><span class="line"><span class="cl"><span class="kt">char</span> <span class="n">c</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">i</span>  
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">j</span>  
+</span></span><span class="line"><span class="cl"><span class="kt">char</span> <span class="n">c</span>  
+</span></span></code></pre></div></div>
 <p><em>不能耍这种小聪明的说</em>，单个的size还是12</p>
 <p>联合体Union相对于结构体Struct，可以更节省空间</p>
 
@@ -1346,7 +1349,7 @@ Frame for executing function Q 的内存预留，在被调用函数Q的地方已
 <div
   id="search-wrapper"
   class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh] z-500"
-  data-url="http://localhost:1313/">
+  data-url="http://localhost:25624/">
   <div
     id="search-modal"
     class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800">

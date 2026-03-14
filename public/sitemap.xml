@@ -3,130 +3,146 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
-    <loc>http://localhost:1313/learning/ch.6/</loc>
+    <loc>http://localhost:25624/learning/cachelab/</loc>
     <lastmod>2026-03-14T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/learning/</loc>
+    <loc>http://localhost:25624/learning/malloclab/</loc>
     <lastmod>2026-03-14T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/</loc>
+    <loc>http://localhost:25624/learning/proxylab/</loc>
     <lastmod>2026-03-14T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/learning/bomblab/</loc>
+    <loc>http://localhost:25624/learning/shelllab/</loc>
+    <lastmod>2026-03-14T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:25624/learning/ch.10/</loc>
+    <lastmod>2026-03-14T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:25624/learning/ch.11/</loc>
+    <lastmod>2026-03-14T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:25624/learning/ch.12/</loc>
+    <lastmod>2026-03-14T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:25624/learning/ch.5/</loc>
+    <lastmod>2026-03-14T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:25624/learning/ch.6/</loc>
+    <lastmod>2026-03-14T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:25624/learning/ch.7/</loc>
+    <lastmod>2026-03-14T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:25624/learning/ch.8/</loc>
+    <lastmod>2026-03-14T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:25624/learning/ch.9/</loc>
+    <lastmod>2026-03-14T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:25624/learning/</loc>
+    <lastmod>2026-03-14T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:25624/</loc>
+    <lastmod>2026-03-14T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:25624/learning/bomblab/</loc>
     <lastmod>2026-02-25T13:33:48+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/learning/csappchapter3/</loc>
+    <loc>http://localhost:25624/learning/csappchapter3/</loc>
     <lastmod>2026-02-25T13:27:02+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/learning/attacklab/</loc>
+    <loc>http://localhost:25624/learning/attacklab/</loc>
     <lastmod>2026-02-25T13:16:14+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/learning/chp2datalab/</loc>
+    <loc>http://localhost:25624/learning/chp2datalab/</loc>
     <lastmod>2026-02-25T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/articles/springfestival2026/</loc>
+    <loc>http://localhost:25624/articles/springfestival2026/</loc>
     <lastmod>2026-02-17T00:00:00+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/articles/</loc>
+    <loc>http://localhost:25624/articles/</loc>
     <lastmod>2026-02-17T00:00:00+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/learning/summary4cs61b/</loc>
+    <loc>http://localhost:25624/learning/summary4cs61b/</loc>
     <lastmod>2026-02-15T21:00:00+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/aboutme/</loc>
+    <loc>http://localhost:25624/aboutme/</loc>
     <lastmod>2026-02-01T17:00:00+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/aboutme/aboutme/</loc>
+    <loc>http://localhost:25624/aboutme/aboutme/</loc>
     <lastmod>2026-02-01T17:00:00+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/articles/summary2025/</loc>
+    <loc>http://localhost:25624/articles/summary2025/</loc>
     <lastmod>2026-01-01T00:00:00+08:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>http://localhost:1313/learning/ch.10/ch.10/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>http://localhost:1313/learning/ch.11/ch.11/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>http://localhost:1313/learning/ch.12/ch.12/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>http://localhost:1313/learning/ch.5/ch.5/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>http://localhost:1313/learning/ch.7/ch.7/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>http://localhost:1313/learning/ch.8/ch.8/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>http://localhost:1313/learning/ch.9/ch.9/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>http://localhost:1313/learning/malloclab/malloclab/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>http://localhost:1313/learning/proxylab/proxylab/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>http://localhost:1313/learning/shelllab/shelllab/</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>

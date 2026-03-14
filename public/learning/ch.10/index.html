@@ -4,7 +4,7 @@
   dir="ltr"
   class="scroll-smooth"
   data-default-appearance="dark"
-  data-auto-appearance="true"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  data-auto-appearance="true"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=25624&amp;path=livereload" data-no-instant defer></script>
   <meta charset="utf-8">
   
     <meta http-equiv="content-language" content="en">
@@ -24,7 +24,7 @@
   
   
   
-  <link rel="canonical" href="http://localhost:1313/learning/ch.10/">
+  <link rel="canonical" href="http://localhost:25624/learning/ch.10/">
   
 
   
@@ -34,7 +34,7 @@
   
 
   
-  <meta property="og:url" content="http://localhost:1313/learning/ch.10/">
+  <meta property="og:url" content="http://localhost:25624/learning/ch.10/">
   <meta property="og:site_name" content="Tab_1bit0的神秘据点（施工中）">
   <meta property="og:title" content="csapp 第10章 文件">
   <meta property="og:locale" content="en">
@@ -42,11 +42,11 @@
     <meta property="article:section" content="learning">
     <meta property="article:published_time" content="2026-03-14T00:00:00+00:00">
     <meta property="article:modified_time" content="2026-03-14T00:00:00+00:00">
-    <meta property="og:image" content="http://localhost:1313/learning/ch.10/featured.png">
+    <meta property="og:image" content="http://localhost:25624/learning/ch.10/featured.png">
 
   
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="http://localhost:1313/learning/ch.10/featured.png">
+  <meta name="twitter:image" content="http://localhost:25624/learning/ch.10/featured.png">
   <meta name="twitter:title" content="csapp 第10章 文件">
 
   
@@ -195,7 +195,7 @@
     "headline": "csapp 第10章 文件",
     
     "inLanguage": "en",
-    "url" : "http://localhost:1313/learning/ch.10/",
+    "url" : "http://localhost:25624/learning/ch.10/",
     "author" : {
       "@type": "Person",
       "name": "Tab_1bit0"
@@ -680,10 +680,10 @@
 <li><strong>读写文件</strong></li>
 <li><strong>关闭文件</strong></li>
 </ul>
-<p><em>什么是文件标识符？</em>
+<p><em>什么是文件标识符？</em><br>
 当一个进程被创建时，<strong>内核</strong>会为它分配一个非负整数；而每一个进程都有一个<strong>文件标识符表</strong>，通过索引映射到更深层的文件对象。0/1/2是新进程被创建时<strong>预先占用的id</strong>。</p>
-<p>比如说，我们的 <code>runner</code> 进程开始运行了，它自身就占有了0/1/2这三个标识符在<strong>标识符表</strong>内；
-此时我们open了另一个文件 <code>wug.txt</code>，会给它分配一个标识符<strong>3</strong>。这个3会当close它的时候被清除。
+<p>比如说，我们的 <code>runner</code> 进程开始运行了，它自身就占有了0/1/2这三个标识符在<strong>标识符表</strong>内；<br>
+此时我们open了另一个文件 <code>wug.txt</code>，会给它分配一个标识符<strong>3</strong>。这个3会当close它的时候被清除。<br>
 如果我们重复open它，<strong>依然会</strong>给它分配新的文件标识符。</p>
 <p>Linux文件有三种类型：</p>
 <ul>
@@ -701,22 +701,25 @@
     </span>
     
 </h3>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">open</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">filename</span><span class="p">,</span> <span class="kt">int</span> <span class="n">flags</span><span class="p">,</span> <span class="kt">mode_t</span> <span class="n">mode</span><span class="p">);</span></span></span></code></pre></div></div>
-<p><code>flags</code> - 权限与操作方式，用 | 链接；
-<code>mode</code> - 允许访问的二进制位数
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">open</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">filename</span><span class="p">,</span> <span class="kt">int</span> <span class="n">flags</span><span class="p">,</span> <span class="kt">mode_t</span> <span class="n">mode</span><span class="p">);</span>  
+</span></span></code></pre></div></div>
+<p><code>flags</code> - 权限与操作方式，用 | 链接；<br>
+<code>mode</code> - 允许访问的二进制位数<br>
 返回<strong>文件标识符</strong>。</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">close</span><span class="p">(</span><span class="kt">int</span> <span class="n">fd</span><span class="p">);</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">close</span><span class="p">(</span><span class="kt">int</span> <span class="n">fd</span><span class="p">);</span>  
+</span></span></code></pre></div></div>
 <p>成功返回0，失败返回-1。</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="kt">ssize_t</span> <span class="nf">read</span><span class="p">(</span><span class="kt">int</span> <span class="n">fd</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="n">buf</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">n</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="c1">// Returns: number of bytes read if OK, 0 on EOF, −1 on error
-</span></span></span><span class="line"><span class="cl"><span class="kt">ssize_t</span> <span class="nf">write</span><span class="p">(</span><span class="kt">int</span> <span class="n">fd</span><span class="p">,</span> <span class="k">const</span> <span class="kt">void</span> <span class="o">*</span><span class="n">buf</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">n</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="c1">// Returns: number of bytes written if OK, −1 on error
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="kt">ssize_t</span> <span class="nf">read</span><span class="p">(</span><span class="kt">int</span> <span class="n">fd</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="n">buf</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">n</span><span class="p">);</span>  
+</span></span><span class="line"><span class="cl"><span class="c1">// Returns: number of bytes read if OK, 0 on EOF, −1 on error  
+</span></span></span><span class="line"><span class="cl"><span class="kt">ssize_t</span> <span class="nf">write</span><span class="p">(</span><span class="kt">int</span> <span class="n">fd</span><span class="p">,</span> <span class="k">const</span> <span class="kt">void</span> <span class="o">*</span><span class="n">buf</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">n</span><span class="p">);</span>  
+</span></span><span class="line"><span class="cl"><span class="c1">// Returns: number of bytes written if OK, −1 on error  
 </span></span></span></code></pre></div></div>
 <p>逐字节读写：</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="kt">char</span> <span class="n">c</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="k">while</span><span class="p">(</span><span class="nf">read</span><span class="p">(</span><span class="n">STDIN_FILENO</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">c</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">){</span>
-</span></span><span class="line"><span class="cl">    <span class="nf">write</span><span class="p">(</span><span class="n">STDOUT_FILENO</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">c</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="kt">char</span> <span class="n">c</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl"><span class="k">while</span><span class="p">(</span><span class="nf">read</span><span class="p">(</span><span class="n">STDIN_FILENO</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">c</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">){</span>  
+</span></span><span class="line"><span class="cl">    <span class="nf">write</span><span class="p">(</span><span class="n">STDOUT_FILENO</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">c</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>  
+</span></span><span class="line"><span class="cl"><span class="p">}</span>  
+</span></span></code></pre></div></div>
 
 <h3 class="relative group">short counts 与阅读越界及优化
     <div id="short-counts-与阅读越界及优化" class="anchor"></div>
@@ -736,17 +739,18 @@
 <p><strong>无缓冲</strong>的 <code>rio_readn</code> <code>rio_writen</code>，检测到short counts的情况下会继续<strong>整体地索要</strong>剩下的未读到的数据字节，直到EOF等强制结束因素或字节读完为止。但是缺点是<strong>多次发起请求效率低下</strong>。</p>
 </li>
 <li>
-<p><strong>有缓冲</strong>的 <code>rio_readinitb</code>, <code>rio_readlineb</code>, <code>rio_readnb</code>
+<p><strong>有缓冲</strong>的 <code>rio_readinitb</code>, <code>rio_readlineb</code>, <code>rio_readnb</code><br>
 定义了结构体</p>
 </li>
 </ul>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="cp">#define RIO_BUFSIZE 8192
-</span></span></span><span class="line"><span class="cl"><span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">rio_fd</span><span class="p">;</span> <span class="cm">/* Descriptor for this internal buf*/</span>
-</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">rio_cnt</span><span class="p">;</span> <span class="cm">/* Unread bytes in internal buf */</span>
-</span></span><span class="line"><span class="cl">    <span class="kt">char</span> <span class="o">*</span><span class="n">rio_bufptr</span><span class="p">;</span> <span class="cm">/* Next unread byte in internal buf */</span>
-</span></span><span class="line"><span class="cl">    <span class="kt">char</span> <span class="n">rio_buf</span><span class="p">[</span><span class="n">RIO_BUFSIZE</span><span class="p">];</span> <span class="cm">/* Internal buffer */</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="kt">rio_t</span><span class="p">;</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="cp">#define RIO_BUFSIZE 8192  
+</span></span></span><span class="line"><span class="cl"><span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>  
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">rio_fd</span><span class="p">;</span> <span class="cm">/* Descriptor for this internal buf*/</span>  
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">rio_cnt</span><span class="p">;</span> <span class="cm">/* Unread bytes in internal buf */</span>  
+</span></span><span class="line"><span class="cl">    <span class="kt">char</span> <span class="o">*</span><span class="n">rio_bufptr</span><span class="p">;</span> <span class="cm">/* Next unread byte in internal buf */</span>  
+</span></span><span class="line"><span class="cl">    <span class="kt">char</span> <span class="n">rio_buf</span><span class="p">[</span><span class="n">RIO_BUFSIZE</span><span class="p">];</span> <span class="cm">/* Internal buffer */</span>  
+</span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="kt">rio_t</span><span class="p">;</span>  
+</span></span></code></pre></div></div>
 <p>一次抓完<strong>大量的</strong>，然后再仔细处理，最后一行多出的部分存在 <code>rio_buf</code> 里面。</p>
 <p>这两种方法混用可能会导致<strong>冲突打架</strong>，因为有缓冲的是把数据存在结构体里。</p>
 
@@ -759,8 +763,8 @@
     </span>
     
 </h2>
-<img src="image-25.png" width="50%">
-<p>通过 <code>stat</code> 与 <code>fstat</code> 函数返回的 <code>stat</code> ，<strong>描述了文件的一些属性</strong>。
+<img src="image-25.png" width="50%">  
+<p>通过 <code>stat</code> 与 <code>fstat</code> 函数返回的 <code>stat</code> ，<strong>描述了文件的一些属性</strong>。<br>
 <code>stat</code> 使用filename作为输入，而 <code>fstat</code> 使用文件描述符。</p>
 
 <h2 class="relative group">读取文件夹
@@ -772,15 +776,15 @@
     </span>
     
 </h2>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="n">DIR</span> <span class="o">*</span><span class="nf">opendir</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">);</span> <span class="c1">//Returns: pointer to handle if OK, NULL on error
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="n">DIR</span> <span class="o">*</span><span class="nf">opendir</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">);</span> <span class="c1">//Returns: pointer to handle if OK, NULL on error  
 </span></span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">struct</span> <span class="n">dirent</span> <span class="o">*</span><span class="nf">readdir</span><span class="p">(</span><span class="n">DIR</span> <span class="o">*</span><span class="n">dirp</span><span class="p">);</span> <span class="c1">//Returns: pointer to next directory entry if OK, NULL if no more entries or error
-</span></span></span><span class="line"><span class="cl"><span class="k">struct</span> <span class="n">dirent</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="kt">ino_t</span> <span class="n">d_ino</span><span class="p">;</span> <span class="cm">/* inode number */</span>
-</span></span><span class="line"><span class="cl">    <span class="kt">char</span> <span class="n">d_name</span><span class="p">[</span><span class="mi">256</span><span class="p">];</span> <span class="cm">/* Filename */</span>
-</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="k">struct</span> <span class="n">dirent</span> <span class="o">*</span><span class="nf">readdir</span><span class="p">(</span><span class="n">DIR</span> <span class="o">*</span><span class="n">dirp</span><span class="p">);</span> <span class="c1">//Returns: pointer to next directory entry if OK, NULL if no more entries or error  
+</span></span></span><span class="line"><span class="cl"><span class="k">struct</span> <span class="n">dirent</span> <span class="p">{</span>  
+</span></span><span class="line"><span class="cl">    <span class="kt">ino_t</span> <span class="n">d_ino</span><span class="p">;</span> <span class="cm">/* inode number */</span>  
+</span></span><span class="line"><span class="cl">    <span class="kt">char</span> <span class="n">d_name</span><span class="p">[</span><span class="mi">256</span><span class="p">];</span> <span class="cm">/* Filename */</span>  
+</span></span><span class="line"><span class="cl"><span class="p">};</span>  
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">closedir</span><span class="p">(</span><span class="n">DIR</span> <span class="o">*</span><span class="n">dirp</span><span class="p">);</span> <span class="c1">//Returns: 0 on success, −1 on error
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">closedir</span><span class="p">(</span><span class="n">DIR</span> <span class="o">*</span><span class="n">dirp</span><span class="p">);</span> <span class="c1">//Returns: 0 on success, −1 on error  
 </span></span></span></code></pre></div></div>
 
 <h2 class="relative group">共享文件
@@ -815,7 +819,7 @@
     </span>
     
 </h2>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">dup2</span><span class="p">(</span><span class="kt">int</span> <span class="n">oldfd</span><span class="p">,</span> <span class="kt">int</span> <span class="n">newfd</span><span class="p">);</span> <span class="c1">//Returns: nonnegative descriptor if OK, −1 on error
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">dup2</span><span class="p">(</span><span class="kt">int</span> <span class="n">oldfd</span><span class="p">,</span> <span class="kt">int</span> <span class="n">newfd</span><span class="p">);</span> <span class="c1">//Returns: nonnegative descriptor if OK, −1 on error  
 </span></span></span></code></pre></div></div>
 <p>更改文件描述符，会<strong>覆盖原位置上的文件，强行关闭它</strong>。</p>
 
@@ -828,8 +832,8 @@
     </span>
     
 </h2>
-<p><em>The C language defines a set of <strong>higher-level input and output functions</strong>, called the
-standard I/O library, that provides programmers with a higher-level alternative
+<p><em>The C language defines a set of <strong>higher-level input and output functions</strong>, called the<br>
+standard I/O library, that provides programmers with a higher-level alternative<br>
 to Unix I/O.</em></p>
 <p><code>FILE</code> 类型的文件流是对一个文件<strong>文件描述符</strong>和<strong>流缓冲区</strong>的集成抽象，这个buffer缓冲区的工作原理类似于rio。</p>
 
@@ -847,16 +851,17 @@ to Unix I/O.</em></p>
 <li>不要用 <code>scanf</code> or <code>rio_readlineb</code> 读取二进制文件，它们实现上专门用来读<strong>文本文档</strong>。</li>
 <li>读写操作网络文档使用 <code>rio</code>，标准I/O流可能会出问题。</li>
 </ul>
-<p>原因是<strong>它在对同一个流同时读同时写的兼容性上比较差</strong>。
-<em>限制 1（写完想读）： 如果你刚执行完“输出（写）”，接下来想“输入（读）”，中间必须穿插调用 fflush（清空缓冲区）、fseek、fsetpos 或 rewind（重置文件指针位置）这几个函数之一。</em>
-<em>限制 2（读完想写）： 如果你刚执行完“输入（读）”，接下来想“输出（写）”，中间必须穿插调用 fseek、fsetpos 或 rewind（除非你读到了 EOF）。</em>
+<p>原因是<strong>它在对同一个流同时读同时写的兼容性上比较差</strong>。<br>
+<em>限制 1（写完想读）： 如果你刚执行完“输出（写）”，接下来想“输入（读）”，中间必须穿插调用 fflush（清空缓冲区）、fseek、fsetpos 或 rewind（重置文件指针位置）这几个函数之一。</em><br>
+<em>限制 2（读完想写）： 如果你刚执行完“输入（读）”，接下来想“输出（写）”，中间必须穿插调用 fseek、fsetpos 或 rewind（除非你读到了 EOF）。</em><br>
 而在网络文档中，<code>fseek</code> <strong>倒带移动</strong>文件指针是<strong>不可行</strong>的。</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="n">FILE</span> <span class="o">*</span><span class="n">fpin</span><span class="p">,</span> <span class="o">*</span><span class="n">fpout</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="n">fpin</span> <span class="o">=</span> <span class="nf">fdopen</span><span class="p">(</span><span class="n">sockfd</span><span class="p">,</span> <span class="s">&#34;r&#34;</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="n">fpout</span> <span class="o">=</span> <span class="nf">fdopen</span><span class="p">(</span><span class="n">sockfd</span><span class="p">,</span> <span class="s">&#34;w&#34;</span><span class="p">);</span>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="n">FILE</span> <span class="o">*</span><span class="n">fpin</span><span class="p">,</span> <span class="o">*</span><span class="n">fpout</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl"><span class="n">fpin</span> <span class="o">=</span> <span class="nf">fdopen</span><span class="p">(</span><span class="n">sockfd</span><span class="p">,</span> <span class="s">&#34;r&#34;</span><span class="p">);</span>  
+</span></span><span class="line"><span class="cl"><span class="n">fpout</span> <span class="o">=</span> <span class="nf">fdopen</span><span class="p">(</span><span class="n">sockfd</span><span class="p">,</span> <span class="s">&#34;w&#34;</span><span class="p">);</span>  
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nf">fclose</span><span class="p">(</span><span class="n">fpin</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="nf">fclose</span><span class="p">(</span><span class="n">fpout</span><span class="p">);</span></span></span></code></pre></div></div>
+</span></span><span class="line"><span class="cl"><span class="nf">fclose</span><span class="p">(</span><span class="n">fpin</span><span class="p">);</span>  
+</span></span><span class="line"><span class="cl"><span class="nf">fclose</span><span class="p">(</span><span class="n">fpout</span><span class="p">);</span>  
+</span></span></code></pre></div></div>
 <p>这个方法<strong>不可行</strong>的原因：这个文档的 <code>reference count</code> 因只有一个进程所以<strong>值为1</strong>，关2次可能会出问题，在<strong>并发编程</strong>的环境下可能引发更大的问题。</p>
 <p>只close一次会导致<strong>内存泄漏</strong>，与某个文件直接相关的内存（比如 <code>FILE</code> 类的存储）无法被释放。</p>
 
@@ -1052,7 +1057,7 @@ to Unix I/O.</em></p>
 <div
   id="search-wrapper"
   class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh] z-500"
-  data-url="http://localhost:1313/">
+  data-url="http://localhost:25624/">
   <div
     id="search-modal"
     class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800">
