@@ -3,20 +3,98 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
-    <loc>http://localhost:1313/girl/also-tab_1bit0/</loc>
-    <lastmod>2026-04-10T00:00:00+00:00</lastmod>
+    <loc>http://localhost:1313/learning/cs231n-lecture-10-video-understanding/</loc>
+    <lastmod>2026-07-29T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/girl/</loc>
-    <lastmod>2026-04-10T00:00:00+00:00</lastmod>
+    <loc>http://localhost:1313/learning/cs231n-lecture-11-distributed-training/</loc>
+    <lastmod>2026-07-29T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:1313/learning/cs231n-lecture-12-self-supervised-learning/</loc>
+    <lastmod>2026-07-29T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:1313/learning/cs231n-lecture-13-generative-ai-1/</loc>
+    <lastmod>2026-07-29T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:1313/learning/cs231n-lecture-14-generative-ai-2/</loc>
+    <lastmod>2026-07-29T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:1313/learning/cs231n-lecture-15-3d-vision/</loc>
+    <lastmod>2026-07-29T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:1313/learning/cs231n-lecture-16-vision-language/</loc>
+    <lastmod>2026-07-29T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:1313/learning/cs231n-lecture-02-image-classification/</loc>
+    <lastmod>2026-07-29T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:1313/learning/cs231n-lecture-03-regularization-and-optimization/</loc>
+    <lastmod>2026-07-29T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:1313/learning/cs231n-lecture-04-neural-networks/</loc>
+    <lastmod>2026-07-29T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:1313/learning/cs231n-lecture-07-rnn/</loc>
+    <lastmod>2026-07-29T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:1313/learning/cs231n-lecture-08-attention-transformers/</loc>
+    <lastmod>2026-07-29T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:1313/learning/cs231n-lecture-09-object-detection-segmentation/</loc>
+    <lastmod>2026-07-29T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:1313/learning/cs231n-lecture-05-06-cnn/</loc>
+    <lastmod>2026-07-29T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:1313/learning/</loc>
+    <lastmod>2026-07-29T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://localhost:1313/</loc>
-    <lastmod>2026-04-10T00:00:00+00:00</lastmod>
+    <lastmod>2026-07-29T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
@@ -88,12 +166,6 @@
   </url>
   <url>
     <loc>http://localhost:1313/learning/ch.9/</loc>
-    <lastmod>2026-03-14T00:00:00+00:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>http://localhost:1313/learning/</loc>
     <lastmod>2026-03-14T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
