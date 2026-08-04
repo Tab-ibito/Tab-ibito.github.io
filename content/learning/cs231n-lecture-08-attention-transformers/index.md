@@ -42,8 +42,9 @@ showHero: true
 
 即有 `K = X * W_K` 以及 `V = X * W_V`，同时解放了Q的维度上的限制。
 
-- 对于Decoder里面加入了encoder输出的而言。Q特征维度大小和KV不同
-- 对于Self-Attention Layer而言，两者是相同的
+- 这意味着源序列与目标序列的长度可以不同
+- 对于Decoder里面加入了encoder输出那一层Cross-Attention Layer而言**不同**
+- 对于Self-Attention Layer而言，**两者是相同的**
 
 ### Self-Attention Layer
 
